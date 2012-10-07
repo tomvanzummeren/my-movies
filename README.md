@@ -1,4 +1,4 @@
-my-movies
+My Movies
 =========
 
-My Movies
+iPhone app
