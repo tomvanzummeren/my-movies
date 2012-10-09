@@ -1,6 +1,6 @@
 
 @interface MovieRepository : NSObject
 
-- (MovieRepository *) instance;
++ (MovieRepository *) instance;
 
 @end

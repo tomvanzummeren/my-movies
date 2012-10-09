@@ -1,6 +1,6 @@
 @class MovieListViewController;
 
-@interface MyMoviesViewController : UIViewController {
+@interface MyMoviesViewController : UIViewController<UITabBarDelegate> {
 
     __weak IBOutlet UITabBar *tabBar;
 

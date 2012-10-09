@@ -5,7 +5,7 @@
 
 static MovieRepository *instance = nil;
 
-- (MovieRepository *) instance {
++ (MovieRepository *) instance {
     if (!instance) {
         instance = [MovieRepository new];
     }

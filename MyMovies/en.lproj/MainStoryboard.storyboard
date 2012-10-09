@@ -19,6 +19,9 @@
                                     <tabBarItem title="To watch" image="12-eye.png" id="rMk-hN-H13"/>
                                     <tabBarItem title="Watched" image="258-checkmark.png" id="fnb-P4-kyB"/>
                                 </items>
+                                <connections>
+                                    <outlet property="delegate" destination="2" id="bbw-xl-DZy"/>
+                                </connections>
                             </tabBar>
                             <containerView contentMode="scaleToFill" id="vqm-tW-Fsz">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="455"/>
@@ -296,7 +299,6 @@
         <class className="MyMoviesViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MyMoviesViewController.h"/>
             <relationships>
-                <relationship kind="outlet" name="movieListViewController" candidateClass="MovieListViewController"/>
                 <relationship kind="outlet" name="tabBar" candidateClass="UITabBar"/>
             </relationships>
         </class>
