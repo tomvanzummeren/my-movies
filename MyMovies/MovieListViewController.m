@@ -8,9 +8,7 @@
 }
 
 - (UITableViewCell *) tableView:(UITableView *) tv cellForRowAtIndexPath:(NSIndexPath *) indexPath {
-    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"MovieCell"];
-    NSLog(@"cell: %@", cell);
-    return cell;
+    return [self.tableView dequeueReusableCellWithIdentifier:@"MovieCell"];
 }
 
 @end
