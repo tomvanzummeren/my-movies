@@ -1,14 +1,7 @@
-//
-//  ViewController.m
-//  MyMovies
-//
-//  Created by Tom van Zummeren on 10/6/12.
-//  Copyright (c) 2012 Tom van Zummeren. All rights reserved.
-//
 
-#import "ViewController.h"
+#import "MyMoviesViewController.h"
 
-@implementation ViewController
+@implementation MyMoviesViewController
 
 - (void) viewDidLoad {
     tabBar.selectedItem = [[tabBar items] objectAtIndex:0];

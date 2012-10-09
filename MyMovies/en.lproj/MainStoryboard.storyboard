@@ -4,10 +4,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1929"/>
     </dependencies>
     <scenes>
-        <!--View Controller - My Movies-->
+        <!--My Movies View Controller - My Movies-->
         <scene sceneID="5">
             <objects>
-                <viewController id="2" customClass="ViewController" sceneMemberID="viewController">
+                <viewController id="2" customClass="MyMoviesViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -119,9 +119,7 @@
                             <outlet property="delegate" destination="h2r-Z5-gRe" id="X1z-O4-CKa"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="aRI-Qv-GGS">
-                        <barButtonItem key="rightBarButtonItem" title="Done" id="vi8-p3-9Kz"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="aRI-Qv-GGS"/>
                     <connections>
                         <outlet property="searchDisplayController" destination="weO-GT-8dZ" id="MAl-c1-5Q9"/>
                     </connections>
@@ -272,8 +270,8 @@
                 <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
             </relationships>
         </class>
-        <class className="ViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
+        <class className="MyMoviesViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MyMoviesViewController.h"/>
             <relationships>
                 <relationship kind="action" name="addNewMovieButtonPressed:"/>
                 <relationship kind="outlet" name="searchBar" candidateClass="UISearchBar"/>
