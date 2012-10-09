@@ -74,7 +74,7 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="rJc-LG-R0H">
                             <connections>
                                 <action selector="addNewMovieButtonPressed:" destination="2" id="Tmt-Oa-JrB"/>
-                                <segue destination="A13-HF-bCb" kind="modal" id="dxx-BU-Xlo"/>
+                                <segue destination="A13-HF-bCb" kind="modal" modalTransitionStyle="crossDissolve" id="dxx-BU-Xlo"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -85,57 +85,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="830" y="84"/>
-        </scene>
-        <!--Table View Controller-->
-        <scene sceneID="v2k-m6-Wg0">
-            <objects>
-                <tableViewController id="h2r-Z5-gRe" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="vbU-3V-Aqx">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <searchBar key="tableHeaderView" contentMode="redraw" id="0se-yK-sI0">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            <textInputTraits key="textInputTraits"/>
-                            <connections>
-                                <outlet property="delegate" destination="h2r-Z5-gRe" id="nz0-fC-LRi"/>
-                            </connections>
-                        </searchBar>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="imh-ZJ-K1V">
-                                <rect key="frame" x="0.0" y="66" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                </view>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="h2r-Z5-gRe" id="g5C-Kr-p9b"/>
-                            <outlet property="delegate" destination="h2r-Z5-gRe" id="X1z-O4-CKa"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" id="aRI-Qv-GGS"/>
-                    <connections>
-                        <outlet property="searchDisplayController" destination="weO-GT-8dZ" id="MAl-c1-5Q9"/>
-                    </connections>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="P9Y-EP-cWf" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <searchDisplayController id="weO-GT-8dZ">
-                    <connections>
-                        <outlet property="delegate" destination="h2r-Z5-gRe" id="u4M-yR-fuU"/>
-                        <outlet property="searchBar" destination="0se-yK-sI0" id="xMx-5b-RK9"/>
-                        <outlet property="searchContentsController" destination="h2r-Z5-gRe" id="xm1-OB-ga9"/>
-                        <outlet property="searchResultsDataSource" destination="h2r-Z5-gRe" id="r5F-yb-9hQ"/>
-                        <outlet property="searchResultsDelegate" destination="h2r-Z5-gRe" id="rYE-nK-e4c"/>
-                    </connections>
-                </searchDisplayController>
-            </objects>
-            <point key="canvasLocation" x="1880" y="776"/>
+            <point key="canvasLocation" x="894" y="-356"/>
         </scene>
         <!--Movie Detail View Controller-->
         <scene sceneID="FP0-bB-XtA">
@@ -213,7 +163,7 @@
                     </connections>
                 </panGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1359" y="84"/>
+            <point key="canvasLocation" x="1431" y="-1036"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="4he-X0-VY5">
@@ -231,12 +181,12 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lh8-lC-Z4b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="362" y="84"/>
+            <point key="canvasLocation" x="426" y="-356"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="sw9-4V-ETL">
             <objects>
-                <navigationController id="A13-HF-bCb" sceneMemberID="viewController">
+                <navigationController navigationBarHidden="YES" id="A13-HF-bCb" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="p8p-b1-FgV">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -244,12 +194,44 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="h2r-Z5-gRe" kind="relationship" relationship="rootViewController" id="2Z3-Dp-dmm"/>
+                        <segue destination="xC7-dz-Pyc" kind="relationship" relationship="rootViewController" id="vkj-Ac-5ib"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KTk-WX-sbC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1354" y="776"/>
+            <point key="canvasLocation" x="1418" y="336"/>
+        </scene>
+        <!--Movie Search View Controller-->
+        <scene sceneID="aF6-vH-13D">
+            <objects>
+                <viewController id="xC7-dz-Pyc" customClass="MovieSearchViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vZU-g1-mmw">
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" showsCancelButton="YES" id="dww-De-zKq">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <scopeButtonTitles>
+                                    <string>Title</string>
+                                    <string>Title</string>
+                                </scopeButtonTitles>
+                                <connections>
+                                    <outlet property="delegate" destination="xC7-dz-Pyc" id="KJt-4A-ihv"/>
+                                </connections>
+                            </searchBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Mm1-Vz-rpz"/>
+                    <connections>
+                        <outlet property="searchBar" destination="dww-De-zKq" id="cY3-U7-MVd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dxd-aI-qVj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1885" y="336"/>
         </scene>
     </scenes>
     <resources>
@@ -268,6 +250,12 @@
                 <relationship kind="action" name="handlePanGesture:" candidateClass="UIPanGestureRecognizer"/>
                 <relationship kind="action" name="toggleSize"/>
                 <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+        <class className="MovieSearchViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MovieSearchViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="searchBar" candidateClass="UISearchBar"/>
             </relationships>
         </class>
         <class className="MyMoviesViewController" superclassName="UIViewController">

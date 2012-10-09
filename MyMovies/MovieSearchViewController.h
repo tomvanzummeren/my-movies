@@ -1,3 +1,5 @@
 
-@interface MovieSearchViewController : UIViewController
+@interface MovieSearchViewController : UIViewController<UISearchBarDelegate> {
+    IBOutlet UISearchBar *searchBar;
+}
 @end
