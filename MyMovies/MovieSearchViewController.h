@@ -1,5 +1,5 @@
 
 @interface MovieSearchViewController : UIViewController<UISearchBarDelegate> {
-    IBOutlet UISearchBar *searchBar;
+    __weak IBOutlet UISearchBar *searchBar;
 }
 @end
