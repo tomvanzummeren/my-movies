@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2843" systemVersion="12C60" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="vXf-55-zdI">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1929"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller - My Movies-->
+        <scene sceneID="5">
+            <objects>
+                <viewController id="2" customClass="ViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="88" sectionHeaderHeight="22" sectionFooterHeight="22" id="dRU-q3-hod">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="455"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MovieCell" rowHeight="88" id="nmy-n1-Tsv">
+                                        <rect key="frame" x="0.0" y="22" width="320" height="88"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="300" height="87"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="vt7vK7gi0h0r9GJ5FaeQDT7wqrl.jpg" id="xl4-il-Zgg">
+                                                    <rect key="frame" x="7" y="8" width="50" height="72"/>
+                                                </imageView>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Up" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2R1-0u-8Ef">
+                                                    <rect key="frame" x="65" y="8" width="29" height="21"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="(2009)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wQP-WU-ein">
+                                                    <rect key="frame" x="95" y="9" width="50" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dts-Cv-01E">
+                                                    <rect key="frame" x="65" y="31" width="226" height="46"/>
+                                                    <string key="text">After a lifetime of dreaming of traveling the world, 78-year-old homebody Carl flies away on an unbelievable adventure with Russell, an 8-year-old Wilderness Explorer, unexpectedly in tow. Together, the unlikely pair embarks on a thrilling odyssey full of jungle beasts and rough terrain.</string>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <connections>
+                                            <segue destination="Lsd-BU-2Z0" kind="push" id="IRq-oO-brB"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="2" id="Hns-yh-dp9"/>
+                                    <outlet property="delegate" destination="2" id="qXv-OL-Yll"/>
+                                </connections>
+                            </tableView>
+                            <tabBar contentMode="scaleToFill" id="S9K-DO-pY4">
+                                <rect key="frame" x="0.0" y="455" width="320" height="49"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <items>
+                                    <tabBarItem title="To watch" image="12-eye.png" id="rMk-hN-H13"/>
+                                    <tabBarItem title="Watched" image="258-checkmark.png" id="fnb-P4-kyB"/>
+                                </items>
+                            </tabBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="My Movies" id="3Zu-Oz-zXf">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="rJc-LG-R0H">
+                            <connections>
+                                <action selector="addNewMovieButtonPressed:" destination="2" id="Tmt-Oa-JrB"/>
+                                <segue destination="A13-HF-bCb" kind="modal" id="dxx-BU-Xlo"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tabBar" destination="S9K-DO-pY4" id="VzJ-YS-ebd"/>
+                        <outlet property="tableView" destination="dRU-q3-hod" id="xBj-pp-e66"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="830" y="84"/>
+        </scene>
+        <!--Table View Controller-->
+        <scene sceneID="v2k-m6-Wg0">
+            <objects>
+                <tableViewController id="h2r-Z5-gRe" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="vbU-3V-Aqx">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="0se-yK-sI0">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="h2r-Z5-gRe" id="nz0-fC-LRi"/>
+                            </connections>
+                        </searchBar>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="imh-ZJ-K1V">
+                                <rect key="frame" x="0.0" y="66" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="h2r-Z5-gRe" id="g5C-Kr-p9b"/>
+                            <outlet property="delegate" destination="h2r-Z5-gRe" id="X1z-O4-CKa"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="aRI-Qv-GGS">
+                        <barButtonItem key="rightBarButtonItem" title="Done" id="vi8-p3-9Kz"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="searchDisplayController" destination="weO-GT-8dZ" id="MAl-c1-5Q9"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="P9Y-EP-cWf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="weO-GT-8dZ">
+                    <connections>
+                        <outlet property="delegate" destination="h2r-Z5-gRe" id="u4M-yR-fuU"/>
+                        <outlet property="searchBar" destination="0se-yK-sI0" id="xMx-5b-RK9"/>
+                        <outlet property="searchContentsController" destination="h2r-Z5-gRe" id="xm1-OB-ga9"/>
+                        <outlet property="searchResultsDataSource" destination="h2r-Z5-gRe" id="r5F-yb-9hQ"/>
+                        <outlet property="searchResultsDelegate" destination="h2r-Z5-gRe" id="rYE-nK-e4c"/>
+                    </connections>
+                </searchDisplayController>
+            </objects>
+            <point key="canvasLocation" x="1880" y="776"/>
+        </scene>
+        <!--Movie Detail View Controller-->
+        <scene sceneID="FP0-bB-XtA">
+            <objects>
+                <viewController id="Lsd-BU-2Z0" customClass="MovieDetailViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xFC-KY-taq">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Up (2009)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Pgz-ei-9iW">
+                                <rect key="frame" x="20" y="127" width="280" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6x8-P8-LFl">
+                                <rect key="frame" x="20" y="157" width="280" height="110"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                                <string key="text">After a lifetime of dreaming of traveling the world, 78-year-old homebody Carl flies away on an unbelievable adventure with Russell, an 8-year-old Wilderness Explorer, unexpectedly in tow. Together, the unlikely pair embarks on a thrilling odyssey full of jungle beasts and rough terrain.
+
+</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="1349622728_star_full.png" id="5Cw-TN-msv" userLabel="Star">
+                                <rect key="frame" x="111" y="129" width="30" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="1349622728_star_full.png" id="EVx-l5-o7n" userLabel="Star">
+                                <rect key="frame" x="137" y="129" width="30" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="1349622728_star_full.png" id="eBG-Mf-7ga" userLabel="Star">
+                                <rect key="frame" x="162" y="129" width="30" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="1349622728_star_full.png" id="WzE-pq-7zf" userLabel="Star">
+                                <rect key="frame" x="187" y="129" width="30" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" id="em0-Ih-QFh" customClass="MoviePosterView">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="110"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFill" image="vt7vK7gi0h0r9GJ5FaeQDT7wqrl.jpg" id="f9L-J8-g4b">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="110"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" heightSizable="YES"/>
+                                        <gestureRecognizers/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="imageView" destination="f9L-J8-g4b" id="dGo-Oy-SVd"/>
+                                    <outletCollection property="gestureRecognizers" destination="Zl7-YN-1vd" appends="YES" id="vdJ-96-hLU"/>
+                                    <outletCollection property="gestureRecognizers" destination="YU1-7L-5qV" appends="YES" id="Ngg-6b-gNd"/>
+                                </connections>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Wde-ya-1RC"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0F0-l8-OI9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="Zl7-YN-1vd">
+                    <connections>
+                        <action selector="toggleSize" destination="em0-Ih-QFh" id="Vrj-qZ-UyK"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="YU1-7L-5qV">
+                    <connections>
+                        <action selector="handlePanGesture:" destination="em0-Ih-QFh" id="wfV-7h-T0c"/>
+                    </connections>
+                </panGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="1359" y="84"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="4he-X0-VY5">
+            <objects>
+                <navigationController id="vXf-55-zdI" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="5T3-re-FfL">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="2" kind="relationship" relationship="rootViewController" id="8AA-g5-QGa"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lh8-lC-Z4b" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="362" y="84"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="sw9-4V-ETL">
+            <objects>
+                <navigationController id="A13-HF-bCb" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="p8p-b1-FgV">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="h2r-Z5-gRe" kind="relationship" relationship="rootViewController" id="2Z3-Dp-dmm"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KTk-WX-sbC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1354" y="776"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="12-eye.png" width="24" height="16"/>
+        <image name="1349622728_star_full.png" width="128" height="128"/>
+        <image name="258-checkmark.png" width="19" height="18"/>
+        <image name="vt7vK7gi0h0r9GJ5FaeQDT7wqrl.jpg" width="667" height="1000"/>
+    </resources>
+    <classes>
+        <class className="MovieDetailViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MovieDetailViewController.h"/>
+        </class>
+        <class className="MoviePosterView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MoviePosterView.h"/>
+            <relationships>
+                <relationship kind="action" name="handlePanGesture:" candidateClass="UIPanGestureRecognizer"/>
+                <relationship kind="action" name="toggleSize"/>
+                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+        <class className="ViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="addNewMovieButtonPressed:"/>
+                <relationship kind="outlet" name="searchBar" candidateClass="UISearchBar"/>
+                <relationship kind="outlet" name="tabBar" candidateClass="UITabBar"/>
+                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+    </classes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>
