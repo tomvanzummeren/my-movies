@@ -3,9 +3,12 @@
 
 @implementation MovieRepository
 
-static MovieRepository *instance = [MovieRepository new];
+static MovieRepository *instance = nil;
 
 - (MovieRepository *) instance {
+    if (!instance) {
+        instance = [MovieRepository new];
+    }
     return instance;
 }
 

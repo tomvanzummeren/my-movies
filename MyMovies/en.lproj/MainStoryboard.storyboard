@@ -51,7 +51,7 @@
             <objects>
                 <tableViewController id="HxA-Hx-wRt" userLabel="Movie List (embeddable)" customClass="MovieListViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="88" sectionHeaderHeight="22" sectionFooterHeight="22" id="dRU-q3-hod">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -100,14 +100,14 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="of3-DO-phh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="691" y="932"/>
+            <point key="canvasLocation" x="691" y="908"/>
         </scene>
         <!--Movie Details-->
         <scene sceneID="FP0-bB-XtA">
             <objects>
                 <viewController id="Lsd-BU-2Z0" userLabel="Movie Details" customClass="MovieDetailViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xFC-KY-taq">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Up (2009)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Pgz-ei-9iW">
@@ -178,7 +178,7 @@
                     </connections>
                 </panGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1257" y="932"/>
+            <point key="canvasLocation" x="1257" y="908"/>
         </scene>
         <!--My Movies Navigation-->
         <scene sceneID="4he-X0-VY5">
@@ -307,6 +307,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="BKP-5D-ex4"/>
+        <segue reference="3X9-3f-ob1"/>
     </inferredMetricsTieBreakers>
 </document>

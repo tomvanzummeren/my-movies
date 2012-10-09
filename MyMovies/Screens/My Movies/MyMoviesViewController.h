@@ -4,6 +4,5 @@
 
     __weak IBOutlet UITabBar *tabBar;
 
-    __weak IBOutlet MovieListViewController *movieListViewController;
 }
 @end
