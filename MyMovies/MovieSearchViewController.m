@@ -3,11 +3,16 @@
 
 @implementation MovieSearchViewController
 
-- (void) viewDidLoad {
-    [searchBar becomeFirstResponder];
-}
-
 - (void)searchBarCancelButtonClicked:(UISearchBar *) sb {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
+- (void) viewWillAppear:(BOOL) animated {
+    [searchBar becomeFirstResponder];
+}
+
+- (void) viewWillDisappear:(BOOL) animated {
+    [searchBar resignFirstResponder];
+}
+
 @end
