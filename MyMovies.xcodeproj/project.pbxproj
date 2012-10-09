@@ -24,7 +24,7 @@
 		DBF8BCFE1620D3A0003F32B9 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DBF8BCFD1620D3A0003F32B9 /* Default@2x.png */; };
 		DBF8BD001620D3A0003F32B9 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DBF8BCFF1620D3A0003F32B9 /* Default-568h@2x.png */; };
 		DBF8BD031620D3A0003F32B9 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBF8BD011620D3A0003F32B9 /* MainStoryboard.storyboard */; };
-		DBF8BD061620D3A0003F32B9 /* MyMoviesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DBF8BD051620D3A0003F32B9 /* MyMoviesViewController.m */; };
+		DBF8BD061620D3A0003F32B9 /* MovieListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DBF8BD051620D3A0003F32B9 /* MovieListViewController.m */; };
 		DBF8BD0E1620DB80003F32B9 /* 12-eye.png in Resources */ = {isa = PBXBuildFile; fileRef = DBF8BD0C1620DB80003F32B9 /* 12-eye.png */; };
 		DBF8BD0F1620DB80003F32B9 /* 12-eye@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DBF8BD0D1620DB80003F32B9 /* 12-eye@2x.png */; };
 		DBF8BD181620DC79003F32B9 /* 164-glasses-2.png in Resources */ = {isa = PBXBuildFile; fileRef = DBF8BD161620DC79003F32B9 /* 164-glasses-2.png */; };
@@ -60,8 +60,8 @@
 		DBF8BCFD1620D3A0003F32B9 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		DBF8BCFF1620D3A0003F32B9 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		DBF8BD021620D3A0003F32B9 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		DBF8BD041620D3A0003F32B9 /* MyMoviesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyMoviesViewController.h; sourceTree = "<group>"; };
-		DBF8BD051620D3A0003F32B9 /* MyMoviesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyMoviesViewController.m; sourceTree = "<group>"; };
+		DBF8BD041620D3A0003F32B9 /* MovieListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MovieListViewController.h; sourceTree = "<group>"; };
+		DBF8BD051620D3A0003F32B9 /* MovieListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MovieListViewController.m; sourceTree = "<group>"; };
 		DBF8BD0C1620DB80003F32B9 /* 12-eye.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "12-eye.png"; path = "../../12-eye.png"; sourceTree = "<group>"; };
 		DBF8BD0D1620DB80003F32B9 /* 12-eye@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "12-eye@2x.png"; path = "../../12-eye@2x.png"; sourceTree = "<group>"; };
 		DBF8BD161620DC79003F32B9 /* 164-glasses-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "164-glasses-2.png"; sourceTree = "<group>"; };
@@ -138,8 +138,8 @@
 				DBF8BCF81620D3A0003F32B9 /* AppDelegate.h */,
 				DBF8BCF91620D3A0003F32B9 /* AppDelegate.m */,
 				DBF8BD011620D3A0003F32B9 /* MainStoryboard.storyboard */,
-				DBF8BD041620D3A0003F32B9 /* MyMoviesViewController.h */,
-				DBF8BD051620D3A0003F32B9 /* MyMoviesViewController.m */,
+				DBF8BD041620D3A0003F32B9 /* MovieListViewController.h */,
+				DBF8BD051620D3A0003F32B9 /* MovieListViewController.m */,
 				DBF8BCF01620D3A0003F32B9 /* Supporting Files */,
 				5F50E6C411485B5B67735E03 /* Images */,
 				01B590291621D68F009F2F4B /* MovieDetailViewController.h */,
@@ -246,7 +246,7 @@
 			files = (
 				DBF8BCF61620D3A0003F32B9 /* main.m in Sources */,
 				DBF8BCFA1620D3A0003F32B9 /* AppDelegate.m in Sources */,
-				DBF8BD061620D3A0003F32B9 /* MyMoviesViewController.m in Sources */,
+				DBF8BD061620D3A0003F32B9 /* MovieListViewController.m in Sources */,
 				01B5902B1621D68F009F2F4B /* MovieDetailViewController.m in Sources */,
 				01C34C90162208550079CD61 /* MoviePosterView.m in Sources */,
 				5F50EEB34630DD967ED6C1D8 /* MovieSearchViewController.m in Sources */,

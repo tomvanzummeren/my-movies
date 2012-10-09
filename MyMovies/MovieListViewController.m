@@ -1,7 +1,7 @@
 
-#import "MyMoviesViewController.h"
+#import "MovieListViewController.h"
 
-@implementation MyMoviesViewController
+@implementation MovieListViewController
 
 - (void) viewDidLoad {
     tabBar.selectedItem = [[tabBar items] objectAtIndex:0];
