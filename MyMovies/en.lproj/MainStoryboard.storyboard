@@ -58,7 +58,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MovieCell" rowHeight="88" id="nmy-n1-Tsv">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MovieCell" rowHeight="88" id="nmy-n1-Tsv" customClass="MovieCell">
                                 <rect key="frame" x="0.0" y="22" width="320" height="88"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -69,7 +69,7 @@
                                             <rect key="frame" x="7" y="8" width="50" height="72"/>
                                         </imageView>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Up" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2R1-0u-8Ef">
-                                            <rect key="frame" x="65" y="8" width="29" height="21"/>
+                                            <rect key="frame" x="65" y="8" width="27" height="21"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -91,6 +91,10 @@
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <connections>
+                                    <outlet property="iconImageView" destination="xl4-il-Zgg" id="pk5-yD-ZbO"/>
+                                    <outlet property="overviewLabel" destination="dts-Cv-01E" id="UAk-WB-mTM"/>
+                                    <outlet property="releaseYearLabel" destination="wQP-WU-ein" id="mI8-dV-uUB"/>
+                                    <outlet property="titleLabel" destination="2R1-0u-8Ef" id="6AF-Wr-dle"/>
                                     <segue destination="Lsd-BU-2Z0" kind="push" id="IRq-oO-brB"/>
                                 </connections>
                             </tableViewCell>
@@ -276,6 +280,15 @@
         <image name="poster-up.jpg" width="667" height="1000"/>
     </resources>
     <classes>
+        <class className="MovieCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MovieCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="iconImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="overviewLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="releaseYearLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
         <class className="MovieDetailViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MovieDetailViewController.h"/>
         </class>

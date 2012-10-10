@@ -1,24 +1,30 @@
 
 #import "MovieListViewController.h"
+#import "MovieCell.h"
+#import "Movie.h"
 
 @implementation MovieListViewController {
-    NSInteger numberOfMovies;
+    NSArray *movies;
 }
 
 - (NSInteger) tableView:(UITableView *) tv numberOfRowsInSection:(NSInteger) section {
-    return numberOfMovies;
+    return movies.count;
 }
 
 - (UITableViewCell *) tableView:(UITableView *) tv cellForRowAtIndexPath:(NSIndexPath *) indexPath {
-    return [self.tableView dequeueReusableCellWithIdentifier:@"MovieCell"];
+    MovieCell *movieCell = [self.tableView dequeueReusableCellWithIdentifier:@"MovieCell"];
+
+    Movie *movie = [movies objectAtIndex:(NSUInteger) indexPath.row];
+    [movieCell setMovie:movie];
+    return movieCell;
 }
 
-- (NSInteger) numberOfMovies {
-    return numberOfMovies;
+- (NSArray *) movies {
+    return movies;
 }
 
-- (void) setNumberOfMovies:(NSInteger) number {
-    numberOfMovies = number;
+- (void) setMovies:(NSArray *) someMovies {
+    movies = someMovies;
     [self.tableView reloadData];
 }
 

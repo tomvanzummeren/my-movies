@@ -5,4 +5,8 @@
 
 - (void) search:(NSString *) searchText callback:(void (^)(NSArray *)) callback;
 
+- (NSArray *) watchedList;
+
+- (NSArray *) toWatchList;
+
 @end

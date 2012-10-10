@@ -15,9 +15,9 @@
 
 - (void) searchBar:(UISearchBar *) db textDidChange:(NSString *) searchText {
     if (searchText.length > 0) {
-        movieListViewController.numberOfMovies = 1;
+        movieListViewController.movies = [NSArray array];
     } else {
-        movieListViewController.numberOfMovies = 0;
+        movieListViewController.movies = [NSArray array];
     }
 }
 
