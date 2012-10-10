@@ -19,7 +19,6 @@
         movieListViewController.numberOfMovies = 1;
     } else {
         movieListViewController.numberOfMovies = 0;
-        
     }
 }
 

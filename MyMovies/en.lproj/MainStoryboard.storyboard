@@ -65,7 +65,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="300" height="87"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="vt7vK7gi0h0r9GJ5FaeQDT7wqrl.jpg" id="xl4-il-Zgg">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="poster-up.jpg" id="xl4-il-Zgg">
                                             <rect key="frame" x="7" y="8" width="50" height="72"/>
                                         </imageView>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Up" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2R1-0u-8Ef">
@@ -150,7 +150,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="110"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFill" image="vt7vK7gi0h0r9GJ5FaeQDT7wqrl.jpg" id="f9L-J8-g4b">
+                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFill" image="poster-up.jpg" id="f9L-J8-g4b">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="110"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" heightSizable="YES"/>
                                         <gestureRecognizers/>
@@ -273,7 +273,7 @@
         <image name="12-eye.png" width="24" height="16"/>
         <image name="1349622728_star_full.png" width="128" height="128"/>
         <image name="258-checkmark.png" width="19" height="18"/>
-        <image name="vt7vK7gi0h0r9GJ5FaeQDT7wqrl.jpg" width="667" height="1000"/>
+        <image name="poster-up.jpg" width="667" height="1000"/>
     </resources>
     <classes>
         <class className="MovieDetailViewController" superclassName="UIViewController">

@@ -3,4 +3,6 @@
 
 + (MovieRepository *) instance;
 
+- (void) search:(NSString *) searchText callback:(void (^)(NSArray *)) callback;
+
 @end
