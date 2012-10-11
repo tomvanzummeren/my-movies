@@ -2,6 +2,7 @@
 #import "MovieListViewController.h"
 #import "MovieCell.h"
 #import "Movie.h"
+#import "MovieDetailViewController.h"
 
 @implementation MovieListViewController {
     NSArray *movies;
@@ -15,9 +16,18 @@
     MovieCell *movieCell = [self.tableView dequeueReusableCellWithIdentifier:@"MovieCell"];
 
     Movie *movie = [movies objectAtIndex:(NSUInteger) indexPath.row];
-    [movieCell setMovie:movie];
+    movieCell.movie = movie;
     return movieCell;
 }
+
+- (void) prepareForSegue:(UIStoryboardSegue *) segue sender:(id) sender {
+    if ([segue.identifier isEqualToString:@"MovieDetails"]) {
+        MovieDetailViewController *controller = segue.destinationViewController;
+        MovieCell *movieCell = sender;
+        controller.movie = movieCell.movie;
+    }
+}
+
 
 - (NSArray *) movies {
     return movies;

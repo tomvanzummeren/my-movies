@@ -65,8 +65,8 @@
                                     <rect key="frame" x="0.0" y="0.0" width="300" height="87"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="poster-up.jpg" id="xl4-il-Zgg">
-                                            <rect key="frame" x="7" y="8" width="50" height="72"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="icon-up@2x.jpg" id="xl4-il-Zgg">
+                                            <rect key="frame" x="8" y="8" width="48" height="72"/>
                                         </imageView>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Up" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2R1-0u-8Ef">
                                             <rect key="frame" x="65" y="8" width="27" height="21"/>
@@ -95,7 +95,7 @@
                                     <outlet property="overviewLabel" destination="dts-Cv-01E" id="UAk-WB-mTM"/>
                                     <outlet property="releaseYearLabel" destination="wQP-WU-ein" id="mI8-dV-uUB"/>
                                     <outlet property="titleLabel" destination="2R1-0u-8Ef" id="6AF-Wr-dle"/>
-                                    <segue destination="Lsd-BU-2Z0" kind="push" id="IRq-oO-brB"/>
+                                    <segue destination="Lsd-BU-2Z0" kind="push" identifier="MovieDetails" id="IRq-oO-brB"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -118,7 +118,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Up (2009)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Pgz-ei-9iW">
-                                <rect key="frame" x="20" y="127" width="280" height="22"/>
+                                <rect key="frame" x="20" y="128" width="280" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -135,32 +135,32 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="1349622728_star_full.png" id="5Cw-TN-msv" userLabel="Star">
-                                <rect key="frame" x="111" y="129" width="30" height="21"/>
+                                <rect key="frame" x="194" y="128" width="30" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="1349622728_star_full.png" id="EVx-l5-o7n" userLabel="Star">
-                                <rect key="frame" x="137" y="129" width="30" height="21"/>
+                                <rect key="frame" x="220" y="128" width="30" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="1349622728_star_full.png" id="eBG-Mf-7ga" userLabel="Star">
-                                <rect key="frame" x="162" y="129" width="30" height="21"/>
+                                <rect key="frame" x="245" y="128" width="30" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="1349622728_star_full.png" id="WzE-pq-7zf" userLabel="Star">
-                                <rect key="frame" x="187" y="129" width="30" height="21"/>
+                                <rect key="frame" x="270" y="128" width="30" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                             </imageView>
                             <view contentMode="scaleToFill" id="em0-Ih-QFh" customClass="MoviePosterView">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="110"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFill" image="poster-up.jpg" id="f9L-J8-g4b">
+                                    <imageView clipsSubviews="YES" contentMode="center" image="poster-up@2x.jpg" id="f9L-J8-g4b">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="110"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" heightSizable="YES"/>
                                         <gestureRecognizers/>
                                     </imageView>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <outlet property="imageView" destination="f9L-J8-g4b" id="dGo-Oy-SVd"/>
                                     <outletCollection property="gestureRecognizers" destination="Zl7-YN-1vd" appends="YES" id="vdJ-96-hLU"/>
@@ -172,6 +172,11 @@
                         <gestureRecognizers/>
                     </view>
                     <navigationItem key="navigationItem" id="Wde-ya-1RC"/>
+                    <connections>
+                        <outlet property="moviePosterView" destination="em0-Ih-QFh" id="giz-g2-Xvk"/>
+                        <outlet property="overviewLabel" destination="6x8-P8-LFl" id="ly2-cR-Y0I"/>
+                        <outlet property="titleLabel" destination="Pgz-ei-9iW" id="JVs-0q-usI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0F0-l8-OI9" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="Zl7-YN-1vd">
@@ -277,7 +282,8 @@
         <image name="12-eye.png" width="24" height="16"/>
         <image name="1349622728_star_full.png" width="128" height="128"/>
         <image name="258-checkmark.png" width="19" height="18"/>
-        <image name="poster-up.jpg" width="667" height="1000"/>
+        <image name="icon-up@2x.jpg" width="96" height="144"/>
+        <image name="poster-up@2x.jpg" width="640" height="960"/>
     </resources>
     <classes>
         <class className="MovieCell" superclassName="UITableViewCell">
@@ -291,6 +297,11 @@
         </class>
         <class className="MovieDetailViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MovieDetailViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="moviePosterView" candidateClass="MoviePosterView"/>
+                <relationship kind="outlet" name="overviewLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
+            </relationships>
         </class>
         <class className="MovieListViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MovieListViewController.h"/>

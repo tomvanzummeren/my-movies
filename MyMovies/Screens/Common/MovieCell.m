@@ -4,9 +4,13 @@
 
 #define MARGIN 5
 
-@implementation MovieCell
+@implementation MovieCell {
+    Movie *movie;
+}
 
-- (void) setMovie:(Movie *) movie {
+- (void) setMovie:(Movie *) aMovie {
+    movie = aMovie;
+    
     iconImageView.image = movie.iconImage;
     titleLabel.text = movie.title;
     releaseYearLabel.text = [NSString stringWithFormat:@"(%@)", movie.releaseYear];
@@ -20,6 +24,10 @@
             releaseYearLabel.frame.origin.y,
             releaseYearLabel.frame.size.width,
             releaseYearLabel.frame.size.height);
+}
+
+- (Movie *) movie {
+    return movie;
 }
 
 @end

@@ -7,6 +7,7 @@
     __weak IBOutlet UILabel *overviewLabel;
 }
 
-- (void) setMovie:(Movie *) movie;
+@property (strong, nonatomic) Movie* movie;
+
 @end
 

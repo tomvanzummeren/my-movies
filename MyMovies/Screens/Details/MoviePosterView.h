@@ -4,4 +4,7 @@
 }
 - (IBAction) toggleSize;
 - (IBAction) handlePanGesture:(UIPanGestureRecognizer *) sender;
+
+- (void) setPosterImage:(UIImage *) image;
+
 @end

@@ -11,16 +11,17 @@
 }
 
 - (void) awakeFromNib {
-    smallImageHeight = 110.0;
-    // TODO: Take the poster image's height for this
-    maximizedHeight = 450.0;
-
     blackBackground = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, self.superview.frame.size.width, self.superview.frame.size.height)];
     blackBackground.backgroundColor = [UIColor blackColor];
     blackBackground.alpha = 0.0;
     blackBackground.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
 
     [self.superview insertSubview:blackBackground atIndex:0];
+}
+
+- (void) layoutSubviews {
+    smallImageHeight = 110.0;
+    maximizedHeight = self.superview.frame.size.height;
 }
 
 #pragma mark - Actions
@@ -106,6 +107,10 @@
         backgroundAlpha = 0.0;
     }
     blackBackground.alpha = backgroundAlpha;
+}
+
+- (void) setPosterImage:(UIImage *) image {
+    imageView.image = image;
 }
 
 @end

@@ -8,15 +8,19 @@
 
 /* Begin PBXBuildFile section */
 		01B590251621D38F009F2F4B /* 1349622728_star_full.png in Resources */ = {isa = PBXBuildFile; fileRef = 01B590241621D38F009F2F4B /* 1349622728_star_full.png */; };
-		01B590281621D596009F2F4B /* poster-thedarkknight.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 01B590271621D596009F2F4B /* poster-thedarkknight.jpg */; };
+		01B590281621D596009F2F4B /* poster-thedarkknight@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 01B590271621D596009F2F4B /* poster-thedarkknight@2x.jpg */; };
 		01B5902B1621D68F009F2F4B /* MovieDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01B5902A1621D68F009F2F4B /* MovieDetailViewController.m */; };
 		01C34C90162208550079CD61 /* MoviePosterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C34C8F162208550079CD61 /* MoviePosterView.m */; };
 		01C34C98162322A60079CD61 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 01C34C96162322A60079CD61 /* icon.png */; };
 		01C34C99162322A60079CD61 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 01C34C97162322A60079CD61 /* icon@2x.png */; };
 		5F50E0779099D76407376097 /* MovieRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F50EEFC9E9A735C7FF813B6 /* MovieRepository.m */; };
 		5F50E26D6073AC171F7E037E /* MyMoviesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F50E9900F02DB6ED7286237 /* MyMoviesViewController.m */; };
+		5F50E3F835A9BEAE79A27295 /* icon-matrix@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5F50EE3035448D8CA3A7B588 /* icon-matrix@2x.jpg */; };
+		5F50E4928E8B3E2F66EABDAD /* icon-up@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5F50EE0072DA7D38D81EA1EA /* icon-up@2x.jpg */; };
 		5F50E637334B46A4DC1B19D5 /* Movie.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F50E1B80121332FD0DC7C10 /* Movie.m */; };
 		5F50E6D8BEEBBD5DEF650E5A /* MovieCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F50E3ED4AE51DC3E30F614C /* MovieCell.m */; };
+		5F50EA94CC8C4DE2EF11E49E /* icon-thedarkknight@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5F50E6F3378E2E7D726B7F4E /* icon-thedarkknight@2x.jpg */; };
+		5F50EC807594A65795700E0D /* poster-matrix@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5F50EAC2170221F2CDF087FC /* poster-matrix@2x.jpg */; };
 		5F50EEB34630DD967ED6C1D8 /* MovieSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F50E8CE100CBB9430176BBB /* MovieSearchViewController.m */; };
 		DBF8BCEA1620D3A0003F32B9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBF8BCE91620D3A0003F32B9 /* UIKit.framework */; };
 		DBF8BCEC1620D3A0003F32B9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBF8BCEB1620D3A0003F32B9 /* Foundation.framework */; };
@@ -35,12 +39,12 @@
 		DBF8BD191620DC79003F32B9 /* 164-glasses-2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DBF8BD171620DC79003F32B9 /* 164-glasses-2@2x.png */; };
 		DBF8BD1C1620DCDB003F32B9 /* 258-checkmark.png in Resources */ = {isa = PBXBuildFile; fileRef = DBF8BD1A1620DCDB003F32B9 /* 258-checkmark.png */; };
 		DBF8BD1D1620DCDB003F32B9 /* 258-checkmark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DBF8BD1B1620DCDB003F32B9 /* 258-checkmark@2x.png */; };
-		DBF8BD211620E7BC003F32B9 /* poster-up.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DBF8BD201620E7BC003F32B9 /* poster-up.jpg */; };
+		DBF8BD211620E7BC003F32B9 /* poster-up@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DBF8BD201620E7BC003F32B9 /* poster-up@2x.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		01B590241621D38F009F2F4B /* 1349622728_star_full.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1349622728_star_full.png; sourceTree = "<group>"; };
-		01B590271621D596009F2F4B /* poster-thedarkknight.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "poster-thedarkknight.jpg"; sourceTree = "<group>"; };
+		01B590271621D596009F2F4B /* poster-thedarkknight@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "poster-thedarkknight@2x.jpg"; sourceTree = "<group>"; };
 		01B590291621D68F009F2F4B /* MovieDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieDetailViewController.h; sourceTree = "<group>"; };
 		01B5902A1621D68F009F2F4B /* MovieDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieDetailViewController.m; sourceTree = "<group>"; };
 		01C34C8E162208550079CD61 /* MoviePosterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoviePosterView.h; sourceTree = "<group>"; };
@@ -52,10 +56,14 @@
 		5F50E3833C1E2FD0FE16C278 /* MovieSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieSearchViewController.h; sourceTree = "<group>"; };
 		5F50E3ED4AE51DC3E30F614C /* MovieCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieCell.m; sourceTree = "<group>"; };
 		5F50E6517C6C335B05B371ED /* Movie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Movie.h; sourceTree = "<group>"; };
+		5F50E6F3378E2E7D726B7F4E /* icon-thedarkknight@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "icon-thedarkknight@2x.jpg"; sourceTree = "<group>"; };
 		5F50E8CE100CBB9430176BBB /* MovieSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieSearchViewController.m; sourceTree = "<group>"; };
 		5F50E98342ED445591B5C4A7 /* MovieCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieCell.h; sourceTree = "<group>"; };
 		5F50E9900F02DB6ED7286237 /* MyMoviesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyMoviesViewController.m; sourceTree = "<group>"; };
 		5F50E9F6662FAA872ED72A45 /* MyMoviesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyMoviesViewController.h; sourceTree = "<group>"; };
+		5F50EAC2170221F2CDF087FC /* poster-matrix@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "poster-matrix@2x.jpg"; sourceTree = "<group>"; };
+		5F50EE0072DA7D38D81EA1EA /* icon-up@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "icon-up@2x.jpg"; sourceTree = "<group>"; };
+		5F50EE3035448D8CA3A7B588 /* icon-matrix@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "icon-matrix@2x.jpg"; sourceTree = "<group>"; };
 		5F50EEFC9E9A735C7FF813B6 /* MovieRepository.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieRepository.m; sourceTree = "<group>"; };
 		DBF8BCE51620D3A0003F32B9 /* MyMovies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyMovies.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBF8BCE91620D3A0003F32B9 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -79,7 +87,7 @@
 		DBF8BD171620DC79003F32B9 /* 164-glasses-2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "164-glasses-2@2x.png"; sourceTree = "<group>"; };
 		DBF8BD1A1620DCDB003F32B9 /* 258-checkmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "258-checkmark.png"; sourceTree = "<group>"; };
 		DBF8BD1B1620DCDB003F32B9 /* 258-checkmark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "258-checkmark@2x.png"; sourceTree = "<group>"; };
-		DBF8BD201620E7BC003F32B9 /* poster-up.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "poster-up.jpg"; sourceTree = "<group>"; };
+		DBF8BD201620E7BC003F32B9 /* poster-up@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "poster-up@2x.jpg"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,15 +138,19 @@
 		5F50E6C411485B5B67735E03 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				01B590271621D596009F2F4B /* poster-thedarkknight.jpg */,
+				5F50EAC2170221F2CDF087FC /* poster-matrix@2x.jpg */,
+				01B590271621D596009F2F4B /* poster-thedarkknight@2x.jpg */,
 				01B590241621D38F009F2F4B /* 1349622728_star_full.png */,
-				DBF8BD201620E7BC003F32B9 /* poster-up.jpg */,
+				DBF8BD201620E7BC003F32B9 /* poster-up@2x.jpg */,
 				DBF8BD1A1620DCDB003F32B9 /* 258-checkmark.png */,
 				DBF8BD1B1620DCDB003F32B9 /* 258-checkmark@2x.png */,
 				DBF8BD161620DC79003F32B9 /* 164-glasses-2.png */,
 				DBF8BD171620DC79003F32B9 /* 164-glasses-2@2x.png */,
 				DBF8BD0C1620DB80003F32B9 /* 12-eye.png */,
 				DBF8BD0D1620DB80003F32B9 /* 12-eye@2x.png */,
+				5F50EE3035448D8CA3A7B588 /* icon-matrix@2x.jpg */,
+				5F50E6F3378E2E7D726B7F4E /* icon-thedarkknight@2x.jpg */,
+				5F50EE0072DA7D38D81EA1EA /* icon-up@2x.jpg */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -293,11 +305,15 @@
 				DBF8BD191620DC79003F32B9 /* 164-glasses-2@2x.png in Resources */,
 				DBF8BD1C1620DCDB003F32B9 /* 258-checkmark.png in Resources */,
 				DBF8BD1D1620DCDB003F32B9 /* 258-checkmark@2x.png in Resources */,
-				DBF8BD211620E7BC003F32B9 /* poster-up.jpg in Resources */,
+				DBF8BD211620E7BC003F32B9 /* poster-up@2x.jpg in Resources */,
 				01B590251621D38F009F2F4B /* 1349622728_star_full.png in Resources */,
-				01B590281621D596009F2F4B /* poster-thedarkknight.jpg in Resources */,
+				01B590281621D596009F2F4B /* poster-thedarkknight@2x.jpg in Resources */,
 				01C34C98162322A60079CD61 /* icon.png in Resources */,
 				01C34C99162322A60079CD61 /* icon@2x.png in Resources */,
+				5F50EC807594A65795700E0D /* poster-matrix@2x.jpg in Resources */,
+				5F50E3F835A9BEAE79A27295 /* icon-matrix@2x.jpg in Resources */,
+				5F50EA94CC8C4DE2EF11E49E /* icon-thedarkknight@2x.jpg in Resources */,
+				5F50E4928E8B3E2F66EABDAD /* icon-up@2x.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
