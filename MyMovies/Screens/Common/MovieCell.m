@@ -2,6 +2,7 @@
 #import "MovieCell.h"
 #import "Movie.h"
 #import "UIImageView+WebCache.h"
+#import "VotesView.h"
 
 #define MARGIN 5
 
@@ -23,6 +24,7 @@
     } else {
         releaseYearLabel.text = @"";
     }
+    [votesView setScore:movie.voteAverage];
 
     CGFloat titleTextWidth = [titleLabel.text sizeWithFont:titleLabel.font].width;
     titleLabel.frame = CGRectMake(titleLabel.frame.origin.x, titleLabel.frame.origin.y, titleTextWidth, titleLabel.frame.size.height);

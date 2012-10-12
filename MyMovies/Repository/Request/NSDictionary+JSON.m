@@ -26,5 +26,13 @@
     return 0;
 }
 
+- (CGFloat) floatForKey:(NSString *) key {
+    id value = [self objectForKey:key];
+    if ([value isKindOfClass:[NSNumber class]]) {
+        return [value floatValue];
+    }
+    return 0;
+}
+
 
 @end

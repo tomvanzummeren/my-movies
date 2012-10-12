@@ -65,17 +65,51 @@
                                     <rect key="frame" x="0.0" y="0.0" width="300" height="87"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
+                                        <view contentMode="scaleToFill" id="Qry-7f-VVa" customClass="VotesView">
+                                            <rect key="frame" x="65" y="48" width="96" height="16"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="star-full.png" id="IP7-Jt-shJ" userLabel="Star 1">
+                                                    <rect key="frame" x="0.0" y="0.0" width="16" height="16"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="star-full.png" id="HZG-cY-EXT" userLabel="Star 2">
+                                                    <rect key="frame" x="20" y="0.0" width="16" height="16"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="star-full.png" id="KQe-wB-rsH" userLabel="Star 3">
+                                                    <rect key="frame" x="40" y="0.0" width="16" height="16"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="star-half.png" id="4FH-wx-T5f" userLabel="Star 4">
+                                                    <rect key="frame" x="60" y="0.0" width="16" height="16"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="star-none.png" id="qBX-vq-Z9e" userLabel="Star 5">
+                                                    <rect key="frame" x="80" y="0.0" width="16" height="16"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <connections>
+                                                <outlet property="starView1" destination="IP7-Jt-shJ" id="Td0-XU-EMh"/>
+                                                <outlet property="starView2" destination="HZG-cY-EXT" id="KsV-Mp-G1r"/>
+                                                <outlet property="starView3" destination="KQe-wB-rsH" id="NkM-9U-uzQ"/>
+                                                <outlet property="starView4" destination="4FH-wx-T5f" id="6Z3-Vn-eZT"/>
+                                                <outlet property="starView5" destination="qBX-vq-Z9e" id="Vek-6H-M9J"/>
+                                            </connections>
+                                        </view>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="icon-up@2x.jpg" id="xl4-il-Zgg">
                                             <rect key="frame" x="8" y="8" width="48" height="72"/>
                                         </imageView>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Up" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2R1-0u-8Ef">
-                                            <rect key="frame" x="65" y="8" width="27" height="21"/>
+                                            <rect key="frame" x="65" y="18" width="27" height="21"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="(2009)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wQP-WU-ein">
-                                            <rect key="frame" x="95" y="9" width="50" height="21"/>
+                                            <rect key="frame" x="95" y="19" width="50" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -87,6 +121,7 @@
                                     <outlet property="iconImageView" destination="xl4-il-Zgg" id="pk5-yD-ZbO"/>
                                     <outlet property="releaseYearLabel" destination="wQP-WU-ein" id="mI8-dV-uUB"/>
                                     <outlet property="titleLabel" destination="2R1-0u-8Ef" id="6AF-Wr-dle"/>
+                                    <outlet property="votesView" destination="Qry-7f-VVa" id="KwY-Zm-h1f"/>
                                     <segue destination="Lsd-BU-2Z0" kind="push" identifier="MovieDetails" id="IRq-oO-brB"/>
                                 </connections>
                             </tableViewCell>
@@ -109,15 +144,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Up (2009)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Pgz-ei-9iW">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Up" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Pgz-ei-9iW" userLabel="Title label">
                                 <rect key="frame" x="20" y="128" width="280" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6x8-P8-LFl">
-                                <rect key="frame" x="20" y="157" width="280" height="110"/>
+                                <rect key="frame" x="20" y="187" width="280" height="110"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                 <string key="text">After a lifetime of dreaming of traveling the world, 78-year-old homebody Carl flies away on an unbelievable adventure with Russell, an 8-year-old Wilderness Explorer, unexpectedly in tow. Together, the unlikely pair embarks on a thrilling odyssey full of jungle beasts and rough terrain.
 
@@ -126,22 +161,6 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="1349622728_star_full.png" id="5Cw-TN-msv" userLabel="Star">
-                                <rect key="frame" x="194" y="128" width="30" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="1349622728_star_full.png" id="EVx-l5-o7n" userLabel="Star">
-                                <rect key="frame" x="220" y="128" width="30" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="1349622728_star_full.png" id="eBG-Mf-7ga" userLabel="Star">
-                                <rect key="frame" x="245" y="128" width="30" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="1349622728_star_full.png" id="WzE-pq-7zf" userLabel="Star">
-                                <rect key="frame" x="270" y="128" width="30" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
-                            </imageView>
                             <view contentMode="scaleToFill" id="em0-Ih-QFh" customClass="MoviePosterView">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="110"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -159,6 +178,47 @@
                                     <outletCollection property="gestureRecognizers" destination="YU1-7L-5qV" appends="YES" id="Ngg-6b-gNd"/>
                                 </connections>
                             </view>
+                            <view contentMode="scaleToFill" id="15X-GL-256" customClass="VotesView">
+                                <rect key="frame" x="187" y="158" width="113" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="star-full.png" id="B9e-I9-bcO" userLabel="Star 1">
+                                        <rect key="frame" x="0.0" y="0.0" width="21" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="star-full.png" id="r28-h2-A52" userLabel="Star 2">
+                                        <rect key="frame" x="23" y="0.0" width="21" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="star-full.png" id="D25-we-Uut" userLabel="Star 3">
+                                        <rect key="frame" x="46" y="0.0" width="21" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="star-half.png" id="q7w-bB-4oW" userLabel="Star 4">
+                                        <rect key="frame" x="69" y="0.0" width="21" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="star-none.png" id="7hX-cW-PAN" userLabel="Star 5">
+                                        <rect key="frame" x="92" y="0.0" width="21" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="starView1" destination="B9e-I9-bcO" id="es6-lJ-6TF"/>
+                                    <outlet property="starView2" destination="r28-h2-A52" id="Zgh-vM-pSl"/>
+                                    <outlet property="starView3" destination="D25-we-Uut" id="wZ2-WK-Gzw"/>
+                                    <outlet property="starView4" destination="q7w-bB-4oW" id="HhR-cF-Y3l"/>
+                                    <outlet property="starView5" destination="7hX-cW-PAN" id="jil-o2-VUH"/>
+                                </connections>
+                            </view>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="2010" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="aef-xz-YGG" userLabel="Release year label">
+                                <rect key="frame" x="20" y="158" width="152" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
@@ -167,7 +227,9 @@
                     <connections>
                         <outlet property="moviePosterView" destination="em0-Ih-QFh" id="giz-g2-Xvk"/>
                         <outlet property="overviewLabel" destination="6x8-P8-LFl" id="ly2-cR-Y0I"/>
+                        <outlet property="releaseYearLabel" destination="aef-xz-YGG" id="C7O-hz-rby"/>
                         <outlet property="titleLabel" destination="Pgz-ei-9iW" id="JVs-0q-usI"/>
+                        <outlet property="votesView" destination="15X-GL-256" id="9Pc-dZ-RUt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0F0-l8-OI9" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -277,10 +339,12 @@
     </scenes>
     <resources>
         <image name="12-eye.png" width="24" height="16"/>
-        <image name="1349622728_star_full.png" width="128" height="128"/>
         <image name="258-checkmark.png" width="19" height="18"/>
         <image name="icon-up@2x.jpg" width="96" height="144"/>
         <image name="poster-up@2x.jpg" width="640" height="960"/>
+        <image name="star-full.png" width="21" height="21"/>
+        <image name="star-half.png" width="21" height="21"/>
+        <image name="star-none.png" width="21" height="21"/>
     </resources>
     <classes>
         <class className="MovieCell" superclassName="UITableViewCell">
@@ -289,6 +353,7 @@
                 <relationship kind="outlet" name="iconImageView" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="releaseYearLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="votesView" candidateClass="VotesView"/>
             </relationships>
         </class>
         <class className="MovieDetailViewController" superclassName="UIViewController">
@@ -296,7 +361,9 @@
             <relationships>
                 <relationship kind="outlet" name="moviePosterView" candidateClass="MoviePosterView"/>
                 <relationship kind="outlet" name="overviewLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="releaseYearLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="votesView" candidateClass="VotesView"/>
             </relationships>
         </class>
         <class className="MovieListViewController" superclassName="UITableViewController">
@@ -321,6 +388,16 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MyMoviesViewController.h"/>
             <relationships>
                 <relationship kind="outlet" name="tabBar" candidateClass="UITabBar"/>
+            </relationships>
+        </class>
+        <class className="VotesView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/VotesView.h"/>
+            <relationships>
+                <relationship kind="outlet" name="starView1" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="starView2" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="starView3" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="starView4" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="starView5" candidateClass="UIImageView"/>
             </relationships>
         </class>
     </classes>

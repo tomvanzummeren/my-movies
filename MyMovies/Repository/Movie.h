@@ -15,7 +15,7 @@
 @property (strong, nonatomic) NSDate *releaseDate;
 @property (strong, nonatomic) NSString *iconImageUrl;
 @property (strong, nonatomic) NSString *posterImageUrl;
-@property(nonatomic) NSInteger voteAverage;
+@property(nonatomic) CGFloat voteAverage;
 
 - (NSString *) releaseYear;
 @end

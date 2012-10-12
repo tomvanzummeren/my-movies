@@ -51,7 +51,7 @@ static MovieRepository *instance = nil;
             movie.title = [resultJson stringForKey:@"title"];
             movie.releaseDate = [dateFormatter dateFromString:[resultJson stringForKey:@"release_date"]];
             movie.identifier = [resultJson integerForKey:@"id"];
-            movie.voteAverage = [resultJson integerForKey:@"vote_average"];
+            movie.voteAverage = [resultJson floatForKey:@"vote_average"];
 
             NSString *posterPath = [resultJson stringForKey:@"poster_path"];
             if (posterPath) {

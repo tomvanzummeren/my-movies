@@ -1,10 +1,13 @@
 @class Movie;
 @class MoviePosterView;
+@class VotesView;
 
 @interface MovieDetailViewController : UIViewController {
-    IBOutlet MoviePosterView *moviePosterView;
-    IBOutlet UILabel *titleLabel;
-    IBOutlet UILabel *overviewLabel;
+    __weak IBOutlet MoviePosterView *moviePosterView;
+    __weak IBOutlet UILabel *titleLabel;
+    __weak IBOutlet UILabel *releaseYearLabel;
+    __weak IBOutlet VotesView *votesView;
+    __weak IBOutlet UILabel *overviewLabel;
 }
 
 @property (strong, nonatomic) Movie *movie;

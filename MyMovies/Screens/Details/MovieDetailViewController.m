@@ -4,6 +4,7 @@
 #import "MoviePosterView.h"
 #import "MovieRepository.h"
 #import "MovieDetails.h"
+#import "VotesView.h"
 
 @implementation MovieDetailViewController {
     MovieRepository *movieRepository;
@@ -17,7 +18,9 @@
 
 - (void) viewDidLoad {
     self.title = movie.title;
-    titleLabel.text = [NSString stringWithFormat:@"%@ (%@)", movie.title, movie.releaseYear];
+    titleLabel.text = movie.title;
+    releaseYearLabel.text = movie.releaseYear;
+    [votesView setScore:movie.voteAverage];
 
     [moviePosterView setPosterImageUrl:movie.posterImageUrl];
 

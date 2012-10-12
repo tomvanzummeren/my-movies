@@ -13,4 +13,6 @@
 
 - (NSInteger) integerForKey:(NSString *) key;
 
+- (CGFloat) floatForKey:(NSString *) key;
+
 @end
