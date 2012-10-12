@@ -14,4 +14,8 @@
 - (NSArray *) toWatchList;
 
 - (void) cancelSearch;
+
+- (void) addToToWatchList:(Movie *) movie;
+
+- (void) addToWatchedList:(Movie *) movie;
 @end

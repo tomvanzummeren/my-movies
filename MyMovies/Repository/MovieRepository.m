@@ -14,14 +14,23 @@
 #define POSTER_SIZE @"original"
 
 @implementation MovieRepository {
+
     NSDateFormatter *dateFormatter;
+
     HttpRequest *currentSearchHttpRequest;
+
+    // TODO: Save in database (SQLite)
+    NSMutableArray *toWatchList;
+    NSMutableArray *watchedList;
 }
 - (id) init {
     self = [super init];
     if (self) {
         dateFormatter = [NSDateFormatter new];
         dateFormatter.dateFormat = @"yyyy-MM-dd";
+
+        toWatchList = [NSMutableArray array];
+        watchedList = [NSMutableArray array];
     }
     return self;
 }
@@ -82,14 +91,22 @@ static MovieRepository *instance = nil;
 }
 
 - (NSArray *) watchedList {
-    return [NSArray array];
+    return watchedList;
 }
 
 - (NSArray *) toWatchList {
-    return [NSArray array];
+    return toWatchList;
 }
 
 - (void) cancelSearch {
-     [currentSearchHttpRequest cancel];
+    [currentSearchHttpRequest cancel];
+}
+
+- (void) addToToWatchList:(Movie *) movie {
+    [toWatchList addObject:movie];
+}
+
+- (void) addToWatchedList:(Movie *) movie {
+    [watchedList addObject:movie];
 }
 @end

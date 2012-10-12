@@ -1,11 +1,13 @@
 #import "MovieSearchViewController.h"
 #import "MovieListViewController.h"
 #import "MovieRepository.h"
+#import "Movie.h"
 
 @implementation MovieSearchViewController {
     MovieListViewController *movieListViewController;
     MovieRepository *movieRepository;
 }
+@synthesize onMovieSelected;
 
 - (void) awakeFromNib {
     [super awakeFromNib];
@@ -14,6 +16,11 @@
 
 - (void) viewDidLoad {
     movieListViewController = [[self childViewControllers] objectAtIndex:0];
+    movieListViewController.customOnCellTapped = ^(Movie *movie){
+        [self dismissViewControllerAnimated:YES completion:^{
+            onMovieSelected(movie);
+        }];
+    };
     [searchBar becomeFirstResponder];
 }
 

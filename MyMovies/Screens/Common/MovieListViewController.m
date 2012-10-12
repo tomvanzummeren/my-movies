@@ -5,8 +5,9 @@
 #import "MovieDetailViewController.h"
 
 @implementation MovieListViewController {
-    NSArray *movies;
+    NSMutableArray *movies;
 }
+@synthesize customOnCellTapped;
 
 - (NSInteger) tableView:(UITableView *) tv numberOfRowsInSection:(NSInteger) section {
     return movies.count;
@@ -17,6 +18,10 @@
 
     Movie *movie = [movies objectAtIndex:(NSUInteger) indexPath.row];
     movieCell.movie = movie;
+    if (!customOnCellTapped) {
+        movieCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    }
+
     return movieCell;
 }
 
@@ -28,14 +33,39 @@
     }
 }
 
+- (void) tableView:(UITableView *) tableView didSelectRowAtIndexPath:(NSIndexPath *) indexPath {
+    if (customOnCellTapped) {
+        Movie *movie = [movies objectAtIndex:(NSUInteger) indexPath.row];
+        customOnCellTapped(movie);
+    } else {
+        UITableViewCell *cell = [self tableView:tableView cellForRowAtIndexPath:indexPath];
+        [self performSegueWithIdentifier:@"MovieDetails" sender:cell];
+    }
+}
+
+- (void) tableView:(UITableView *) tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *) indexPath {
+    UITableViewCell *cell = [self tableView:tableView cellForRowAtIndexPath:indexPath];
+    [self performSegueWithIdentifier:@"MovieDetails" sender:cell];
+}
+
 
 - (NSArray *) movies {
     return movies;
 }
 
 - (void) setMovies:(NSArray *) someMovies {
-    movies = someMovies;
+    movies = [someMovies mutableCopy];
     [self.tableView reloadData];
+}
+
+- (void) addMovie:(Movie *) movie {
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:movies.count inSection:0];
+    [movies addObject:movie];
+    [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+
+//    [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+    [self.tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionBottom];
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 @end

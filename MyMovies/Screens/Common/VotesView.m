@@ -10,7 +10,9 @@
 }
 
 - (void) setScore:(CGFloat) score {
-    CGFloat filledStarsCount = score / 2.0;
+    CGFloat filledStarsCount = ceilf(score) / 2.0;
+
+
     CGFloat index = 0;
     for (UIImageView *starView in starViews) {
         if (filledStarsCount >= index + 1.0) {

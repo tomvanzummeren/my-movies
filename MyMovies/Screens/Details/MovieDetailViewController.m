@@ -27,6 +27,7 @@
     overviewLabel.text = @"";
     [movieRepository loadMovieDetails:movie callback:^(MovieDetails *details) {
         overviewLabel.text = details.overview;
+        [overviewLabel sizeToFit];
     }];
 }
 

@@ -112,7 +112,12 @@
 
 - (void) setPosterImageUrl:(NSString *) url {
     if (url) {
-        [imageView setImageWithURL:[NSURL URLWithString:url]];
+        [activityIndicator startAnimating];
+        [imageView setImageWithURL:[NSURL URLWithString:url] success:^(UIImage *image) {
+            [activityIndicator stopAnimating];
+        } failure:^(NSError *error) {
+            // Ignore
+        }];
     } else {
         imageView.image = nil;
     }

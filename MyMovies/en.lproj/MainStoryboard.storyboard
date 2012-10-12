@@ -37,7 +37,7 @@
                     <navigationItem key="navigationItem" title="My Movies" id="3Zu-Oz-zXf">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="rJc-LG-R0H">
                             <connections>
-                                <segue destination="A13-HF-bCb" kind="modal" modalTransitionStyle="coverVertical" id="dxx-BU-Xlo"/>
+                                <segue destination="A13-HF-bCb" kind="modal" identifier="SearchMovies" modalTransitionStyle="coverVertical" id="dxx-BU-Xlo"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -58,11 +58,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MovieCell" rowHeight="88" id="nmy-n1-Tsv" customClass="MovieCell">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="detailDisclosureButton" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MovieCell" rowHeight="88" id="nmy-n1-Tsv" customClass="MovieCell">
                                 <rect key="frame" x="0.0" y="22" width="320" height="88"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="300" height="87"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="287" height="87"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" id="Qry-7f-VVa" customClass="VotesView">
@@ -102,7 +102,7 @@
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="icon-up@2x.jpg" id="xl4-il-Zgg">
                                             <rect key="frame" x="8" y="8" width="48" height="72"/>
                                         </imageView>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Up" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2R1-0u-8Ef">
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Up" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" id="2R1-0u-8Ef">
                                             <rect key="frame" x="65" y="18" width="27" height="21"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -122,7 +122,6 @@
                                     <outlet property="releaseYearLabel" destination="wQP-WU-ein" id="mI8-dV-uUB"/>
                                     <outlet property="titleLabel" destination="2R1-0u-8Ef" id="6AF-Wr-dle"/>
                                     <outlet property="votesView" destination="Qry-7f-VVa" id="KwY-Zm-h1f"/>
-                                    <segue destination="Lsd-BU-2Z0" kind="push" identifier="MovieDetails" id="IRq-oO-brB"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -131,6 +130,9 @@
                             <outlet property="delegate" destination="HxA-Hx-wRt" id="8D4-q0-Ik7"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <segue destination="Lsd-BU-2Z0" kind="push" identifier="MovieDetails" id="PFf-uC-j8v"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="of3-DO-phh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -161,23 +163,6 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" id="em0-Ih-QFh" customClass="MoviePosterView">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="110"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <imageView clipsSubviews="YES" contentMode="center" image="poster-up@2x.jpg" id="f9L-J8-g4b">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="110"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" heightSizable="YES"/>
-                                        <gestureRecognizers/>
-                                    </imageView>
-                                </subviews>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <connections>
-                                    <outlet property="imageView" destination="f9L-J8-g4b" id="dGo-Oy-SVd"/>
-                                    <outletCollection property="gestureRecognizers" destination="Zl7-YN-1vd" appends="YES" id="vdJ-96-hLU"/>
-                                    <outletCollection property="gestureRecognizers" destination="YU1-7L-5qV" appends="YES" id="Ngg-6b-gNd"/>
-                                </connections>
-                            </view>
                             <view contentMode="scaleToFill" id="15X-GL-256" customClass="VotesView">
                                 <rect key="frame" x="187" y="158" width="113" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -219,6 +204,28 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" id="em0-Ih-QFh" customClass="MoviePosterView">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="110"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" contentMode="center" image="poster-up@2x.jpg" id="f9L-J8-g4b">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="110"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" heightSizable="YES"/>
+                                        <gestureRecognizers/>
+                                    </imageView>
+                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" hidesWhenStopped="YES" style="whiteLarge" id="iLx-rS-6ZE">
+                                        <rect key="frame" x="142" y="36" width="37" height="37"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <outlet property="activityIndicator" destination="iLx-rS-6ZE" id="7bp-q0-7RI"/>
+                                    <outlet property="imageView" destination="f9L-J8-g4b" id="dGo-Oy-SVd"/>
+                                    <outletCollection property="gestureRecognizers" destination="Zl7-YN-1vd" appends="YES" id="vdJ-96-hLU"/>
+                                    <outletCollection property="gestureRecognizers" destination="YU1-7L-5qV" appends="YES" id="Ngg-6b-gNd"/>
+                                </connections>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
@@ -307,7 +314,7 @@
                             <rect key="frame" x="5" y="6" width="242" height="33"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <searchBar contentMode="redraw" id="dww-De-zKq">
+                                <searchBar contentMode="redraw" placeholder="Movie title" id="dww-De-zKq">
                                     <rect key="frame" x="-5" y="-6" width="251" height="44"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                     <textInputTraits key="textInputTraits"/>
@@ -374,6 +381,7 @@
             <relationships>
                 <relationship kind="action" name="handlePanGesture:" candidateClass="UIPanGestureRecognizer"/>
                 <relationship kind="action" name="toggleSize"/>
+                <relationship kind="outlet" name="activityIndicator" candidateClass="UIActivityIndicatorView"/>
                 <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
             </relationships>
         </class>

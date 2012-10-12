@@ -351,7 +351,6 @@
 		DBF8BCDA1620D39F003F32B9 = {
 			isa = PBXGroup;
 			children = (
-				DB7F9E2E16282B22008565D5 /* ImageIO.framework */,
 				DBF8BCEF1620D3A0003F32B9 /* MyMovies */,
 				DBF8BCE81620D3A0003F32B9 /* Frameworks */,
 				DBF8BCE61620D3A0003F32B9 /* Products */,
@@ -369,6 +368,7 @@
 		DBF8BCE81620D3A0003F32B9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DB7F9E2E16282B22008565D5 /* ImageIO.framework */,
 				DBF8BCE91620D3A0003F32B9 /* UIKit.framework */,
 				DBF8BCEB1620D3A0003F32B9 /* Foundation.framework */,
 				DBF8BCED1620D3A0003F32B9 /* CoreGraphics.framework */,
