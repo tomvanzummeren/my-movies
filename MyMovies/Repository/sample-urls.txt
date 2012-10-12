@@ -1,0 +1,16 @@
+
+Image configuration
+http://api.themoviedb.org/3/configuration?api_key=7f379d4320f537c491799a4d1ea1be47
+
+Search for "up"
+http://api.themoviedb.org/3/search/movie?query=up&api_key=7f379d4320f537c491799a4d1ea1be47
+
+Movie details for the movie "Up".
+http://api.themoviedb.org/3/movie/14160?api_key=7f379d4320f537c491799a4d1ea1be47
+
+Image small (voor lijstweergave)
+http://cf2.imgobject.com/t/p/w154/vt7vK7gi0h0r9GJ5FaeQDT7wqrl.jpg
+
+Image origineel (voor in detailscherm)
+http://cf2.imgobject.com/t/p/original/vt7vK7gi0h0r9GJ5FaeQDT7wqrl.jpg
+

@@ -10,10 +10,26 @@
 
 @implementation Movie
 
+@synthesize identifier;
 @synthesize title;
-@synthesize releaseYear;
+@synthesize releaseDate;
 @synthesize overview;
-@synthesize iconImage;
-@synthesize posterImage;
+@synthesize iconImageUrl;
+@synthesize posterImageUrl;
+@synthesize voteAverage;
+
+static NSDateFormatter *yearFormatter;
+
++ (void) initialize {
+    yearFormatter = [NSDateFormatter new];
+    yearFormatter.dateFormat = @"yyyy";
+}
+
+- (NSString *) releaseYear {
+    if (!releaseDate) {
+        return nil;
+    }
+    return [yearFormatter stringFromDate:releaseDate];
+}
 
 @end

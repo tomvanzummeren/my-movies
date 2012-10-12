@@ -47,14 +47,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-442" y="876"/>
+            <point key="canvasLocation" x="342" y="-444"/>
         </scene>
         <!--Movie List (embeddable)-->
         <scene sceneID="tzt-JN-8Ge">
             <objects>
                 <tableViewController id="HxA-Hx-wRt" userLabel="Movie List (embeddable)" customClass="MovieListViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="88" sectionHeaderHeight="22" sectionFooterHeight="22" id="dRU-q3-hod">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="455"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -107,14 +107,14 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="of3-DO-phh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="691" y="908"/>
+            <point key="canvasLocation" x="1475" y="-412"/>
         </scene>
         <!--Movie Details-->
         <scene sceneID="FP0-bB-XtA">
             <objects>
                 <viewController id="Lsd-BU-2Z0" userLabel="Movie Details" customClass="MovieDetailViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xFC-KY-taq">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="455"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Up (2009)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Pgz-ei-9iW">
@@ -190,7 +190,7 @@
                     </connections>
                 </panGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1257" y="908"/>
+            <point key="canvasLocation" x="2041" y="-412"/>
         </scene>
         <!--My Movies Navigation-->
         <scene sceneID="4he-X0-VY5">
@@ -208,7 +208,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lh8-lC-Z4b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1038" y="876"/>
+            <point key="canvasLocation" x="-254" y="-444"/>
         </scene>
         <!--Movie Search Navigation-->
         <scene sceneID="sw9-4V-ETL">
@@ -226,7 +226,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KTk-WX-sbC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-428" y="1802"/>
+            <point key="canvasLocation" x="356" y="482"/>
         </scene>
         <!--Movie Search-->
         <scene sceneID="aF6-vH-13D">
@@ -275,7 +275,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dxd-aI-qVj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="152" y="1802"/>
+            <point key="canvasLocation" x="936" y="482"/>
         </scene>
     </scenes>
     <resources>
@@ -333,6 +333,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="3X9-3f-ob1"/>
+        <segue reference="BKP-5D-ex4"/>
     </inferredMetricsTieBreakers>
 </document>

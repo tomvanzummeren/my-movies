@@ -10,10 +10,16 @@
 
 @interface Movie : NSObject
 
+@property (nonatomic) NSInteger identifier;
 @property (strong, nonatomic) NSString *title;
-@property (strong, nonatomic) NSString *releaseYear;
-@property (strong, nonatomic) NSString *overview;
-@property (strong, nonatomic) UIImage *iconImage;
-@property (strong, nonatomic) UIImage *posterImage;
+@property (strong, nonatomic) NSDate *releaseDate;
 
+// TODO: See how bad we want "overview" to be in search results. Needs separate API call.
+@property (strong, nonatomic) NSString *overview;
+
+@property (strong, nonatomic) NSString *iconImageUrl;
+@property (strong, nonatomic) NSString *posterImageUrl;
+@property(nonatomic) NSInteger voteAverage;
+
+- (NSString *) releaseYear;
 @end

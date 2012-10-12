@@ -1,6 +1,7 @@
 
 #import "MovieCell.h"
 #import "Movie.h"
+#import "UIImageView+WebCache.h"
 
 #define MARGIN 5
 
@@ -10,10 +11,18 @@
 
 - (void) setMovie:(Movie *) aMovie {
     movie = aMovie;
-    
-    iconImageView.image = movie.iconImage;
+
+    if (movie.iconImageUrl) {
+        [iconImageView setImageWithURL:[[NSURL alloc] initWithString:movie.iconImageUrl]];
+    } else {
+        iconImageView.image = nil;
+    }
     titleLabel.text = movie.title;
-    releaseYearLabel.text = [NSString stringWithFormat:@"(%@)", movie.releaseYear];
+    if (movie.releaseYear) {
+        releaseYearLabel.text = [NSString stringWithFormat:@"(%@)", movie.releaseYear];
+    } else {
+        releaseYearLabel.text = @"";
+    }
     overviewLabel.text = movie.overview;
 
     CGFloat titleTextWidth = [titleLabel.text sizeWithFont:titleLabel.font].width;

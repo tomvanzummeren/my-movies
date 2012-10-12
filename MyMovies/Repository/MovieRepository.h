@@ -9,4 +9,5 @@
 
 - (NSArray *) toWatchList;
 
+- (void) cancelSearch;
 @end

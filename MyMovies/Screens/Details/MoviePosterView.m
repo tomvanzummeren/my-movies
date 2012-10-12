@@ -1,5 +1,6 @@
 
 #import "MoviePosterView.h"
+#import "UIImageView+WebCache.h"
 
 @implementation MoviePosterView {
     BOOL headerImageMaximized;
@@ -109,8 +110,12 @@
     blackBackground.alpha = backgroundAlpha;
 }
 
-- (void) setPosterImage:(UIImage *) image {
-    imageView.image = image;
+- (void) setPosterImageUrl:(NSString *) url {
+    if (url) {
+        [imageView setImageWithURL:[NSURL URLWithString:url]];
+    } else {
+        imageView.image = nil;
+    }
 }
 
 @end

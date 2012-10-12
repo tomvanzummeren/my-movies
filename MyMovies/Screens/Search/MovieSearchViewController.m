@@ -1,8 +1,15 @@
 #import "MovieSearchViewController.h"
 #import "MovieListViewController.h"
+#import "MovieRepository.h"
 
 @implementation MovieSearchViewController {
     MovieListViewController *movieListViewController;
+    MovieRepository *movieRepository;
+}
+
+- (void) awakeFromNib {
+    [super awakeFromNib];
+    movieRepository = [MovieRepository instance];
 }
 
 - (void) viewDidLoad {
@@ -15,8 +22,13 @@
 
 - (void) searchBar:(UISearchBar *) db textDidChange:(NSString *) searchText {
     if (searchText.length > 0) {
-        movieListViewController.movies = [NSArray array];
+        [movieRepository search:searchText callback:^(NSArray *movies) {
+            if ([searchBar.text isEqualToString:searchText]) {
+                movieListViewController.movies = movies;
+            }
+        }];
     } else {
+        [movieRepository cancelSearch];
         movieListViewController.movies = [NSArray array];
     }
 }

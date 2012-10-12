@@ -12,8 +12,7 @@
     titleLabel.text = [NSString stringWithFormat:@"%@ (%@)", movie.title, movie.releaseYear];
     overviewLabel.text = movie.overview;
 
-    [moviePosterView setPosterImage:movie.posterImage];
-
+    [moviePosterView setPosterImageUrl:movie.posterImageUrl];
 }
 
 @end
