@@ -7,7 +7,7 @@
 
 + (id) requestWithUrl:(NSString *) anUrl, ...;
 
-- (void) perform:(void (^)(id result)) onSuccess failure:(void (^)()) onFailure;
+- (void) perform:(void (^)(id response)) onSuccess failure:(void (^)()) onFailure;
 
 - (void) cancel;
 

@@ -37,7 +37,7 @@
                     <navigationItem key="navigationItem" title="My Movies" id="3Zu-Oz-zXf">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="rJc-LG-R0H">
                             <connections>
-                                <segue destination="A13-HF-bCb" kind="modal" modalTransitionStyle="crossDissolve" id="dxx-BU-Xlo"/>
+                                <segue destination="A13-HF-bCb" kind="modal" modalTransitionStyle="coverVertical" id="dxx-BU-Xlo"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -80,19 +80,11 @@
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dts-Cv-01E">
-                                            <rect key="frame" x="65" y="31" width="226" height="46"/>
-                                            <string key="text">After a lifetime of dreaming of traveling the world, 78-year-old homebody Carl flies away on an unbelievable adventure with Russell, an 8-year-old Wilderness Explorer, unexpectedly in tow. Together, the unlikely pair embarks on a thrilling odyssey full of jungle beasts and rough terrain.</string>
-                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </label>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <connections>
                                     <outlet property="iconImageView" destination="xl4-il-Zgg" id="pk5-yD-ZbO"/>
-                                    <outlet property="overviewLabel" destination="dts-Cv-01E" id="UAk-WB-mTM"/>
                                     <outlet property="releaseYearLabel" destination="wQP-WU-ein" id="mI8-dV-uUB"/>
                                     <outlet property="titleLabel" destination="2R1-0u-8Ef" id="6AF-Wr-dle"/>
                                     <segue destination="Lsd-BU-2Z0" kind="push" identifier="MovieDetails" id="IRq-oO-brB"/>
@@ -250,11 +242,11 @@
                     <navigationItem key="navigationItem" id="Mm1-Vz-rpz">
                         <nil key="title"/>
                         <view key="titleView" contentMode="scaleToFill" id="WCa-cI-pJ5">
-                            <rect key="frame" x="5" y="6" width="310" height="33"/>
+                            <rect key="frame" x="5" y="6" width="242" height="33"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <searchBar contentMode="redraw" showsCancelButton="YES" id="dww-De-zKq">
-                                    <rect key="frame" x="-5" y="-6" width="320" height="44"/>
+                                <searchBar contentMode="redraw" id="dww-De-zKq">
+                                    <rect key="frame" x="-5" y="-6" width="251" height="44"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                     <textInputTraits key="textInputTraits"/>
                                     <scopeButtonTitles>
@@ -268,6 +260,11 @@
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
                         </view>
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="cancel" id="NCH-wx-MWX">
+                            <connections>
+                                <action selector="cancelButtonTapped" destination="xC7-dz-Pyc" id="NGr-xL-wOm"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="searchBar" destination="dww-De-zKq" id="cY3-U7-MVd"/>
@@ -290,7 +287,6 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MovieCell.h"/>
             <relationships>
                 <relationship kind="outlet" name="iconImageView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="overviewLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="releaseYearLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
             </relationships>
@@ -317,6 +313,7 @@
         <class className="MovieSearchViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MovieSearchViewController.h"/>
             <relationships>
+                <relationship kind="action" name="cancelButtonTapped"/>
                 <relationship kind="outlet" name="searchBar" candidateClass="UISearchBar"/>
             </relationships>
         </class>

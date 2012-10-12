@@ -37,7 +37,7 @@
     return [[HttpRequest alloc] initWithUrl:formattedUrl];
 }
 
-- (void) perform:(void (^)(id result)) onSuccess failure:(void (^)()) onFailure {
+- (void) perform:(void (^)(id response)) onSuccess failure:(void (^)()) onFailure {
     success = [onSuccess copy];
     failure = [onFailure copy];
 

@@ -23,7 +23,6 @@
     } else {
         releaseYearLabel.text = @"";
     }
-    overviewLabel.text = movie.overview;
 
     CGFloat titleTextWidth = [titleLabel.text sizeWithFont:titleLabel.font].width;
     titleLabel.frame = CGRectMake(titleLabel.frame.origin.x, titleLabel.frame.origin.y, titleTextWidth, titleLabel.frame.size.height);

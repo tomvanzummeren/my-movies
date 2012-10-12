@@ -13,7 +13,6 @@
 @synthesize identifier;
 @synthesize title;
 @synthesize releaseDate;
-@synthesize overview;
 @synthesize iconImageUrl;
 @synthesize posterImageUrl;
 @synthesize voteAverage;

@@ -14,9 +14,10 @@
 
 - (void) viewDidLoad {
     movieListViewController = [[self childViewControllers] objectAtIndex:0];
+    [searchBar becomeFirstResponder];
 }
 
-- (void) searchBarCancelButtonClicked:(UISearchBar *) sb {
+- (IBAction) cancelButtonTapped {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -33,9 +34,10 @@
     }
 }
 
-- (void) viewWillAppear:(BOOL) animated {
-    [searchBar becomeFirstResponder];
+- (void) searchBarSearchButtonClicked:(UISearchBar *) searchBar1 {
+    [searchBar resignFirstResponder];
 }
+
 
 - (void) viewWillDisappear:(BOOL) animated {
     [searchBar resignFirstResponder];
