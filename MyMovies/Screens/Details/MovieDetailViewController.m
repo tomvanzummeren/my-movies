@@ -24,7 +24,7 @@
 
     [moviePosterView setPosterImageUrl:movie.posterImageUrl];
 
-    overviewLabel.text = @"";
+    overviewLabel.text = @"Baas";
     [movieRepository loadMovieDetails:movie callback:^(MovieDetails *details) {
         overviewLabel.text = details.overview;
         [overviewLabel sizeToFit];
