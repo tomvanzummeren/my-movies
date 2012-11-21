@@ -7,7 +7,14 @@
 @implementation MovieListViewController {
     NSMutableArray *movies;
 }
+
+@synthesize moviesDeletable;
 @synthesize customOnCellTapped;
+
+
+-(void) viewDidLoad{
+    moviesDeletable = NO;
+}
 
 - (NSInteger) tableView:(UITableView *) tv numberOfRowsInSection:(NSInteger) section {
     return movies.count;
@@ -48,6 +55,20 @@
     [self performSegueWithIdentifier:@"MovieDetails" sender:cell];
 }
 
+- (BOOL) tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    NSLog(@"%@", moviesDeletable ? @"Yes" : @"No");
+    return moviesDeletable;
+}
+
+- (UITableViewCellEditingStyle) tableView:(UITableView *)tableView{
+   // if(moviesDeletable){
+        return UITableViewCellEditingStyleDelete;
+  //  }
+    return UITableViewCellEditingStyleNone;
+    
+}
+
 
 - (NSArray *) movies {
     return movies;
@@ -63,7 +84,6 @@
     [movies addObject:movie];
     [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
 
-//    [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionBottom animated:YES];
     [self.tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionBottom];
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
 }

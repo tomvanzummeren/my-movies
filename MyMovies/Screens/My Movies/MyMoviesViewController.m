@@ -19,8 +19,11 @@ typedef enum {
     movieRepository = [MovieRepository instance];
 
     movieListViewController = [[self childViewControllers] objectAtIndex:0];
+    movieListViewController.moviesDeletable = YES;
+    self.navigationItem.leftBarButtonItem = movieListViewController.editButtonItem;
+    
     movieListViewController.movies = [movieRepository toWatchList];
-
+    
     tabBar.selectedItem = [tabBar.items objectAtIndex:0];
 }
 

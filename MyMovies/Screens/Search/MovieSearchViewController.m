@@ -15,6 +15,7 @@
 }
 
 - (void) viewDidLoad {
+
     movieListViewController = [[self childViewControllers] objectAtIndex:0];
     movieListViewController.customOnCellTapped = ^(Movie *movie){
         [self dismissViewControllerAnimated:YES completion:^{

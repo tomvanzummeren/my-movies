@@ -1,4 +1,3 @@
-
 @interface MoviePosterView : UIView{
     __weak IBOutlet UIImageView *imageView;
     __weak IBOutlet UIActivityIndicatorView *activityIndicator;
