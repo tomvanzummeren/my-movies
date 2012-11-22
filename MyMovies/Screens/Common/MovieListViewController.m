@@ -62,10 +62,18 @@
 }
 
 - (UITableViewCellEditingStyle) tableView:(UITableView *)tableView{
-   // if(moviesDeletable){
+    if(moviesDeletable){
         return UITableViewCellEditingStyleDelete;
-  //  }
+    }
+    
+    
     return UITableViewCellEditingStyleNone;
+}
+
+- (void) tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSUInteger row = indexPath.row;
+    [movies removeObjectAtIndex:row];
+    [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationLeft];
     
 }
 
