@@ -3,9 +3,12 @@
 #import "MovieCell.h"
 #import "Movie.h"
 #import "MovieDetailViewController.h"
+#import "MoviesCoreData.h"
+
 
 @implementation MovieListViewController {
     NSMutableArray *movies;
+    MoviesCoreData *moviesCoreData;
 }
 
 @synthesize moviesDeletable;
@@ -15,6 +18,11 @@
 
 - (NSInteger) tableView:(UITableView *) tv numberOfRowsInSection:(NSInteger) section {
     return movies.count;
+}
+
+- (void) viewDidLoad{
+    moviesCoreData = [MoviesCoreData instance];
+
 }
 
 - (UITableViewCell *) tableView:(UITableView *) tv cellForRowAtIndexPath:(NSIndexPath *) indexPath {
@@ -76,7 +84,10 @@
 
 - (void) tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
     NSUInteger row = indexPath.row;
+    Movie *movie = [movies objectAtIndex:row];
+    [moviesCoreData removeMovie:movie WithType:@"Watched"];
     [movies removeObjectAtIndex:row];
+    
     [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationLeft];
     
 }

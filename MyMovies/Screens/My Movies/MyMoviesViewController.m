@@ -30,7 +30,7 @@ typedef enum {
 
     self.navigationItem.leftBarButtonItem = movieListViewController.editButtonItem;
     
-    movieListViewController.movies = [moviesCoreData getMovies];;
+    movieListViewController.movies = [moviesCoreData getMovies:@"toWatch"];
     tabBar.selectedItem = [tabBar.items objectAtIndex:0];
 }
 
@@ -39,11 +39,11 @@ typedef enum {
     [movieListViewController setEditing:NO];
     if (selectedItemIndex == 0) {
         movieListViewController.moviesReorderable = YES;
-        movieListViewController.movies = [moviesCoreData getMovies];
+        movieListViewController.movies = [moviesCoreData getMovies:@"toWatch"];
         selectedList = ToWatchList;
     } else {
         movieListViewController.moviesReorderable = NO;
-        movieListViewController.movies = [movieRepository watchedList];
+        movieListViewController.movies = [moviesCoreData getMovies:@"Watched"];
         selectedList = WatchedList;
     }
 }
@@ -55,12 +55,14 @@ typedef enum {
         searchViewController.onMovieSelected = ^(Movie *movie) {
             if (selectedList == ToWatchList) {
                 [movieRepository addToToWatchList:movie];
-                [movieListViewController addMovie:movie];
-                [moviesCoreData addMovie:movie];
+                [movieListViewController addMovie:movie ];
+               
+                [moviesCoreData addMovie:movie WithType:@"toWatch"];
                 
             } else if (selectedList == WatchedList) {
                 [movieRepository addToWatchedList:movie];
                 [movieListViewController addMovie:movie];
+                [moviesCoreData addMovie:movie WithType:@"Watched"];
             }
         };
     }

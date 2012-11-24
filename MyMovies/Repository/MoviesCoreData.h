@@ -11,7 +11,9 @@
 @interface MoviesCoreData : NSObject
 + (MoviesCoreData *) instance;
 
-- (void) addMovie:(Movie *) movie;
-- (NSMutableArray *) getMovies;
+- (void) addMovie:(Movie *) movie WithType: (NSString *) type;
+- (void) removeMovie: (Movie *) movie WithType: (NSString *) type;
+
+- (NSMutableArray *) getMovies:(NSString *) type;
 
 @end

@@ -25,7 +25,7 @@ static MoviesCoreData *instance = nil;
     return instance;
 }
 
-- (void) addMovie:(Movie *) movie{
+- (void) addMovie:(Movie *) movie WithType: (NSString *) type{
     NSLog(@"Adding movie to core data..");
     
 
@@ -43,17 +43,51 @@ static MoviesCoreData *instance = nil;
     [movieManagedObject setValue:[movie iconImageUrl] forKey:@"iconImageUrl"];
     [movieManagedObject setValue:[movie posterImageUrl] forKey:@"posterImageUrl"];
     [movieManagedObject setValue:[NSNumber numberWithFloat:[movie voteAverage]] forKey:@"voteAverage"];
-    
+    [movieManagedObject setValue:type forKey:@"type"];
+
     
     NSError *error;
     [context save:&error];
 
-  //  [self getMovies];
     return;
 }
 
+- (void) removeMovie: (Movie *) movie WithType: (NSString *) type{
+    NSLog(@"Removing movie:");
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext *context =
+    [appDelegate managedObjectContext];
+    
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:[NSEntityDescription entityForName:@"Movie" inManagedObjectContext:context]];
+    [request setIncludesPropertyValues:NO]; //only fetch the managedObjectID
+    
+    NSPredicate *identifier_pred =
+    [NSPredicate predicateWithFormat:@"(identifier = %@)",
+     [NSNumber numberWithInteger:movie.identifier]];
+    [request setPredicate:identifier_pred];
+    
+  /*  NSPredicate *type_pred =
+    [NSPredicate predicateWithFormat:@"(type = %@)",
+     type];
+    [request setPredicate:type_pred];*/
+    
+    
+    
+    NSError * error = nil;
+    NSArray * results = [context executeFetchRequest:request error:&error];
 
-- (NSMutableArray *) getMovies{
+    for (NSManagedObject * movie in results) {
+        [context deleteObject:movie];
+    }
+    
+    NSError *saveError = nil;
+    [context save:&saveError];
+    
+}
+
+
+- (NSMutableArray *) getMovies:(NSString *) type{
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     NSManagedObjectContext *context = [appDelegate managedObjectContext];
     
@@ -62,8 +96,11 @@ static MoviesCoreData *instance = nil;
                 inManagedObjectContext:context];
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     [request setEntity:entityDesc];
-
-
+    NSPredicate *pred =
+    [NSPredicate predicateWithFormat:@"(type = %@)",
+     type];
+    [request setPredicate:pred];
+    
     NSError *error;
     NSArray *results = [context executeFetchRequest:request
                                               error:&error];
