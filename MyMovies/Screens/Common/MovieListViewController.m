@@ -14,6 +14,7 @@
 @synthesize moviesDeletable;
 @synthesize moviesReorderable;
 @synthesize customOnCellTapped;
+@synthesize movieDeleted;
 
 
 - (NSInteger) tableView:(UITableView *) tv numberOfRowsInSection:(NSInteger) section {
@@ -85,7 +86,9 @@
 - (void) tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
     NSUInteger row = indexPath.row;
     Movie *movie = [movies objectAtIndex:row];
-    [moviesCoreData removeMovie:movie WithType:@"Watched"];
+  
+    movieDeleted(movie);
+    
     [movies removeObjectAtIndex:row];
     
     [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationLeft];
