@@ -9,12 +9,9 @@
 }
 
 @synthesize moviesDeletable;
+@synthesize moviesReorderable;
 @synthesize customOnCellTapped;
 
-
--(void) viewDidLoad{
-    moviesDeletable = NO;
-}
 
 - (NSInteger) tableView:(UITableView *) tv numberOfRowsInSection:(NSInteger) section {
     return movies.count;
@@ -55,9 +52,16 @@
     [self performSegueWithIdentifier:@"MovieDetails" sender:cell];
 }
 
+- (BOOL) tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath{
+    return moviesReorderable;
+}
+
+-(void) tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath{
+   [movies exchangeObjectAtIndex:(NSUInteger)sourceIndexPath.row withObjectAtIndex:(NSUInteger)destinationIndexPath.row];
+}
+
+
 - (BOOL) tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    NSLog(@"%@", moviesDeletable ? @"Yes" : @"No");
     return moviesDeletable;
 }
 

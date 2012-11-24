@@ -3,6 +3,8 @@
 #import "MovieListViewController.h"
 #import "MovieRepository.h"
 #import "MovieSearchViewController.h"
+#import "MoviesCoreData.h"
+
 
 typedef enum {
     ToWatchList,
@@ -12,14 +14,18 @@ typedef enum {
 @implementation MyMoviesViewController {
     MovieListViewController *movieListViewController;
     MovieRepository *movieRepository;
+    MoviesCoreData *moviesCoreData;
     SelectedList selectedList;
 }
 
 - (void) viewDidLoad {
     movieRepository = [MovieRepository instance];
-
+    moviesCoreData = [MoviesCoreData instance];
+    
     movieListViewController = [[self childViewControllers] objectAtIndex:0];
     movieListViewController.moviesDeletable = YES;
+    movieListViewController.moviesReorderable = YES;
+
     self.navigationItem.leftBarButtonItem = movieListViewController.editButtonItem;
     
     movieListViewController.movies = [movieRepository toWatchList];
@@ -29,10 +35,13 @@ typedef enum {
 
 - (void) tabBar:(UITabBar *) tb didSelectItem:(UITabBarItem *) item {
     int selectedItemIndex = [tabBar.items indexOfObject:item];
+    [movieListViewController setEditing:NO];
     if (selectedItemIndex == 0) {
+        movieListViewController.moviesReorderable = YES;
         movieListViewController.movies = [movieRepository toWatchList];
         selectedList = ToWatchList;
     } else {
+        movieListViewController.moviesReorderable = NO;
         movieListViewController.movies = [movieRepository watchedList];
         selectedList = WatchedList;
     }
@@ -46,6 +55,8 @@ typedef enum {
             if (selectedList == ToWatchList) {
                 [movieRepository addToToWatchList:movie];
                 [movieListViewController addMovie:movie];
+                [moviesCoreData addMovie:movie];
+                
             } else if (selectedList == WatchedList) {
                 [movieRepository addToWatchedList:movie];
                 [movieListViewController addMovie:movie];
