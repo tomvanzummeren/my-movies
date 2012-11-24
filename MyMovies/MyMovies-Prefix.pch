@@ -12,3 +12,38 @@
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
 #endif
+
+
+#define INTEGER_NULL NSIntegerMin       // Can be used as 'NULL' for NSInteger values
+#define INT_NULL ((int) INTEGER_NULL)   // Idem for 'int'
+
+// Macros to return singleton as advised by Apple Objective-C architect Chris Lattner
+// See https://developer.apple.com/videos/wwdc/2011/?id=323
+#define RETURN_SINGLETON(className) \
+    static className *singleInstance; \
+    static dispatch_once_t done; \
+    dispatch_once(&done, ^{ singleInstance = [className new]; });\
+    return singleInstance;
+#define RETURN_SINGLETON_WITH_INIT(className, initMessage) \
+    static className *singleInstance; \
+    static dispatch_once_t done; \
+    dispatch_once(&done, ^{ singleInstance = [[className alloc] initMessage]; });\
+    return singleInstance;
+
+
+#define RectDescription(rect) [NSString stringWithFormat:@"(%1.2f, %1.2f; %1.2f, %1.2f)", (rect).origin.x, (rect).origin.y, (rect).size.width, (rect).size.height]
+#define PointDescription(point) [NSString stringWithFormat:@"(%1.2f, %1.2f)", (point).x, (point).y]
+#define BoolDescription(value) ((value) ? @"YES" : @"NO")
+
+#define Log(message, ...)  NSLog(message, ##__VA_ARGS__)
+#define LogString(value)   NSLog(@#value @" = \"%@\"", (value))
+#define LogInt(value)      { if ((value) != INTEGER_NULL) NSLog(@#value @" = %d", (value)); else NSLog(@#value @" = INTEGER_NULL"); }
+#define LogBool(value)     NSLog(@#value @" = %@", BoolDescription((value)))
+#define LogObject(value)   NSLog(@#value @" = %@", (value))
+#define LogFloat(value)    NSLog(@#value @" = %f", (value))
+#define LogRect(value)     NSLog(@#value @" = %@", RectDescription((value)))
+#define LogPoint(value)    NSLog(@#value @" = %@", PointDescription((value)))
+
+// Macro to mark variables as weak to prevent the following warning:
+// "capturing 'self' strongly in this block is likely to lead to a retain cycle"
+#define weakInBlock __unsafe_unretained
