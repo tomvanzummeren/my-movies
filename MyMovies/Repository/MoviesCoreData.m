@@ -32,23 +32,28 @@ static MoviesCoreData *instance = nil;
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     NSManagedObjectContext *context =
     [appDelegate managedObjectContext];
-    NSManagedObject *newMovie;
-    newMovie = [NSEntityDescription
+    NSManagedObject *movieManagedObject;
+    movieManagedObject = [NSEntityDescription
                   insertNewObjectForEntityForName:@"Movie"
                   inManagedObjectContext:context];
 
-    [newMovie setValue:[movie title] forKey:@"title"];
-
-
+    [movieManagedObject setValue:[NSNumber numberWithInteger:[movie identifier]] forKey:@"identifier"];
+    [movieManagedObject setValue:[movie title] forKey:@"title"];
+    [movieManagedObject setValue:[movie releaseDate] forKey:@"releaseDate"];
+    [movieManagedObject setValue:[movie iconImageUrl] forKey:@"iconImageUrl"];
+    [movieManagedObject setValue:[movie posterImageUrl] forKey:@"posterImageUrl"];
+    [movieManagedObject setValue:[NSNumber numberWithFloat:[movie voteAverage]] forKey:@"voteAverage"];
+    
+    
     NSError *error;
     [context save:&error];
 
-    [self getMovies];
+  //  [self getMovies];
     return;
 }
 
 
-- (void) getMovies{
+- (NSMutableArray *) getMovies{
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     NSManagedObjectContext *context = [appDelegate managedObjectContext];
     
@@ -57,34 +62,46 @@ static MoviesCoreData *instance = nil;
                 inManagedObjectContext:context];
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     [request setEntity:entityDesc];
-    /*NSPredicate *pred =
-    [NSPredicate predicateWithFormat:@"(name = %@)",
-     name.text];
-    [request setPredicate:pred];*/
+
 
     NSError *error;
-    NSArray *movies = [context executeFetchRequest:request
+    NSArray *results = [context executeFetchRequest:request
                                               error:&error];
-    if ([movies count] == 0) {
+    
+    NSMutableArray *movies = [NSMutableArray new];
+    
+    if ([results count] == 0) {
         NSLog( @"No matches" );
     } else {
         NSLog(@"Movies:");
         
-        for (NSManagedObject *movie in movies) {
+        for (NSManagedObject *result in results) {
+           
+            //log
             NSLog([NSString stringWithFormat:
-                @"Movie title: %@", [movie valueForKey:@"title"]]
+                @"Movie title: %@", [result valueForKey:@"title"]]
             );
+           
+            //make movie object
+            Movie *movie = [Movie new];
+            
+            movie.identifier = [[result valueForKey:@"identifier"] integerValue];
+            movie.title = [result valueForKey:@"title"];
+            movie.releaseDate = [result valueForKey:@"releaseDate"];
+            movie.iconImageUrl = [result valueForKey:@"iconImageUrl"];
+            movie.posterImageUrl = [result valueForKey:@"posterImageUrl"];
+            movie.voteAverage = [[result valueForKey:@"voteAverage"] floatValue];
+            
+            
+            
+            [movies addObject:movie];
+            
         }
     }
+    
+    return movies;
 }
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    // Drawing code
-}
-*/
+
 
 @end

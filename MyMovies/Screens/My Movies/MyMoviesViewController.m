@@ -22,14 +22,15 @@ typedef enum {
     movieRepository = [MovieRepository instance];
     moviesCoreData = [MoviesCoreData instance];
     
+    NSMutableArray *movies = [moviesCoreData getMovies];
+    
     movieListViewController = [[self childViewControllers] objectAtIndex:0];
     movieListViewController.moviesDeletable = YES;
     movieListViewController.moviesReorderable = YES;
 
     self.navigationItem.leftBarButtonItem = movieListViewController.editButtonItem;
     
-    movieListViewController.movies = [movieRepository toWatchList];
-    
+    movieListViewController.movies = movies;
     tabBar.selectedItem = [tabBar.items objectAtIndex:0];
 }
 

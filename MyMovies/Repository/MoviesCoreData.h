@@ -12,5 +12,6 @@
 + (MoviesCoreData *) instance;
 
 - (void) addMovie:(Movie *) movie;
+- (NSMutableArray *) getMovies;
 
 @end
