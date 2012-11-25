@@ -7,7 +7,7 @@
 
     MovieListViewController *movieListViewController;
 
-    TheMovieDbApiConnector *movieRepository;
+    TheMovieDbApiConnector *apiConnector;
 
     MoviesCoreData *moviesCoreData;
 
@@ -15,7 +15,7 @@
 }
 
 - (void) viewDidLoad {
-    movieRepository = [TheMovieDbApiConnector instance];
+    apiConnector = [TheMovieDbApiConnector instance];
     moviesCoreData = [MoviesCoreData instance];
 
     movieListViewController = [[self childViewControllers] objectAtIndex:0];
@@ -57,11 +57,11 @@
         MovieSearchViewController *searchViewController = (MovieSearchViewController *) navigationController.topViewController;
         searchViewController.onMovieSelected = ^(Movie *movie) {
             if (selectedList == ToWatchList) {
-                [movieRepository addToToWatchList:movie];
+                [apiConnector addToToWatchList:movie];
                 [movieListViewController addMovie:movie];
                 [moviesCoreData addMovie:movie withType:ToWatchList];
             } else if (selectedList == WatchedList) {
-                [movieRepository addToWatchedList:movie];
+                [apiConnector addToWatchedList:movie];
                 [movieListViewController addMovie:movie];
                 [moviesCoreData addMovie:movie withType:WatchedList];
             }

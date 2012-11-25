@@ -5,13 +5,13 @@
 
 @implementation MovieSearchViewController {
     MovieListViewController *movieListViewController;
-    TheMovieDbApiConnector *movieRepository;
+    TheMovieDbApiConnector *apiConnector;
 }
 @synthesize onMovieSelected;
 
 - (void) awakeFromNib {
     [super awakeFromNib];
-    movieRepository = [TheMovieDbApiConnector instance];
+    apiConnector = [TheMovieDbApiConnector instance];
 }
 
 - (void) viewDidLoad {
@@ -32,13 +32,13 @@
 
 - (void) searchBar:(UISearchBar *) db textDidChange:(NSString *) searchText {
     if (searchText.length > 0) {
-        [movieRepository search:searchText callback:^(NSArray *movies) {
+        [apiConnector search:searchText callback:^(NSArray *movies) {
             if ([searchBar.text isEqualToString:searchText]) {
                 movieListViewController.movies = movies;
             }
         }];
     } else {
-        [movieRepository cancelSearch];
+        [apiConnector cancelSearch];
         movieListViewController.movies = [NSArray array];
     }
 }

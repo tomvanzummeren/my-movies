@@ -6,13 +6,13 @@
 #import "VotesView.h"
 
 @implementation MovieDetailViewController {
-    TheMovieDbApiConnector *movieRepository;
+    TheMovieDbApiConnector *apiConnector;
 }
 
 @synthesize movie;
 
 - (void) awakeFromNib {
-    movieRepository = [TheMovieDbApiConnector instance];
+    apiConnector = [TheMovieDbApiConnector instance];
 }
 
 - (void) viewDidLoad {
@@ -24,7 +24,7 @@
     [moviePosterView setPosterImageUrl:movie.posterImageUrl];
 
     overviewLabel.text = @"";
-    [movieRepository loadMovieDetails:movie callback:^(MovieDetails *details) {
+    [apiConnector loadMovieDetails:movie callback:^(MovieDetails *details) {
         overviewLabel.text = details.overview;
         [overviewLabel sizeToFit];
     }];
