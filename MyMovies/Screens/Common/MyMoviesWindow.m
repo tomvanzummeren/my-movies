@@ -12,6 +12,7 @@
 
 @implementation MyMoviesWindow {
     UIImageView *movieCellSnapshot;
+    CGAffineTransform originalTransform;
 }
 
 - (void) displayOverlappingMovieCell:(MovieCell *) cell {
@@ -25,6 +26,11 @@
     movieCellSnapshot.backgroundColor = [UIColor whiteColor];
 
     [self addSubview:movieCellSnapshot];
+
+    originalTransform = movieCellSnapshot.transform;
+    [UIView animateWithDuration:.3 animations:^{
+        movieCellSnapshot.transform = CGAffineTransformScale(movieCellSnapshot.transform, 1.25, 1.25);
+    }];
 }
 
 - (void) animateMoveOverlappingMovieCellToPosition:(CGPoint) point inView:(UITableView *) view completion:(void (^)()) completion {
@@ -37,6 +43,7 @@
     CGPoint convertedPoint = [view.superview convertPoint:point toView:self];
 
     [UIView animateWithDuration:.3 animations:^{
+        movieCellSnapshot.transform = originalTransform;
         movieCellSnapshot.frame = CGRectMake(
                 convertedPoint.x,
                 convertedPoint.y,
