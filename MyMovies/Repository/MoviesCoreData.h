@@ -8,14 +8,19 @@
 
 #import "Movie.h"
 
+typedef enum {
+    ToWatchList,
+    WatchedList
+} MovieListType;
+
 @interface MoviesCoreData : NSObject
 
 + (MoviesCoreData *) instance;
 
-- (void) addMovie:(Movie *) movie WithType: (NSString *) type;
+- (void) addMovie:(Movie *) movie withType: (MovieListType) type;
 
-- (void) deleteMovie:(Movie *) movie WithType: (NSString *) type;
+- (void) deleteMovie:(Movie *) movie WithType: (MovieListType) type;
 
-- (NSMutableArray *) findMovies:(NSString *) type;
+- (NSMutableArray *) findMovies:(MovieListType) type;
 
 @end

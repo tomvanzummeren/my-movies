@@ -4,18 +4,11 @@
 #import "MovieRepository.h"
 #import "MovieSearchViewController.h"
 
-
-typedef enum {
-    ToWatchList,
-    WatchedList
-} SelectedList;
-
 @implementation MyMoviesViewController {
     MovieListViewController *movieListViewController;
     MovieRepository *movieRepository;
-    SelectedList selectedList;
+    MovieListType selectedList;
 }
-
 
 
 - (void) viewDidLoad {
@@ -33,7 +26,7 @@ typedef enum {
     
     self.navigationItem.leftBarButtonItem = movieListViewController.editButtonItem;
     
-    movieListViewController.movies = [moviesCoreData findMovies:@"toWatch"];
+    movieListViewController.movies = [moviesCoreData findMovies:ToWatchList];
     tabBar.selectedItem = [tabBar.items objectAtIndex:0];
     
     
@@ -41,9 +34,9 @@ typedef enum {
 
 - (void) removeMovie:(Movie *) movie{
     if (selectedList == ToWatchList) {
-        [moviesCoreData deleteMovie:movie WithType:@"toWatched"];
+        [moviesCoreData deleteMovie:movie WithType:ToWatchList];
     }else{
-        [moviesCoreData deleteMovie:movie WithType:@"Watched"];
+        [moviesCoreData deleteMovie:movie WithType:WatchedList];
     }
 }
 
@@ -52,11 +45,11 @@ typedef enum {
     [movieListViewController setEditing:NO];
     if (selectedItemIndex == 0) {
         movieListViewController.moviesReorderable = YES;
-        movieListViewController.movies = [moviesCoreData findMovies:@"toWatch"];
+        movieListViewController.movies = [moviesCoreData findMovies:ToWatchList];
         selectedList = ToWatchList;
     } else {
         movieListViewController.moviesReorderable = NO;
-        movieListViewController.movies = [moviesCoreData findMovies:@"Watched"];
+        movieListViewController.movies = [moviesCoreData findMovies:WatchedList];
         selectedList = WatchedList;
     }
 }
@@ -69,13 +62,13 @@ typedef enum {
             if (selectedList == ToWatchList) {
                 [movieRepository addToToWatchList:movie];
                 [movieListViewController addMovie:movie ];
-               
-                [moviesCoreData addMovie:movie WithType:@"toWatch"];
+
+                [moviesCoreData addMovie:movie withType:ToWatchList];
                 
             } else if (selectedList == WatchedList) {
                 [movieRepository addToWatchedList:movie];
                 [movieListViewController addMovie:movie];
-                [moviesCoreData addMovie:movie WithType:@"Watched"];
+                [moviesCoreData addMovie:movie withType:WatchedList];
             }
         };
     }

@@ -22,7 +22,7 @@ static MoviesCoreData *instance = nil;
     return instance;
 }
 
-- (void) addMovie:(Movie *) movie WithType:(NSString *) type {
+- (void) addMovie:(Movie *) movie withType:(MovieListType) type {
     AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
     NSManagedObjectContext *context = [appDelegate managedObjectContext];
 
@@ -35,7 +35,7 @@ static MoviesCoreData *instance = nil;
     [managedMovie setValue:movie.iconImageUrl forKey:@"iconImageUrl"];
     [managedMovie setValue:movie.posterImageUrl forKey:@"posterImageUrl"];
     [managedMovie setValue:[NSNumber numberWithFloat:movie.voteAverage] forKey:@"voteAverage"];
-    [managedMovie setValue:type forKey:@"type"];
+    [managedMovie setValue:[self stringForType:type] forKey:@"type"];
 
     NSError *saveError = nil;
     [context save:&saveError];
@@ -44,7 +44,7 @@ static MoviesCoreData *instance = nil;
     return;
 }
 
-- (void) deleteMovie:(Movie *) movie WithType:(NSString *) type {
+- (void) deleteMovie:(Movie *) movie WithType:(MovieListType) type {
     AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
     NSManagedObjectContext *context = [appDelegate managedObjectContext];
 
@@ -67,13 +67,13 @@ static MoviesCoreData *instance = nil;
 }
 
 
-- (NSMutableArray *) findMovies:(NSString *) type {
+- (NSMutableArray *) findMovies:(MovieListType) type {
     AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
     NSManagedObjectContext *context = [appDelegate managedObjectContext];
 
     NSFetchRequest *request = [NSFetchRequest new];
     request.entity = [NSEntityDescription entityForName:MOVIE_ENTITY_NAME inManagedObjectContext:context];
-    request.predicate = [NSPredicate predicateWithFormat:@"(type = %@)", type];
+    request.predicate = [NSPredicate predicateWithFormat:@"(type = %@)", [self stringForType:type]];
 
     NSError *queryError = nil;
     NSArray *results = [context executeFetchRequest:request error:&queryError];
@@ -94,6 +94,16 @@ static MoviesCoreData *instance = nil;
         [movies addObject:movie];
     }
     return movies;
+}
+
+- (NSString *) stringForType:(MovieListType) type {
+    if (type == ToWatchList) {
+        return @"ToWatch";
+    } else if (type == WatchedList) {
+        return @"Watched";
+    }
+    NSLog(@"Error: unknown MovieListType");
+    return nil;
 }
 
 @end
