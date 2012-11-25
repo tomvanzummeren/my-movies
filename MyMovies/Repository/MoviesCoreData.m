@@ -29,12 +29,12 @@ static MoviesCoreData *instance = nil;
     NSManagedObject *managedMovie = [NSEntityDescription insertNewObjectForEntityForName:MOVIE_ENTITY_NAME
                                                                         inManagedObjectContext:context];
 
-    [managedMovie setValue:[NSNumber numberWithInteger:movie.identifier] forKey:@"identifier"];
+    [managedMovie setValue:@(movie.identifier) forKey:@"identifier"];
     [managedMovie setValue:movie.title forKey:@"title"];
     [managedMovie setValue:movie.releaseDate forKey:@"releaseDate"];
     [managedMovie setValue:movie.iconImageUrl forKey:@"iconImageUrl"];
     [managedMovie setValue:movie.posterImageUrl forKey:@"posterImageUrl"];
-    [managedMovie setValue:[NSNumber numberWithFloat:movie.voteAverage] forKey:@"voteAverage"];
+    [managedMovie setValue:@(movie.voteAverage) forKey:@"voteAverage"];
     [managedMovie setValue:[self stringForType:type] forKey:@"type"];
 
     NSError *saveError = nil;
@@ -52,7 +52,7 @@ static MoviesCoreData *instance = nil;
     request.entity = [NSEntityDescription entityForName:MOVIE_ENTITY_NAME inManagedObjectContext:context];
     request.includesPropertyValues = NO;
 
-    request.predicate = [NSPredicate predicateWithFormat:@"(identifier = %@)", [NSNumber numberWithInteger:movie.identifier]];
+    request.predicate = [NSPredicate predicateWithFormat:@"(identifier = %@)", @(movie.identifier)];
     NSError *queryError = nil;
     NSArray *results = [context executeFetchRequest:request error:&queryError];
     // TODO: Handle queryError
