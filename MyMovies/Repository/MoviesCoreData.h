@@ -21,6 +21,6 @@ typedef enum {
 
 - (void) deleteMovie:(Movie *) movie withType: (MovieListType) type;
 
-- (NSMutableArray *) findMovies:(MovieListType) type;
+- (NSMutableArray *) getMovies:(MovieListType) type;
 
 @end

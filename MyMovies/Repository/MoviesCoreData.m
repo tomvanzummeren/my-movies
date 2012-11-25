@@ -67,7 +67,7 @@ static MoviesCoreData *instance = nil;
 }
 
 
-- (NSMutableArray *) findMovies:(MovieListType) type {
+- (NSMutableArray *) getMovies:(MovieListType) type {
     AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
     NSManagedObjectContext *context = [appDelegate managedObjectContext];
 

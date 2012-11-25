@@ -22,23 +22,19 @@
     movieListViewController.moviesDeletable = YES;
     movieListViewController.moviesReorderable = YES;
 
-    __weak id weakSelf = self;
+    __weak MyMoviesViewController *weakSelf = self;
     movieListViewController.movieDeleted = ^(Movie *movie) {
-        [weakSelf removeMovie:movie];
+        [weakSelf deleteMovie:movie];
     };
 
     self.navigationItem.leftBarButtonItem = movieListViewController.editButtonItem;
 
-    movieListViewController.movies = [moviesCoreData findMovies:ToWatchList];
+    movieListViewController.movies = [moviesCoreData getMovies:ToWatchList];
     tabBar.selectedItem = [tabBar.items objectAtIndex:0];
 }
 
-- (void) removeMovie:(Movie *) movie {
-    if (selectedList == ToWatchList) {
-        [moviesCoreData deleteMovie:movie withType:ToWatchList];
-    } else {
-        [moviesCoreData deleteMovie:movie withType:WatchedList];
-    }
+- (void) deleteMovie:(Movie *) movie {
+    [moviesCoreData deleteMovie:movie withType:selectedList];
 }
 
 - (void) tabBar:(UITabBar *) tb didSelectItem:(UITabBarItem *) item {
@@ -46,11 +42,11 @@
     [movieListViewController setEditing:NO];
     if (selectedItemIndex == 0) {
         movieListViewController.moviesReorderable = YES;
-        movieListViewController.movies = [moviesCoreData findMovies:ToWatchList];
+        movieListViewController.movies = [moviesCoreData getMovies:ToWatchList];
         selectedList = ToWatchList;
     } else {
         movieListViewController.moviesReorderable = NO;
-        movieListViewController.movies = [moviesCoreData findMovies:WatchedList];
+        movieListViewController.movies = [moviesCoreData getMovies:WatchedList];
         selectedList = WatchedList;
     }
 }
