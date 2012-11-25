@@ -1,17 +1,17 @@
 #import "MovieSearchViewController.h"
 #import "MovieListViewController.h"
-#import "MovieRepository.h"
+#import "TheMovieDbApiConnector.h"
 #import "Movie.h"
 
 @implementation MovieSearchViewController {
     MovieListViewController *movieListViewController;
-    MovieRepository *movieRepository;
+    TheMovieDbApiConnector *movieRepository;
 }
 @synthesize onMovieSelected;
 
 - (void) awakeFromNib {
     [super awakeFromNib];
-    movieRepository = [MovieRepository instance];
+    movieRepository = [TheMovieDbApiConnector instance];
 }
 
 - (void) viewDidLoad {

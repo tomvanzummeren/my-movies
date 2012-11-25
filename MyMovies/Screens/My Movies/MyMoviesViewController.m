@@ -1,13 +1,13 @@
 #import "MyMoviesViewController.h"
 #import "MovieListViewController.h"
-#import "MovieRepository.h"
+#import "TheMovieDbApiConnector.h"
 #import "MovieSearchViewController.h"
 
 @implementation MyMoviesViewController {
 
     MovieListViewController *movieListViewController;
 
-    MovieRepository *movieRepository;
+    TheMovieDbApiConnector *movieRepository;
 
     MoviesCoreData *moviesCoreData;
 
@@ -15,7 +15,7 @@
 }
 
 - (void) viewDidLoad {
-    movieRepository = [MovieRepository instance];
+    movieRepository = [TheMovieDbApiConnector instance];
     moviesCoreData = [MoviesCoreData instance];
 
     movieListViewController = [[self childViewControllers] objectAtIndex:0];

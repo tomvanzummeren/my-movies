@@ -44,7 +44,3 @@
 #define LogFloat(value)    NSLog(@#value @" = %f", (value))
 #define LogRect(value)     NSLog(@#value @" = %@", RectDescription((value)))
 #define LogPoint(value)    NSLog(@#value @" = %@", PointDescription((value)))
-
-// Macro to mark variables as weak to prevent the following warning:
-// "capturing 'self' strongly in this block is likely to lead to a retain cycle"
-#define weakInBlock __unsafe_unretained

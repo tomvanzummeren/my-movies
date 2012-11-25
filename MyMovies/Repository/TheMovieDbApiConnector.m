@@ -1,5 +1,5 @@
 
-#import "MovieRepository.h"
+#import "TheMovieDbApiConnector.h"
 #import "Movie.h"
 #import "HttpRequest.h"
 #import "NSString+Utilities.h"
@@ -13,33 +13,26 @@
 #define ICON_SIZE @"w154"
 #define POSTER_SIZE @"original"
 
-@implementation MovieRepository {
+@implementation TheMovieDbApiConnector {
 
     NSDateFormatter *dateFormatter;
 
     HttpRequest *currentSearchHttpRequest;
-
-    // TODO: Save in database (SQLite)
-    NSMutableArray *toWatchList;
-    NSMutableArray *watchedList;
 }
 - (id) init {
     self = [super init];
     if (self) {
         dateFormatter = [NSDateFormatter new];
         dateFormatter.dateFormat = @"yyyy-MM-dd";
-
-        toWatchList = [NSMutableArray array];
-        watchedList = [NSMutableArray array];
     }
     return self;
 }
 
-static MovieRepository *instance = nil;
+static TheMovieDbApiConnector *instance = nil;
 
-+ (MovieRepository *) instance {
++ (TheMovieDbApiConnector *) instance {
     if (!instance) {
-        instance = [MovieRepository new];
+        instance = [TheMovieDbApiConnector new];
     }
     return instance;
 }
@@ -67,10 +60,8 @@ static MovieRepository *instance = nil;
                 movie.posterImageUrl = [NSString stringWithFormat:@"%@/%@%@", IMAGE_BASE_URL, POSTER_SIZE, posterPath];
                 movie.iconImageUrl = [NSString stringWithFormat:@"%@/%@%@", IMAGE_BASE_URL, ICON_SIZE, posterPath];
             }
-
             [movies addObject:movie];
         }
-        NSLog(@"Movies found: %i", movies.count);
         callback(movies);
     } failure:^{
         callback(nil);
@@ -90,23 +81,8 @@ static MovieRepository *instance = nil;
     }];
 }
 
-- (NSArray *) watchedList {
-    return watchedList;
-}
-
-- (NSArray *) toWatchList {
-    return toWatchList;
-}
-
 - (void) cancelSearch {
     [currentSearchHttpRequest cancel];
 }
 
-- (void) addToToWatchList:(Movie *) movie {
-    [toWatchList addObject:movie];
-}
-
-- (void) addToWatchedList:(Movie *) movie {
-    [watchedList addObject:movie];
-}
 @end

@@ -15,7 +15,7 @@
 		01C34C90162208550079CD61 /* MoviePosterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C34C8F162208550079CD61 /* MoviePosterView.m */; };
 		01C34C98162322A60079CD61 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 01C34C96162322A60079CD61 /* icon.png */; };
 		01C34C99162322A60079CD61 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 01C34C97162322A60079CD61 /* icon@2x.png */; };
-		5F50E0779099D76407376097 /* MovieRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F50EEFC9E9A735C7FF813B6 /* MovieRepository.m */; };
+		5F50E0779099D76407376097 /* TheMovieDbApiConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F50EEFC9E9A735C7FF813B6 /* TheMovieDbApiConnector.m */; };
 		5F50E100F98BE2E60AAE7DBF /* SBJsonUTF8Stream.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F50EEEFA1A29FF5CBF51DAA /* SBJsonUTF8Stream.m */; };
 		5F50E185CB25CEEAF6F876C6 /* SBJsonStreamParserAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F50EEDAE62356542A68483D /* SBJsonStreamParserAdapter.m */; };
 		5F50E24C41E42E9BF81F710A /* SBJsonStreamParserAccumulator.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F50E95A69574D81A31FAC62 /* SBJsonStreamParserAccumulator.m */; };
@@ -93,7 +93,7 @@
 		5F50E16FF019DE3CF6C91DE9 /* star-none.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star-none.png"; sourceTree = "<group>"; };
 		5F50E180BA10C65DD74BD20B /* VotesView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VotesView.h; sourceTree = "<group>"; };
 		5F50E1B80121332FD0DC7C10 /* Movie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Movie.m; sourceTree = "<group>"; };
-		5F50E1BBF9CA770E3BA4FB73 /* MovieRepository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieRepository.h; sourceTree = "<group>"; };
+		5F50E1BBF9CA770E3BA4FB73 /* TheMovieDbApiConnector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TheMovieDbApiConnector.h; sourceTree = "<group>"; };
 		5F50E202B6FE93CCAB67A6EC /* SDWebImageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWebImageManager.h; sourceTree = "<group>"; };
 		5F50E279AF7E47A3E1C6FC3A /* SDImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDImageCache.h; sourceTree = "<group>"; };
 		5F50E29F83FC7E231607D259 /* SBJsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonParser.h; sourceTree = "<group>"; };
@@ -148,7 +148,7 @@
 		5F50EEDAE62356542A68483D /* SBJsonStreamParserAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamParserAdapter.m; sourceTree = "<group>"; };
 		5F50EEE23D2C3FB4C8D11BE8 /* icon-up@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "icon-up@2x.jpg"; sourceTree = "<group>"; };
 		5F50EEEFA1A29FF5CBF51DAA /* SBJsonUTF8Stream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonUTF8Stream.m; sourceTree = "<group>"; };
-		5F50EEFC9E9A735C7FF813B6 /* MovieRepository.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieRepository.m; sourceTree = "<group>"; };
+		5F50EEFC9E9A735C7FF813B6 /* TheMovieDbApiConnector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TheMovieDbApiConnector.m; sourceTree = "<group>"; };
 		5F50EF302455AF7DF76A1E74 /* star-half@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star-half@2x.png"; sourceTree = "<group>"; };
 		5F50EF46196387C2301A6B0A /* SDImageCacheDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDImageCacheDelegate.h; sourceTree = "<group>"; };
 		5F50EF64A02B70E8D4AD8229 /* HttpRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpRequest.h; sourceTree = "<group>"; };
@@ -212,8 +212,8 @@
 			children = (
 				5F50E6517C6C335B05B371ED /* Movie.h */,
 				5F50E1B80121332FD0DC7C10 /* Movie.m */,
-				5F50EEFC9E9A735C7FF813B6 /* MovieRepository.m */,
-				5F50E1BBF9CA770E3BA4FB73 /* MovieRepository.h */,
+				5F50EEFC9E9A735C7FF813B6 /* TheMovieDbApiConnector.m */,
+				5F50E1BBF9CA770E3BA4FB73 /* TheMovieDbApiConnector.h */,
 				5F50EFE7355F233CA6E2BD5E /* sample-urls.txt */,
 				5F50EE4B7EC2F9EC3EC4CE13 /* Request */,
 				5F50EED60C66295BC77F2382 /* MovieDetails.m */,
@@ -509,7 +509,7 @@
 				01C34C90162208550079CD61 /* MoviePosterView.m in Sources */,
 				5F50EEB34630DD967ED6C1D8 /* MovieSearchViewController.m in Sources */,
 				5F50E26D6073AC171F7E037E /* MyMoviesViewController.m in Sources */,
-				5F50E0779099D76407376097 /* MovieRepository.m in Sources */,
+				5F50E0779099D76407376097 /* TheMovieDbApiConnector.m in Sources */,
 				5F50E637334B46A4DC1B19D5 /* Movie.m in Sources */,
 				5F50E6D8BEEBBD5DEF650E5A /* MovieCell.m in Sources */,
 				5F50E3991FEB02ECE322C37E /* HttpRequest.m in Sources */,

@@ -1,18 +1,18 @@
 #import "MovieDetailViewController.h"
 #import "Movie.h"
 #import "MoviePosterView.h"
-#import "MovieRepository.h"
+#import "TheMovieDbApiConnector.h"
 #import "MovieDetails.h"
 #import "VotesView.h"
 
 @implementation MovieDetailViewController {
-    MovieRepository *movieRepository;
+    TheMovieDbApiConnector *movieRepository;
 }
 
 @synthesize movie;
 
 - (void) awakeFromNib {
-    movieRepository = [MovieRepository instance];
+    movieRepository = [TheMovieDbApiConnector instance];
 }
 
 - (void) viewDidLoad {
