@@ -44,7 +44,7 @@ static MoviesCoreData *instance = nil;
     return;
 }
 
-- (void) deleteMovie:(Movie *) movie WithType:(MovieListType) type {
+- (void) deleteMovie:(Movie *) movie withType:(MovieListType) type {
     AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
     NSManagedObjectContext *context = [appDelegate managedObjectContext];
 

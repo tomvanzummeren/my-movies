@@ -34,9 +34,9 @@
 
 - (void) removeMovie:(Movie *) movie{
     if (selectedList == ToWatchList) {
-        [moviesCoreData deleteMovie:movie WithType:ToWatchList];
+        [moviesCoreData deleteMovie:movie withType:ToWatchList];
     }else{
-        [moviesCoreData deleteMovie:movie WithType:WatchedList];
+        [moviesCoreData deleteMovie:movie withType:WatchedList];
     }
 }
 
