@@ -4,11 +4,14 @@
 #import "Movie.h"
 #import "DetailViewController.h"
 #import "MoviesRepository.h"
+#import "MyMoviesWindow.h"
 
 
 @implementation ListViewController {
     NSMutableArray *movies;
     MoviesRepository *moviesRepository;
+
+    BOOL emptyTopCell;
 }
 
 @synthesize moviesDeletable;
@@ -19,7 +22,7 @@
 
 
 - (NSInteger) tableView:(UITableView *) tv numberOfRowsInSection:(NSInteger) section {
-    return movies.count;
+    return emptyTopCell ? movies.count + 1 : movies.count;
 }
 
 - (void) viewDidLoad{
@@ -29,7 +32,11 @@
 - (UITableViewCell *) tableView:(UITableView *) tv cellForRowAtIndexPath:(NSIndexPath *) indexPath {
     MovieCell *movieCell = [self.tableView dequeueReusableCellWithIdentifier:@"MovieCell"];
 
-    Movie *movie = [movies objectAtIndex:(NSUInteger) indexPath.row];
+    Movie *movie = [self movieAtIndexPath:indexPath];
+    if (!movie) {
+        // Return empty cell
+        return [UITableViewCell new];
+    }
     movieCell.movie = movie;
     if (!customOnCellTapped) {
         movieCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
@@ -46,11 +53,11 @@
 }
 
 - (void) tableView:(UITableView *) tableView didSelectRowAtIndexPath:(NSIndexPath *) indexPath {
+    MovieCell *cell = (MovieCell *) [tableView cellForRowAtIndexPath:indexPath];
     if (customOnCellTapped) {
-        Movie *movie = [movies objectAtIndex:(NSUInteger) indexPath.row];
-        customOnCellTapped(movie);
+        Movie *movie = [self movieAtIndexPath:indexPath];
+        customOnCellTapped(movie, cell);
     } else {
-        UITableViewCell *cell = [self tableView:tableView cellForRowAtIndexPath:indexPath];
         [self performSegueWithIdentifier:@"MovieDetails" sender:cell];
     }
 }
@@ -83,7 +90,7 @@
 }
 
 - (void) tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSUInteger row = indexPath.row;
+    NSUInteger row = (NSUInteger) indexPath.row;
     Movie *movie = [movies objectAtIndex:row];
   
     movieDeleted(movie);
@@ -91,9 +98,7 @@
     [movies removeObjectAtIndex:row];
     
     [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationLeft];
-    
 }
-
 
 - (NSArray *) movies {
     return movies;
@@ -105,12 +110,27 @@
 }
 
 - (void) addMovie:(Movie *) movie {
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:movies.count inSection:0];
-    [movies addObject:movie];
-    [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+    emptyTopCell = YES;
+    [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationNone];
 
-    [self.tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionBottom];
-    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+    MyMoviesWindow *window = (MyMoviesWindow *) self.view.window;
+    [window animateMoveOverlappingMovieCellToPosition:CGPointMake(0, 0) inView:self.tableView completion:^{
+        [movies insertObject:movie atIndex:0];
+        emptyTopCell = NO;
+        [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationNone];
+
+        [self.tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionBottom];
+        [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+    }];
+}
+
+- (Movie *) movieAtIndexPath:(NSIndexPath *) indexPath {
+    if (indexPath.row == 0 && emptyTopCell) {
+        return nil;
+    }
+    NSUInteger row = (NSUInteger)(emptyTopCell ? indexPath.row - 1: indexPath.row);
+    return [movies objectAtIndex:row];
 }
 
 @end

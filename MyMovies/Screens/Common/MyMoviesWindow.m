@@ -14,12 +14,40 @@
     UIImageView *movieCellSnapshot;
 }
 
-- (void) displayOverlappingMovieCell:(MovieCell *) cell atPoint:(CGPoint) point {
-    movieCellSnapshot = [[UIImageView alloc] initWithFrame:CGRectMake(point.x, point.y, cell.frame.size.width, cell.frame.size.height)];
+- (void) displayOverlappingMovieCell:(MovieCell *) cell {
+    // Just to be sure ...
+    [movieCellSnapshot removeFromSuperview];
+
+    CGRect frame = [cell.superview convertRect:cell.frame toView:self];
+
+    movieCellSnapshot = [[UIImageView alloc] initWithFrame:frame];
     movieCellSnapshot.image = [self imageFromLayer:cell.layer];
     movieCellSnapshot.backgroundColor = [UIColor whiteColor];
-    [self addSubview:movieCellSnapshot];
 
+    [self addSubview:movieCellSnapshot];
+}
+
+- (void) animateMoveOverlappingMovieCellToPosition:(CGPoint) point inView:(UITableView *) view completion:(void (^)()) completion {
+    if (!movieCellSnapshot) {
+        if (completion) {
+            completion();
+        }
+        return;
+    }
+    CGPoint convertedPoint = [view.superview convertPoint:point toView:self];
+
+    [UIView animateWithDuration:.3 animations:^{
+        movieCellSnapshot.frame = CGRectMake(
+                convertedPoint.x,
+                convertedPoint.y,
+                movieCellSnapshot.frame.size.width,
+                movieCellSnapshot.frame.size.height);
+    } completion:^(BOOL finished) {
+        if (completion) {
+            completion();
+        }
+        [movieCellSnapshot removeFromSuperview];
+    }];
 }
 
 - (UIImage *) imageFromLayer:(CALayer *) layer {

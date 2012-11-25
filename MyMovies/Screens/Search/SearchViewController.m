@@ -2,9 +2,11 @@
 #import "ListViewController.h"
 #import "TheMovieDbApiConnector.h"
 #import "Movie.h"
+#import "MovieCell.h"
+#import "MyMoviesWindow.h"
 
 @implementation SearchViewController {
-    ListViewController *movieListViewController;
+    ListViewController *listViewController;
     TheMovieDbApiConnector *apiConnector;
 }
 @synthesize onMovieSelected;
@@ -15,10 +17,13 @@
 }
 
 - (void) viewDidLoad {
-
-    movieListViewController = [[self childViewControllers] objectAtIndex:0];
+    listViewController = [self.childViewControllers objectAtIndex:0];
     __weak SearchViewController *weakSelf = self;
-    movieListViewController.customOnCellTapped = ^(Movie *movie){
+    listViewController.customOnCellTapped = ^(Movie *movie, MovieCell *cell) {
+
+        MyMoviesWindow *window = (MyMoviesWindow *) self.view.window;
+        [window displayOverlappingMovieCell:cell];
+
         [weakSelf dismissViewControllerAnimated:YES completion:^{
             weakSelf.onMovieSelected(movie);
         }];
@@ -34,12 +39,12 @@
     if (searchText.length > 0) {
         [apiConnector search:searchText callback:^(NSArray *movies) {
             if ([searchBar.text isEqualToString:searchText]) {
-                movieListViewController.movies = movies;
+                listViewController.movies = movies;
             }
         }];
     } else {
         [apiConnector cancelSearch];
-        movieListViewController.movies = [NSArray array];
+        listViewController.movies = [NSArray array];
     }
 }
 

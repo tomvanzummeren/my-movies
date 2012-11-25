@@ -11,5 +11,7 @@
 
 
 @interface MyMoviesWindow : UIWindow
-- (void) displayOverlappingMovieCell:(MovieCell *) cell atPoint:(CGPoint) point;
+- (void) displayOverlappingMovieCell:(MovieCell *) cell;
+
+- (void) animateMoveOverlappingMovieCellToPosition:(CGPoint) point inView:(UITableView *) view completion:(void (^)()) completion;
 @end
