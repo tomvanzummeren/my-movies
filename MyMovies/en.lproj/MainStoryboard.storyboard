@@ -52,7 +52,7 @@
         <!--Movie List (embeddable)-->
         <scene sceneID="tzt-JN-8Ge">
             <objects>
-                <tableViewController id="HxA-Hx-wRt" userLabel="Movie List (embeddable)" customClass="MovieListViewController" sceneMemberID="viewController">
+                <tableViewController id="HxA-Hx-wRt" userLabel="Movie List (embeddable)" customClass="ListViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="88" sectionHeaderHeight="22" sectionFooterHeight="22" id="dRU-q3-hod">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -141,7 +141,7 @@
         <!--Movie Details-->
         <scene sceneID="FP0-bB-XtA">
             <objects>
-                <viewController id="Lsd-BU-2Z0" userLabel="Movie Details" customClass="MovieDetailViewController" sceneMemberID="viewController">
+                <viewController id="Lsd-BU-2Z0" userLabel="Movie Details" customClass="DetailViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xFC-KY-taq">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -204,7 +204,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" id="em0-Ih-QFh" customClass="MoviePosterView">
+                            <view contentMode="scaleToFill" id="em0-Ih-QFh" customClass="PosterView">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="110"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
@@ -292,7 +292,7 @@
         <!--Movie Search-->
         <scene sceneID="aF6-vH-13D">
             <objects>
-                <viewController id="xC7-dz-Pyc" userLabel="Movie Search" customClass="MovieSearchViewController" sceneMemberID="viewController">
+                <viewController id="xC7-dz-Pyc" userLabel="Movie Search" customClass="SearchViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vZU-g1-mmw">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -366,18 +366,18 @@
         <class className="MovieDetailViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MovieDetailViewController.h"/>
             <relationships>
-                <relationship kind="outlet" name="moviePosterView" candidateClass="MoviePosterView"/>
+                <relationship kind="outlet" name="moviePosterView" candidateClass="PosterView"/>
                 <relationship kind="outlet" name="overviewLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="releaseYearLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="votesView" candidateClass="VotesView"/>
             </relationships>
         </class>
-        <class className="MovieListViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MovieListViewController.h"/>
+        <class className="ListViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ListViewController.h"/>
         </class>
-        <class className="MoviePosterView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MoviePosterView.h"/>
+        <class className="PosterView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PosterView.h"/>
             <relationships>
                 <relationship kind="action" name="handlePanGesture:" candidateClass="UIPanGestureRecognizer"/>
                 <relationship kind="action" name="toggleSize"/>

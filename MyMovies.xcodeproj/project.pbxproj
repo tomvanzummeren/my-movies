@@ -11,8 +11,8 @@
 		015047BC165FD18400369EF2 /* MoviesRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = 015047BB165FD18400369EF2 /* MoviesRepository.m */; };
 		015047BE1661201700369EF2 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 015047BD1661201700369EF2 /* CoreData.framework */; };
 		01B590251621D38F009F2F4B /* star-full.png in Resources */ = {isa = PBXBuildFile; fileRef = 01B590241621D38F009F2F4B /* star-full.png */; };
-		01B5902B1621D68F009F2F4B /* MovieDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01B5902A1621D68F009F2F4B /* MovieDetailViewController.m */; };
-		01C34C90162208550079CD61 /* MoviePosterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C34C8F162208550079CD61 /* MoviePosterView.m */; };
+		01B5902B1621D68F009F2F4B /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01B5902A1621D68F009F2F4B /* DetailViewController.m */; };
+		01C34C90162208550079CD61 /* PosterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C34C8F162208550079CD61 /* PosterView.m */; };
 		01C34C98162322A60079CD61 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 01C34C96162322A60079CD61 /* icon.png */; };
 		01C34C99162322A60079CD61 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 01C34C97162322A60079CD61 /* icon@2x.png */; };
 		5F50E0779099D76407376097 /* TheMovieDbApiConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F50EEFC9E9A735C7FF813B6 /* TheMovieDbApiConnector.m */; };
@@ -48,7 +48,7 @@
 		5F50EB00C889189A740BCE6B /* MovieDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F50EED60C66295BC77F2382 /* MovieDetails.m */; };
 		5F50EB2E01E6D3DA45BF73DC /* star-full@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F50E0950D7B80E84C5A79E2 /* star-full@2x.png */; };
 		5F50EBE2ABF1A9C990861AEA /* NSDictionary+JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F50E3C58BD70B6064AF7CD4 /* NSDictionary+JSON.m */; };
-		5F50EEB34630DD967ED6C1D8 /* MovieSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F50E8CE100CBB9430176BBB /* MovieSearchViewController.m */; };
+		5F50EEB34630DD967ED6C1D8 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F50E8CE100CBB9430176BBB /* SearchViewController.m */; };
 		5F50EED2BE6F6CA22196A259 /* star-half.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F50E02F46B389C1509EC838 /* star-half.png */; };
 		5F50EF5B74E90B6AA841E65B /* icon-up@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5F50EEE23D2C3FB4C8D11BE8 /* icon-up@2x.jpg */; };
 		5F50EFE4D5E54F9B973CC690 /* SDWebImagePrefetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F50ECC9B90DDF5D408716E9 /* SDWebImagePrefetcher.m */; };
@@ -63,7 +63,7 @@
 		DBF8BCFE1620D3A0003F32B9 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DBF8BCFD1620D3A0003F32B9 /* Default@2x.png */; };
 		DBF8BD001620D3A0003F32B9 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DBF8BCFF1620D3A0003F32B9 /* Default-568h@2x.png */; };
 		DBF8BD031620D3A0003F32B9 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBF8BD011620D3A0003F32B9 /* MainStoryboard.storyboard */; };
-		DBF8BD061620D3A0003F32B9 /* MovieListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DBF8BD051620D3A0003F32B9 /* MovieListViewController.m */; };
+		DBF8BD061620D3A0003F32B9 /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DBF8BD051620D3A0003F32B9 /* ListViewController.m */; };
 		DBF8BD0E1620DB80003F32B9 /* 12-eye.png in Resources */ = {isa = PBXBuildFile; fileRef = DBF8BD0C1620DB80003F32B9 /* 12-eye.png */; };
 		DBF8BD0F1620DB80003F32B9 /* 12-eye@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DBF8BD0D1620DB80003F32B9 /* 12-eye@2x.png */; };
 		DBF8BD181620DC79003F32B9 /* 164-glasses-2.png in Resources */ = {isa = PBXBuildFile; fileRef = DBF8BD161620DC79003F32B9 /* 164-glasses-2.png */; };
@@ -78,10 +78,10 @@
 		015047BB165FD18400369EF2 /* MoviesRepository.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoviesRepository.m; sourceTree = "<group>"; };
 		015047BD1661201700369EF2 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		01B590241621D38F009F2F4B /* star-full.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star-full.png"; sourceTree = "<group>"; };
-		01B590291621D68F009F2F4B /* MovieDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieDetailViewController.h; sourceTree = "<group>"; };
-		01B5902A1621D68F009F2F4B /* MovieDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieDetailViewController.m; sourceTree = "<group>"; };
-		01C34C8E162208550079CD61 /* MoviePosterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoviePosterView.h; sourceTree = "<group>"; };
-		01C34C8F162208550079CD61 /* MoviePosterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoviePosterView.m; sourceTree = "<group>"; };
+		01B590291621D68F009F2F4B /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		01B5902A1621D68F009F2F4B /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		01C34C8E162208550079CD61 /* PosterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PosterView.h; sourceTree = "<group>"; };
+		01C34C8F162208550079CD61 /* PosterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PosterView.m; sourceTree = "<group>"; };
 		01C34C96162322A60079CD61 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		01C34C97162322A60079CD61 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
 		5F50E012E37F508F7B562B3D /* NSString+Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Utilities.h"; sourceTree = "<group>"; };
@@ -97,7 +97,7 @@
 		5F50E202B6FE93CCAB67A6EC /* SDWebImageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWebImageManager.h; sourceTree = "<group>"; };
 		5F50E279AF7E47A3E1C6FC3A /* SDImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDImageCache.h; sourceTree = "<group>"; };
 		5F50E29F83FC7E231607D259 /* SBJsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonParser.h; sourceTree = "<group>"; };
-		5F50E3833C1E2FD0FE16C278 /* MovieSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieSearchViewController.h; sourceTree = "<group>"; };
+		5F50E3833C1E2FD0FE16C278 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
 		5F50E39923762BDCB2F64AF8 /* SBJsonStreamWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamWriter.m; sourceTree = "<group>"; };
 		5F50E3C58BD70B6064AF7CD4 /* NSDictionary+JSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+JSON.m"; sourceTree = "<group>"; };
 		5F50E3ED4AE51DC3E30F614C /* MovieCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieCell.m; sourceTree = "<group>"; };
@@ -119,7 +119,7 @@
 		5F50E8773E83678821FB1EE8 /* SDWebImageDownloaderDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWebImageDownloaderDelegate.h; sourceTree = "<group>"; };
 		5F50E8B144A15681E92F6AB5 /* SDWebImagePrefetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWebImagePrefetcher.h; sourceTree = "<group>"; };
 		5F50E8C64373025C7B539AF4 /* MovieDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieDetails.h; sourceTree = "<group>"; };
-		5F50E8CE100CBB9430176BBB /* MovieSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieSearchViewController.m; sourceTree = "<group>"; };
+		5F50E8CE100CBB9430176BBB /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		5F50E8F2735F2F5605F7894D /* poster-up@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "poster-up@2x.jpg"; sourceTree = "<group>"; };
 		5F50E8FF9059BD9975189B97 /* SDWebImageDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDWebImageDownloader.m; sourceTree = "<group>"; };
 		5F50E90E57445D301A17CD3C /* NSObject+SBJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJson.h"; sourceTree = "<group>"; };
@@ -170,8 +170,8 @@
 		DBF8BCFD1620D3A0003F32B9 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		DBF8BCFF1620D3A0003F32B9 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		DBF8BD021620D3A0003F32B9 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = MainStoryboard.storyboard; path = ../en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		DBF8BD041620D3A0003F32B9 /* MovieListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MovieListViewController.h; sourceTree = "<group>"; };
-		DBF8BD051620D3A0003F32B9 /* MovieListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MovieListViewController.m; sourceTree = "<group>"; };
+		DBF8BD041620D3A0003F32B9 /* ListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ListViewController.h; sourceTree = "<group>"; };
+		DBF8BD051620D3A0003F32B9 /* ListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ListViewController.m; sourceTree = "<group>"; };
 		DBF8BD0C1620DB80003F32B9 /* 12-eye.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "12-eye.png"; path = "../../12-eye.png"; sourceTree = "<group>"; };
 		DBF8BD0D1620DB80003F32B9 /* 12-eye@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "12-eye@2x.png"; path = "../../12-eye@2x.png"; sourceTree = "<group>"; };
 		DBF8BD161620DC79003F32B9 /* 164-glasses-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "164-glasses-2.png"; sourceTree = "<group>"; };
@@ -199,10 +199,10 @@
 		5F50E167A0F7ABC9218AE3FC /* Details */ = {
 			isa = PBXGroup;
 			children = (
-				01C34C8F162208550079CD61 /* MoviePosterView.m */,
-				01C34C8E162208550079CD61 /* MoviePosterView.h */,
-				01B5902A1621D68F009F2F4B /* MovieDetailViewController.m */,
-				01B590291621D68F009F2F4B /* MovieDetailViewController.h */,
+				01C34C8F162208550079CD61 /* PosterView.m */,
+				01C34C8E162208550079CD61 /* PosterView.h */,
+				01B5902A1621D68F009F2F4B /* DetailViewController.m */,
+				01B590291621D68F009F2F4B /* DetailViewController.h */,
 			);
 			path = Details;
 			sourceTree = "<group>";
@@ -283,8 +283,8 @@
 		5F50E9C7AFEE28E891E599EC /* Search */ = {
 			isa = PBXGroup;
 			children = (
-				5F50E8CE100CBB9430176BBB /* MovieSearchViewController.m */,
-				5F50E3833C1E2FD0FE16C278 /* MovieSearchViewController.h */,
+				5F50E8CE100CBB9430176BBB /* SearchViewController.m */,
+				5F50E3833C1E2FD0FE16C278 /* SearchViewController.h */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -351,8 +351,8 @@
 			children = (
 				5F50E98342ED445591B5C4A7 /* MovieCell.h */,
 				5F50E3ED4AE51DC3E30F614C /* MovieCell.m */,
-				DBF8BD051620D3A0003F32B9 /* MovieListViewController.m */,
-				DBF8BD041620D3A0003F32B9 /* MovieListViewController.h */,
+				DBF8BD051620D3A0003F32B9 /* ListViewController.m */,
+				DBF8BD041620D3A0003F32B9 /* ListViewController.h */,
 				5F50E62B85948EEC0E839073 /* VotesView.m */,
 				5F50E180BA10C65DD74BD20B /* VotesView.h */,
 			);
@@ -504,10 +504,10 @@
 			files = (
 				DBF8BCF61620D3A0003F32B9 /* main.m in Sources */,
 				DBF8BCFA1620D3A0003F32B9 /* AppDelegate.m in Sources */,
-				DBF8BD061620D3A0003F32B9 /* MovieListViewController.m in Sources */,
-				01B5902B1621D68F009F2F4B /* MovieDetailViewController.m in Sources */,
-				01C34C90162208550079CD61 /* MoviePosterView.m in Sources */,
-				5F50EEB34630DD967ED6C1D8 /* MovieSearchViewController.m in Sources */,
+				DBF8BD061620D3A0003F32B9 /* ListViewController.m in Sources */,
+				01B5902B1621D68F009F2F4B /* DetailViewController.m in Sources */,
+				01C34C90162208550079CD61 /* PosterView.m in Sources */,
+				5F50EEB34630DD967ED6C1D8 /* SearchViewController.m in Sources */,
 				5F50E26D6073AC171F7E037E /* MyMoviesViewController.m in Sources */,
 				5F50E0779099D76407376097 /* TheMovieDbApiConnector.m in Sources */,
 				5F50E637334B46A4DC1B19D5 /* Movie.m in Sources */,

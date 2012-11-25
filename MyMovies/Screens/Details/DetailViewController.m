@@ -1,11 +1,11 @@
-#import "MovieDetailViewController.h"
+#import "DetailViewController.h"
 #import "Movie.h"
-#import "MoviePosterView.h"
+#import "PosterView.h"
 #import "TheMovieDbApiConnector.h"
 #import "MovieDetails.h"
 #import "VotesView.h"
 
-@implementation MovieDetailViewController {
+@implementation DetailViewController {
     TheMovieDbApiConnector *apiConnector;
 }
 

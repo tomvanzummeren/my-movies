@@ -1,8 +1,8 @@
 
-#import "MoviePosterView.h"
+#import "PosterView.h"
 #import "UIImageView+WebCache.h"
 
-@implementation MoviePosterView {
+@implementation PosterView {
     BOOL headerImageMaximized;
 
     CGFloat smallImageHeight;

@@ -1,11 +1,11 @@
 #import "MyMoviesViewController.h"
-#import "MovieListViewController.h"
+#import "ListViewController.h"
 #import "TheMovieDbApiConnector.h"
-#import "MovieSearchViewController.h"
+#import "SearchViewController.h"
 
 @implementation MyMoviesViewController {
 
-    MovieListViewController *movieListViewController;
+    ListViewController *movieListViewController;
 
     TheMovieDbApiConnector *apiConnector;
 
@@ -54,7 +54,7 @@
 - (void) prepareForSegue:(UIStoryboardSegue *) segue sender:(id) sender {
     if ([segue.identifier isEqualToString:@"SearchMovies"]) {
         UINavigationController *navigationController = segue.destinationViewController;
-        MovieSearchViewController *searchViewController = (MovieSearchViewController *) navigationController.topViewController;
+        SearchViewController *searchViewController = (SearchViewController *) navigationController.topViewController;
         searchViewController.onMovieSelected = ^(Movie *movie) {
             if (selectedList == ToWatchList) {
                 [apiConnector addToToWatchList:movie];

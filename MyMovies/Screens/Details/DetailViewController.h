@@ -1,9 +1,9 @@
 @class Movie;
-@class MoviePosterView;
+@class PosterView;
 @class VotesView;
 
-@interface MovieDetailViewController : UIViewController {
-    __weak IBOutlet MoviePosterView *moviePosterView;
+@interface DetailViewController : UIViewController {
+    __weak IBOutlet PosterView *moviePosterView;
     __weak IBOutlet UILabel *titleLabel;
     __weak IBOutlet UILabel *releaseYearLabel;
     __weak IBOutlet VotesView *votesView;

@@ -1,6 +1,6 @@
 @class Movie;
 
-@interface MovieSearchViewController : UIViewController<UISearchBarDelegate> {
+@interface SearchViewController : UIViewController<UISearchBarDelegate> {
     __weak IBOutlet UISearchBar *searchBar;
 }
 @property (copy, nonatomic) void (^onMovieSelected)(Movie *movie);

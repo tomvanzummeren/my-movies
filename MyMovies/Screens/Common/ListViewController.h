@@ -1,6 +1,6 @@
 @class Movie;
 
-@interface MovieListViewController : UITableViewController
+@interface ListViewController : UITableViewController
 
 @property (nonatomic) BOOL moviesDeletable;
 @property (nonatomic) BOOL moviesReorderable;

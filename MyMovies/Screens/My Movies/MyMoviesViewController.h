@@ -1,4 +1,4 @@
-@class MovieListViewController;
+@class ListViewController;
 
 #import "MoviesRepository.h"
 

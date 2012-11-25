@@ -1,10 +1,10 @@
-#import "MovieSearchViewController.h"
-#import "MovieListViewController.h"
+#import "SearchViewController.h"
+#import "ListViewController.h"
 #import "TheMovieDbApiConnector.h"
 #import "Movie.h"
 
-@implementation MovieSearchViewController {
-    MovieListViewController *movieListViewController;
+@implementation SearchViewController {
+    ListViewController *movieListViewController;
     TheMovieDbApiConnector *apiConnector;
 }
 @synthesize onMovieSelected;
@@ -17,7 +17,7 @@
 - (void) viewDidLoad {
 
     movieListViewController = [[self childViewControllers] objectAtIndex:0];
-    __weak MovieSearchViewController *weakSelf = self;
+    __weak SearchViewController *weakSelf = self;
     movieListViewController.customOnCellTapped = ^(Movie *movie){
         [weakSelf dismissViewControllerAnimated:YES completion:^{
             weakSelf.onMovieSelected(movie);

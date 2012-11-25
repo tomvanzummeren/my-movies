@@ -1,12 +1,12 @@
 
-#import "MovieListViewController.h"
+#import "ListViewController.h"
 #import "MovieCell.h"
 #import "Movie.h"
-#import "MovieDetailViewController.h"
+#import "DetailViewController.h"
 #import "MoviesRepository.h"
 
 
-@implementation MovieListViewController {
+@implementation ListViewController {
     NSMutableArray *movies;
     MoviesRepository *moviesRepository;
 }
@@ -38,7 +38,7 @@
 
 - (void) prepareForSegue:(UIStoryboardSegue *) segue sender:(id) sender {
     if ([segue.identifier isEqualToString:@"MovieDetails"]) {
-        MovieDetailViewController *controller = segue.destinationViewController;
+        DetailViewController *controller = segue.destinationViewController;
         MovieCell *movieCell = sender;
         controller.movie = movieCell.movie;
     }
