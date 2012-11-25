@@ -30,6 +30,27 @@
 - (void) addMovie:(Movie *) movie withType:(MovieListType) type {
     NSManagedObjectContext *context = [provider managedObjectContext];
 
+    NSFetchRequest *request = [NSFetchRequest new];
+    request.entity = [NSEntityDescription entityForName:MOVIE_ENTITY_NAME inManagedObjectContext:context];
+    request.predicate = [NSPredicate predicateWithFormat:@"(type = %@)", [self stringForType:type]];
+
+    NSSortDescriptor *sortByName = [[NSSortDescriptor alloc] initWithKey:@"order" ascending:NO];
+    request.sortDescriptors = [NSArray arrayWithObject:sortByName];
+
+    NSError *queryError = nil;
+
+    NSArray *results = [context executeFetchRequest:request error:&queryError];
+
+    NSInteger orderNumber = 0;
+    if([results count] != 0){
+        NSManagedObject *firstMovie = [results objectAtIndex:0];
+        NSInteger firstMovieOrderNumber = [[firstMovie valueForKey:@"order"] integerValue];
+        orderNumber = firstMovieOrderNumber + 1;
+    }
+
+    NSLog(@"Order Number: %@", @(orderNumber));
+
+    //////////////////
     NSManagedObject *managedMovie = [NSEntityDescription insertNewObjectForEntityForName:MOVIE_ENTITY_NAME
                                                                         inManagedObjectContext:context];
 
@@ -40,6 +61,8 @@
     [managedMovie setValue:movie.posterImageUrl forKey:@"posterImageUrl"];
     [managedMovie setValue:@(movie.voteAverage) forKey:@"voteAverage"];
     [managedMovie setValue:[self stringForType:type] forKey:@"type"];
+    [managedMovie setValue:@(orderNumber) forKey:@"order"];
+
 
     NSError *saveError = nil;
     [context save:&saveError];
@@ -78,6 +101,9 @@
     NSFetchRequest *request = [NSFetchRequest new];
     request.entity = [NSEntityDescription entityForName:MOVIE_ENTITY_NAME inManagedObjectContext:context];
     request.predicate = [NSPredicate predicateWithFormat:@"(type = %@)", [self stringForType:type]];
+
+    NSSortDescriptor *sortByName = [[NSSortDescriptor alloc] initWithKey:@"order" ascending:NO];
+    request.sortDescriptors = [NSArray arrayWithObject:sortByName];
 
     NSError *queryError = nil;
     NSArray *results = [context executeFetchRequest:request error:&queryError];
