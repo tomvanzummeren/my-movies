@@ -6,4 +6,5 @@
 
     __weak IBOutlet UITabBar *tabBar;
 }
+- (void)moveMovie:(NSInteger)sourceRow toRow:(NSInteger)destinationRow;
 @end

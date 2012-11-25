@@ -27,10 +27,19 @@
         [weakSelf deleteMovie:movie];
     };
 
+    movieListViewController.movieMoved = ^(NSInteger sourceRow, NSInteger destinationRow){
+
+        [weakSelf moveMovie:sourceRow toRow:destinationRow];
+    };
+
     self.navigationItem.leftBarButtonItem = movieListViewController.editButtonItem;
 
     movieListViewController.movies = [moviesRepository getMovies:ToWatchList];
     tabBar.selectedItem = [tabBar.items objectAtIndex:0];
+}
+
+- (void)moveMovie:(NSInteger)sourceRow toRow:(NSInteger)destinationRow {
+    [moviesRepository moveMovie:sourceRow toRow:destinationRow];
 }
 
 - (void) deleteMovie:(Movie *) movie {

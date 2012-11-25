@@ -15,6 +15,7 @@
 @synthesize moviesReorderable;
 @synthesize customOnCellTapped;
 @synthesize movieDeleted;
+@synthesize movieMoved;
 
 
 - (NSInteger) tableView:(UITableView *) tv numberOfRowsInSection:(NSInteger) section {
@@ -65,6 +66,7 @@
 
 -(void) tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath{
    [movies exchangeObjectAtIndex:(NSUInteger)sourceIndexPath.row withObjectAtIndex:(NSUInteger)destinationIndexPath.row];
+    movieMoved(sourceIndexPath.row, destinationIndexPath.row);
 }
 
 
@@ -76,8 +78,7 @@
     if(moviesDeletable){
         return UITableViewCellEditingStyleDelete;
     }
-    
-    
+
     return UITableViewCellEditingStyleNone;
 }
 

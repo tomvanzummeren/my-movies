@@ -68,7 +68,9 @@
     [context save:&saveError];
     // TODO: Handle saveError
 }
-
+- (void)moveMovie:(NSInteger)sourceRow toRow:(NSInteger)destinationRow {
+    NSLog(@"Moving row %@ to %@", @(sourceRow), @(destinationRow));
+}
 
 - (NSMutableArray *) getMovies:(MovieListType) type {
     NSManagedObjectContext *context = [provider managedObjectContext];
