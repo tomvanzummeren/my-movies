@@ -7,24 +7,28 @@
 //
 
 #import "MoviesRepository.h"
-#import "AppDelegate.h"
+#import "ManagedObjectContextProvider.h"
 
 #define MOVIE_ENTITY_NAME @"Movie"
 
-@implementation MoviesRepository
+@implementation MoviesRepository {
+    ManagedObjectContextProvider *provider;
+}
 
-static MoviesRepository *instance = nil;
+- (id) init {
+    self = [super init];
+    if (self) {
+        provider = [ManagedObjectContextProvider instance];
+    }
+    return self;
+}
 
 + (MoviesRepository *) instance {
-    if (!instance) {
-        instance = [MoviesRepository new];
-    }
-    return instance;
+    RETURN_SINGLETON(MoviesRepository)
 }
 
 - (void) addMovie:(Movie *) movie withType:(MovieListType) type {
-    AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
-    NSManagedObjectContext *context = [appDelegate managedObjectContext];
+    NSManagedObjectContext *context = [provider managedObjectContext];
 
     NSManagedObject *managedMovie = [NSEntityDescription insertNewObjectForEntityForName:MOVIE_ENTITY_NAME
                                                                         inManagedObjectContext:context];
@@ -45,8 +49,7 @@ static MoviesRepository *instance = nil;
 }
 
 - (void) deleteMovie:(Movie *) movie withType:(MovieListType) type {
-    AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
-    NSManagedObjectContext *context = [appDelegate managedObjectContext];
+    NSManagedObjectContext *context = [provider managedObjectContext];
 
     NSFetchRequest *request = [NSFetchRequest new];
     request.entity = [NSEntityDescription entityForName:MOVIE_ENTITY_NAME inManagedObjectContext:context];
@@ -68,8 +71,7 @@ static MoviesRepository *instance = nil;
 
 
 - (NSMutableArray *) getMovies:(MovieListType) type {
-    AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
-    NSManagedObjectContext *context = [appDelegate managedObjectContext];
+    NSManagedObjectContext *context = [provider managedObjectContext];
 
     NSFetchRequest *request = [NSFetchRequest new];
     request.entity = [NSEntityDescription entityForName:MOVIE_ENTITY_NAME inManagedObjectContext:context];

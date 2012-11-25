@@ -28,13 +28,8 @@
     return self;
 }
 
-static TheMovieDbApiConnector *instance = nil;
-
 + (TheMovieDbApiConnector *) instance {
-    if (!instance) {
-        instance = [TheMovieDbApiConnector new];
-    }
-    return instance;
+    RETURN_SINGLETON(TheMovieDbApiConnector)
 }
 
 - (void) search:(NSString *) searchText callback:(void (^)(NSArray *results)) callback {

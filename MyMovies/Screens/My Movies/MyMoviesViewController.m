@@ -57,11 +57,9 @@
         SearchViewController *searchViewController = (SearchViewController *) navigationController.topViewController;
         searchViewController.onMovieSelected = ^(Movie *movie) {
             if (selectedList == ToWatchList) {
-                [apiConnector addToToWatchList:movie];
                 [movieListViewController addMovie:movie];
                 [moviesRepository addMovie:movie withType:ToWatchList];
             } else if (selectedList == WatchedList) {
-                [apiConnector addToWatchedList:movie];
                 [movieListViewController addMovie:movie];
                 [moviesRepository addMovie:movie withType:WatchedList];
             }
