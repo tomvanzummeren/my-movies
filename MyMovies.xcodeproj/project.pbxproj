@@ -29,6 +29,7 @@
 		5F50E4990D20A42737BDD753 /* UIView+Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F50ED06A45FF358CFE009B8 /* UIView+Utilities.m */; };
 		5F50E4C9A3708833F8958036 /* SBJsonStreamParserState.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F50EA727E084A923A049A22 /* SBJsonStreamParserState.m */; };
 		5F50E51225D3E1C8332A6D62 /* star-half@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F50EF302455AF7DF76A1E74 /* star-half@2x.png */; };
+		5F50E623A08C7DBCC534708F /* MyMoviesWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F50E0EEFAD55F98C9D69C8B /* MyMoviesWindow.m */; };
 		5F50E62E6EB52725E860DB74 /* NSObject+SBJson.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F50E706ACAF1839945DB5AB /* NSObject+SBJson.m */; };
 		5F50E637334B46A4DC1B19D5 /* Movie.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F50E1B80121332FD0DC7C10 /* Movie.m */; };
 		5F50E673881E7FD5BFC3FD32 /* NSString+Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F50E994DAC7326B89C948E1 /* NSString+Utilities.m */; };
@@ -91,6 +92,7 @@
 		5F50E02F46B389C1509EC838 /* star-half.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star-half.png"; sourceTree = "<group>"; };
 		5F50E044097B19CD49EF722E /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
 		5F50E0950D7B80E84C5A79E2 /* star-full@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star-full@2x.png"; sourceTree = "<group>"; };
+		5F50E0EEFAD55F98C9D69C8B /* MyMoviesWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyMoviesWindow.m; sourceTree = "<group>"; };
 		5F50E1220819F1BDC9271E2C /* UIImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WebCache.m"; sourceTree = "<group>"; };
 		5F50E16ED1A3936238CABF21 /* SBJsonStreamWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamWriter.h; sourceTree = "<group>"; };
 		5F50E16FF019DE3CF6C91DE9 /* star-none.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star-none.png"; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 		5F50E3C58BD70B6064AF7CD4 /* NSDictionary+JSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+JSON.m"; sourceTree = "<group>"; };
 		5F50E3ED4AE51DC3E30F614C /* MovieCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieCell.m; sourceTree = "<group>"; };
 		5F50E3F61C5F5C4E32DD4682 /* SBJsonStreamWriterState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamWriterState.h; sourceTree = "<group>"; };
+		5F50E3F8AA9176EE3DF2EE37 /* MyMoviesWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyMoviesWindow.h; sourceTree = "<group>"; };
 		5F50E40C4582BAB4B7F4AFC5 /* UIImageView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+WebCache.h"; sourceTree = "<group>"; };
 		5F50E41F4E1D83240D46B9CA /* SBJsonStreamParserState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamParserState.h; sourceTree = "<group>"; };
 		5F50E43D496E5596D1285B5D /* SBJsonStreamWriterAccumulator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamWriterAccumulator.m; sourceTree = "<group>"; };
@@ -376,6 +379,8 @@
 				5F50E62B85948EEC0E839073 /* VotesView.m */,
 				5F50E180BA10C65DD74BD20B /* VotesView.h */,
 				5F50E8E22C70F1A41D07C7B2 /* Utility */,
+				5F50E0EEFAD55F98C9D69C8B /* MyMoviesWindow.m */,
+				5F50E3F8AA9176EE3DF2EE37 /* MyMoviesWindow.h */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -562,6 +567,7 @@
 				015047BC165FD18400369EF2 /* MoviesRepository.m in Sources */,
 				5F50EEC9D635A8D6B7195F56 /* ManagedObjectContextProvider.m in Sources */,
 				5F50E4990D20A42737BDD753 /* UIView+Utilities.m in Sources */,
+				5F50E623A08C7DBCC534708F /* MyMoviesWindow.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
