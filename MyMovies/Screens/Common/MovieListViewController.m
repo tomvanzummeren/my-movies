@@ -3,12 +3,12 @@
 #import "MovieCell.h"
 #import "Movie.h"
 #import "MovieDetailViewController.h"
-#import "MoviesCoreData.h"
+#import "MoviesRepository.h"
 
 
 @implementation MovieListViewController {
     NSMutableArray *movies;
-    MoviesCoreData *moviesCoreData;
+    MoviesRepository *moviesRepository;
 }
 
 @synthesize moviesDeletable;
@@ -22,8 +22,7 @@
 }
 
 - (void) viewDidLoad{
-    moviesCoreData = [MoviesCoreData instance];
-
+    moviesRepository = [MoviesRepository instance];
 }
 
 - (UITableViewCell *) tableView:(UITableView *) tv cellForRowAtIndexPath:(NSIndexPath *) indexPath {
@@ -34,7 +33,6 @@
     if (!customOnCellTapped) {
         movieCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
-
     return movieCell;
 }
 

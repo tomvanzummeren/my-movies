@@ -1,5 +1,5 @@
 //
-//  MoviesCoreData.h
+//  MoviesRepository.h
 //  MyMovies
 //
 //  Created by Jim van Zummeren on 11/23/12.
@@ -13,9 +13,9 @@ typedef enum {
     WatchedList
 } MovieListType;
 
-@interface MoviesCoreData : NSObject
+@interface MoviesRepository : NSObject
 
-+ (MoviesCoreData *) instance;
++ (MoviesRepository *) instance;
 
 - (void) addMovie:(Movie *) movie withType: (MovieListType) type;
 

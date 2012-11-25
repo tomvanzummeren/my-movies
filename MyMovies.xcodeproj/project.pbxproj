@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		015047B8165FCE0C00369EF2 /* MovieModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 015047B6165FCE0C00369EF2 /* MovieModel.xcdatamodeld */; };
-		015047BC165FD18400369EF2 /* MoviesCoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = 015047BB165FD18400369EF2 /* MoviesCoreData.m */; };
+		015047BC165FD18400369EF2 /* MoviesRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = 015047BB165FD18400369EF2 /* MoviesRepository.m */; };
 		015047BE1661201700369EF2 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 015047BD1661201700369EF2 /* CoreData.framework */; };
 		01B590251621D38F009F2F4B /* star-full.png in Resources */ = {isa = PBXBuildFile; fileRef = 01B590241621D38F009F2F4B /* star-full.png */; };
 		01B5902B1621D68F009F2F4B /* MovieDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01B5902A1621D68F009F2F4B /* MovieDetailViewController.m */; };
@@ -74,8 +74,8 @@
 
 /* Begin PBXFileReference section */
 		015047B7165FCE0C00369EF2 /* MovieModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MovieModel.xcdatamodel; sourceTree = "<group>"; };
-		015047BA165FD18400369EF2 /* MoviesCoreData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoviesCoreData.h; sourceTree = "<group>"; };
-		015047BB165FD18400369EF2 /* MoviesCoreData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoviesCoreData.m; sourceTree = "<group>"; };
+		015047BA165FD18400369EF2 /* MoviesRepository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoviesRepository.h; sourceTree = "<group>"; };
+		015047BB165FD18400369EF2 /* MoviesRepository.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoviesRepository.m; sourceTree = "<group>"; };
 		015047BD1661201700369EF2 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		01B590241621D38F009F2F4B /* star-full.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star-full.png"; sourceTree = "<group>"; };
 		01B590291621D68F009F2F4B /* MovieDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieDetailViewController.h; sourceTree = "<group>"; };
@@ -219,8 +219,8 @@
 				5F50EED60C66295BC77F2382 /* MovieDetails.m */,
 				5F50E8C64373025C7B539AF4 /* MovieDetails.h */,
 				015047B6165FCE0C00369EF2 /* MovieModel.xcdatamodeld */,
-				015047BA165FD18400369EF2 /* MoviesCoreData.h */,
-				015047BB165FD18400369EF2 /* MoviesCoreData.m */,
+				015047BA165FD18400369EF2 /* MoviesRepository.h */,
+				015047BB165FD18400369EF2 /* MoviesRepository.m */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -537,7 +537,7 @@
 				5F50EB00C889189A740BCE6B /* MovieDetails.m in Sources */,
 				5F50E95D79705FC457FA7A57 /* VotesView.m in Sources */,
 				015047B8165FCE0C00369EF2 /* MovieModel.xcdatamodeld in Sources */,
-				015047BC165FD18400369EF2 /* MoviesCoreData.m in Sources */,
+				015047BC165FD18400369EF2 /* MoviesRepository.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

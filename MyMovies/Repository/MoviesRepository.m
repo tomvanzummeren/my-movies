@@ -1,23 +1,23 @@
 //
-//  MoviesCoreData.m
+//  MoviesRepository.m
 //  MyMovies
 //
 //  Created by Jim van Zummeren on 11/23/12.
 //  Copyright (c) 2012 Tom van Zummeren. All rights reserved.
 //
 
-#import "MoviesCoreData.h"
+#import "MoviesRepository.h"
 #import "AppDelegate.h"
 
 #define MOVIE_ENTITY_NAME @"Movie"
 
-@implementation MoviesCoreData
+@implementation MoviesRepository
 
-static MoviesCoreData *instance = nil;
+static MoviesRepository *instance = nil;
 
-+ (MoviesCoreData *) instance {
++ (MoviesRepository *) instance {
     if (!instance) {
-        instance = [MoviesCoreData new];
+        instance = [MoviesRepository new];
     }
     return instance;
 }

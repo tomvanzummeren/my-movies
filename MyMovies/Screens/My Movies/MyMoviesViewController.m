@@ -9,14 +9,14 @@
 
     TheMovieDbApiConnector *apiConnector;
 
-    MoviesCoreData *moviesCoreData;
+    MoviesRepository *moviesRepository;
 
     MovieListType selectedList;
 }
 
 - (void) viewDidLoad {
     apiConnector = [TheMovieDbApiConnector instance];
-    moviesCoreData = [MoviesCoreData instance];
+    moviesRepository = [MoviesRepository instance];
 
     movieListViewController = [[self childViewControllers] objectAtIndex:0];
     movieListViewController.moviesDeletable = YES;
@@ -29,12 +29,12 @@
 
     self.navigationItem.leftBarButtonItem = movieListViewController.editButtonItem;
 
-    movieListViewController.movies = [moviesCoreData getMovies:ToWatchList];
+    movieListViewController.movies = [moviesRepository getMovies:ToWatchList];
     tabBar.selectedItem = [tabBar.items objectAtIndex:0];
 }
 
 - (void) deleteMovie:(Movie *) movie {
-    [moviesCoreData deleteMovie:movie withType:selectedList];
+    [moviesRepository deleteMovie:movie withType:selectedList];
 }
 
 - (void) tabBar:(UITabBar *) tb didSelectItem:(UITabBarItem *) item {
@@ -42,11 +42,11 @@
     [movieListViewController setEditing:NO];
     if (selectedItemIndex == 0) {
         movieListViewController.moviesReorderable = YES;
-        movieListViewController.movies = [moviesCoreData getMovies:ToWatchList];
+        movieListViewController.movies = [moviesRepository getMovies:ToWatchList];
         selectedList = ToWatchList;
     } else {
         movieListViewController.moviesReorderable = NO;
-        movieListViewController.movies = [moviesCoreData getMovies:WatchedList];
+        movieListViewController.movies = [moviesRepository getMovies:WatchedList];
         selectedList = WatchedList;
     }
 }
@@ -59,11 +59,11 @@
             if (selectedList == ToWatchList) {
                 [apiConnector addToToWatchList:movie];
                 [movieListViewController addMovie:movie];
-                [moviesCoreData addMovie:movie withType:ToWatchList];
+                [moviesRepository addMovie:movie withType:ToWatchList];
             } else if (selectedList == WatchedList) {
                 [apiConnector addToWatchedList:movie];
                 [movieListViewController addMovie:movie];
-                [moviesCoreData addMovie:movie withType:WatchedList];
+                [moviesRepository addMovie:movie withType:WatchedList];
             }
         };
     }

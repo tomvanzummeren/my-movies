@@ -1,6 +1,6 @@
 @class MovieListViewController;
 
-#import "MoviesCoreData.h"
+#import "MoviesRepository.h"
 
 @interface MyMoviesViewController : UIViewController<UITabBarDelegate> {
 
