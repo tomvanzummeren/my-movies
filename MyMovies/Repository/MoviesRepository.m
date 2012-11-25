@@ -102,8 +102,7 @@ static MoviesRepository *instance = nil;
     } else if (type == WatchedList) {
         return @"Watched";
     }
-    NSLog(@"Error: unknown MovieListType");
-    return nil;
+    [NSException raise:NSGenericException format:@"Unknown MovieListType"];
 }
 
 @end
