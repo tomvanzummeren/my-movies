@@ -16,6 +16,7 @@
 @synthesize iconImageUrl;
 @synthesize posterImageUrl;
 @synthesize voteAverage;
+@synthesize order;
 
 static NSDateFormatter *yearFormatter;
 

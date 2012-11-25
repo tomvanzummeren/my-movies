@@ -91,8 +91,62 @@
     [context save:&saveError];
     // TODO: Handle saveError
 }
-- (void)moveMovie:(NSInteger)sourceRow toRow:(NSInteger)destinationRow {
-    NSLog(@"Moving row %@ to %@", @(sourceRow), @(destinationRow));
+- (void)moveMovie:(NSInteger)sourceOrder toRow:(NSInteger)destinationOrder {
+
+
+    //from: 4,3,2,1
+
+    NSManagedObjectContext *context = [provider managedObjectContext];
+
+    //moving down
+  /*  if(sourceOrder < destinationOrder){
+        NSLog(@"Right..?");
+        NSInteger lastOrderNumber;
+
+        for (int i = sourceOrder; i < destinationOrder; i++){
+
+            NSFetchRequest *request = [NSFetchRequest new];
+            request.entity = [NSEntityDescription entityForName:MOVIE_ENTITY_NAME inManagedObjectContext:context];
+            request.predicate = [NSPredicate predicateWithFormat:@"(order = %@)", @(i)];
+
+            NSError *queryError = nil;
+            NSArray *results = [context executeFetchRequest:request error:&queryError];
+            // TODO: Handle queryError
+
+            NSManagedObject *managedMovie = [results objectAtIndex:0];
+            NSInteger orderNumber = [[managedMovie valueForKey:@"order"] integerValue];
+            [managedMovie setValue:@(orderNumber -1) forKey:@"order"];
+
+            lastOrderNumber = orderNumber-1;
+
+            NSError *saveError = nil;
+            [context save:&saveError];
+            // TODO: Handle saveError
+        }
+
+        NSFetchRequest *request = [NSFetchRequest new];
+        request.entity = [NSEntityDescription entityForName:MOVIE_ENTITY_NAME inManagedObjectContext:context];
+        request.predicate = [NSPredicate predicateWithFormat:@"(order = %@)", @(sourceOrder)];
+
+        NSError *queryError = nil;
+        NSArray *results = [context executeFetchRequest:request error:&queryError];
+        // TODO: Handle queryError
+
+        NSManagedObject *managedMovie = [results objectAtIndex:0];
+        [managedMovie setValue:@(lastOrderNumber -1) forKey:@"order"];
+
+        NSError *saveError = nil;
+        [context save:&saveError];
+        // TODO: Handle saveError
+    }
+    //moving up
+    else{
+
+
+    }
+*/
+
+    NSLog(@"Moving row %@ to %@", @(sourceOrder), @(destinationOrder));
 }
 
 - (NSMutableArray *) getMovies:(MovieListType) type {
@@ -120,7 +174,7 @@
         movie.iconImageUrl = [result valueForKey:@"iconImageUrl"];
         movie.posterImageUrl = [result valueForKey:@"posterImageUrl"];
         movie.voteAverage = [[result valueForKey:@"voteAverage"] floatValue];
-
+        movie.order = [[result valueForKey:@"order"] integerValue];
         [movies addObject:movie];
     }
     return movies;
