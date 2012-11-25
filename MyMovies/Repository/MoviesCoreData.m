@@ -6,15 +6,12 @@
 //  Copyright (c) 2012 Tom van Zummeren. All rights reserved.
 //
 
-#import <CoreData/CoreData.h>
 #import "MoviesCoreData.h"
 #import "AppDelegate.h"
 
+#define MOVIE_ENTITY_NAME @"Movie"
 
-
-@implementation
-MoviesCoreData
-
+@implementation MoviesCoreData
 
 static MoviesCoreData *instance = nil;
 
@@ -25,120 +22,78 @@ static MoviesCoreData *instance = nil;
     return instance;
 }
 
-- (void) addMovie:(Movie *) movie WithType: (NSString *) type{
-    NSLog(@"Adding movie to core data..");
-    
+- (void) addMovie:(Movie *) movie WithType:(NSString *) type {
+    AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext *context = [appDelegate managedObjectContext];
 
-    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    NSManagedObjectContext *context =
-    [appDelegate managedObjectContext];
-    NSManagedObject *movieManagedObject;
-    movieManagedObject = [NSEntityDescription
-                  insertNewObjectForEntityForName:@"Movie"
-                  inManagedObjectContext:context];
+    NSManagedObject *managedMovie = [NSEntityDescription insertNewObjectForEntityForName:MOVIE_ENTITY_NAME
+                                                                        inManagedObjectContext:context];
 
-    [movieManagedObject setValue:[NSNumber numberWithInteger:[movie identifier]] forKey:@"identifier"];
-    [movieManagedObject setValue:[movie title] forKey:@"title"];
-    [movieManagedObject setValue:[movie releaseDate] forKey:@"releaseDate"];
-    [movieManagedObject setValue:[movie iconImageUrl] forKey:@"iconImageUrl"];
-    [movieManagedObject setValue:[movie posterImageUrl] forKey:@"posterImageUrl"];
-    [movieManagedObject setValue:[NSNumber numberWithFloat:[movie voteAverage]] forKey:@"voteAverage"];
-    [movieManagedObject setValue:type forKey:@"type"];
+    [managedMovie setValue:[NSNumber numberWithInteger:movie.identifier] forKey:@"identifier"];
+    [managedMovie setValue:movie.title forKey:@"title"];
+    [managedMovie setValue:movie.releaseDate forKey:@"releaseDate"];
+    [managedMovie setValue:movie.iconImageUrl forKey:@"iconImageUrl"];
+    [managedMovie setValue:movie.posterImageUrl forKey:@"posterImageUrl"];
+    [managedMovie setValue:[NSNumber numberWithFloat:movie.voteAverage] forKey:@"voteAverage"];
+    [managedMovie setValue:type forKey:@"type"];
 
-    
-    NSError *error;
-    [context save:&error];
+    NSError *saveError = nil;
+    [context save:&saveError];
+    // TODO: Handle saveError
 
     return;
 }
 
-- (void) removeMovie: (Movie *) movie WithType: (NSString *) type{
-    NSLog(@"Removing movie:");
-    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    NSManagedObjectContext *context =
-    [appDelegate managedObjectContext];
-    
-    NSFetchRequest *request = [[NSFetchRequest alloc] init];
-    [request setEntity:[NSEntityDescription entityForName:@"Movie" inManagedObjectContext:context]];
-    [request setIncludesPropertyValues:NO]; //only fetch the managedObjectID
-    
-    NSPredicate *identifier_pred =
-    [NSPredicate predicateWithFormat:@"(identifier = %@)",
-     [NSNumber numberWithInteger:movie.identifier]];
-    [request setPredicate:identifier_pred];
-    
-  /*  NSPredicate *type_pred =
-    [NSPredicate predicateWithFormat:@"(type = %@)",
-     type];
-    [request setPredicate:type_pred];*/
-    
-    
-    
-    NSError * error = nil;
-    NSArray * results = [context executeFetchRequest:request error:&error];
+- (void) deleteMovie:(Movie *) movie WithType:(NSString *) type {
+    AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext *context = [appDelegate managedObjectContext];
 
-    for (NSManagedObject * movie in results) {
-        [context deleteObject:movie];
+    NSFetchRequest *request = [NSFetchRequest new];
+    request.entity = [NSEntityDescription entityForName:MOVIE_ENTITY_NAME inManagedObjectContext:context];
+    request.includesPropertyValues = NO;
+
+    request.predicate = [NSPredicate predicateWithFormat:@"(identifier = %@)", [NSNumber numberWithInteger:movie.identifier]];
+    NSError *queryError = nil;
+    NSArray *results = [context executeFetchRequest:request error:&queryError];
+    // TODO: Handle queryError
+
+    for (NSManagedObject *result in results) {
+        [context deleteObject:result];
     }
-    
+
     NSError *saveError = nil;
     [context save:&saveError];
-    
+    // TODO: Handle saveError
 }
 
 
-- (NSMutableArray *) getMovies:(NSString *) type{
-    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+- (NSMutableArray *) findMovies:(NSString *) type {
+    AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
     NSManagedObjectContext *context = [appDelegate managedObjectContext];
-    
-    NSEntityDescription *entityDesc =
-    [NSEntityDescription entityForName:@"Movie"
-                inManagedObjectContext:context];
-    NSFetchRequest *request = [[NSFetchRequest alloc] init];
-    [request setEntity:entityDesc];
-    NSPredicate *pred =
-    [NSPredicate predicateWithFormat:@"(type = %@)",
-     type];
-    [request setPredicate:pred];
-    
-    NSError *error;
-    NSArray *results = [context executeFetchRequest:request
-                                              error:&error];
-    
+
+    NSFetchRequest *request = [NSFetchRequest new];
+    request.entity = [NSEntityDescription entityForName:MOVIE_ENTITY_NAME inManagedObjectContext:context];
+    request.predicate = [NSPredicate predicateWithFormat:@"(type = %@)", type];
+
+    NSError *queryError = nil;
+    NSArray *results = [context executeFetchRequest:request error:&queryError];
+    // TODO: Handle queryError
+
     NSMutableArray *movies = [NSMutableArray new];
-    
-    if ([results count] == 0) {
-        NSLog( @"No matches" );
-    } else {
-        NSLog(@"Movies:");
-        
-        for (NSManagedObject *result in results) {
-           
-            //log
-            NSLog([NSString stringWithFormat:
-                @"Movie title: %@", [result valueForKey:@"title"]]
-            );
-           
-            //make movie object
-            Movie *movie = [Movie new];
-            
-            movie.identifier = [[result valueForKey:@"identifier"] integerValue];
-            movie.title = [result valueForKey:@"title"];
-            movie.releaseDate = [result valueForKey:@"releaseDate"];
-            movie.iconImageUrl = [result valueForKey:@"iconImageUrl"];
-            movie.posterImageUrl = [result valueForKey:@"posterImageUrl"];
-            movie.voteAverage = [[result valueForKey:@"voteAverage"] floatValue];
-            
-            
-            
-            [movies addObject:movie];
-            
-        }
+
+    for (NSManagedObject *result in results) {
+        Movie *movie = [Movie new];
+
+        movie.identifier = [[result valueForKey:@"identifier"] integerValue];
+        movie.title = [result valueForKey:@"title"];
+        movie.releaseDate = [result valueForKey:@"releaseDate"];
+        movie.iconImageUrl = [result valueForKey:@"iconImageUrl"];
+        movie.posterImageUrl = [result valueForKey:@"posterImageUrl"];
+        movie.voteAverage = [[result valueForKey:@"voteAverage"] floatValue];
+
+        [movies addObject:movie];
     }
-    
     return movies;
 }
-
-
 
 @end
