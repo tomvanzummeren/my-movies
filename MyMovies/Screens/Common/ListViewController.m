@@ -76,8 +76,8 @@
     [movies removeObject:movie];
     [movies insertObject:movie atIndex:(NSUInteger) destinationIndexPath.row];
 
-    NSInteger fromOrder = [[movies objectAtIndex:(NSUInteger) sourceIndexPath.row] order];
-    NSInteger toOrder = [[movies objectAtIndex:(NSUInteger) destinationIndexPath.row ] order];
+    NSInteger fromOrder = [[[movies objectAtIndex:(NSUInteger) sourceIndexPath.row] order] integerValue];
+    NSInteger toOrder = [[[movies objectAtIndex:(NSUInteger) destinationIndexPath.row] order] integerValue];
 
     movieMoved(fromOrder, toOrder);
 }
