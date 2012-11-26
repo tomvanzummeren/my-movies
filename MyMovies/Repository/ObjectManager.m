@@ -5,18 +5,18 @@
 //
 
 
-#import "ManagedObjectContextProvider.h"
+#import "ObjectManager.h"
 #import "ErrorAlertView.h"
 
 
-@implementation ManagedObjectContextProvider {
+@implementation ObjectManager {
     NSManagedObjectContext *managedObjectContext;
     NSManagedObjectModel *managedObjectModel;
     NSPersistentStoreCoordinator *persistentStoreCoordinator;
 }
 
-+ (ManagedObjectContextProvider *) instance {
-    RETURN_SINGLETON(ManagedObjectContextProvider)
++ (ObjectManager *) instance {
+    RETURN_SINGLETON(ObjectManager);
 }
 
 - (NSFetchRequest *) newMoviesFetchRequest {
@@ -41,6 +41,14 @@
         Log(@"WARNING: Fetching single result matches multiple");
     }
     return nil;
+}
+
+- (void) insertObject:(NSManagedObject *) object {
+    [managedObjectContext insertObject:object];
+}
+
+- (void) deleteObject:(NSManagedObject *) object {
+    [managedObjectContext deleteObject:object];
 }
 
 - (void) saveContext {

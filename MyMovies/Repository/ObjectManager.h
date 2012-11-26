@@ -7,9 +7,9 @@
 
 #define MOVIE_ENTITY_NAME @"Movie"
 
-@interface ManagedObjectContextProvider : NSObject
+@interface ObjectManager : NSObject
 
-+ (ManagedObjectContextProvider *) instance;
++ (ObjectManager *) instance;
 
 - (NSManagedObjectContext *) managedObjectContext;
 
@@ -21,4 +21,7 @@
 
 - (id) fetchSingleResult:(NSFetchRequest *) request;
 
+- (void) insertObject:(Movie *) object;
+
+- (void) deleteObject:(Movie *) object;
 @end

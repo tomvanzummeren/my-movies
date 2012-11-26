@@ -7,19 +7,17 @@
 //
 
 #import "MoviesRepository.h"
-#import "ManagedObjectContextProvider.h"
+#import "ObjectManager.h"
 #import "NSMutableArray+Move.h"
 
 @implementation MoviesRepository {
-    ManagedObjectContextProvider *provider;
-    NSManagedObjectContext *context;
+    ObjectManager *objectManager;
 }
 
 - (id) init {
     self = [super init];
     if (self) {
-        provider = [ManagedObjectContextProvider instance];
-        context = [provider managedObjectContext];
+        objectManager = [ObjectManager instance];
     }
     return self;
 }
@@ -34,28 +32,28 @@
     movie.type = [self stringForType:type];
     movie.order = @(orderNumber);
 
-    [context insertObject:movie];
-    [provider saveContext];
+    [objectManager insertObject:movie];
+    [objectManager saveContext];
 }
 
 - (NSInteger) determineNextOrderNumberForType:(MovieListType) type {
-    NSFetchRequest *request = [provider newMoviesFetchRequest];
+    NSFetchRequest *request = [objectManager newMoviesFetchRequest];
     request.predicate = [NSPredicate predicateWithFormat:@"type = %@", [self stringForType:type]];
     request.sortDescriptors = @[[[NSSortDescriptor alloc] initWithKey:@"order" ascending:NO]];
     request.fetchLimit = 1;
 
-    Movie *movie = [provider fetchSingleResult:request];
+    Movie *movie = [objectManager fetchSingleResult:request];
     return movie ? [movie.order integerValue] + 1 : 0;
 }
 
 - (void) deleteMovie:(Movie *) movie {
-    [context deleteObject:movie];
-    [provider saveContext];
+    [objectManager deleteObject:movie];
+    [objectManager saveContext];
 }
 
 - (void) moveMovieFrom:(NSNumber *) sourceOrder toRow:(NSNumber *) destinationOrder withType:(MovieListType) type {
     // Step 1: Fetch all Movies that need their order changed
-    NSFetchRequest *request = [provider newMoviesFetchRequest];
+    NSFetchRequest *request = [objectManager newMoviesFetchRequest];
     request.sortDescriptors = @[[[NSSortDescriptor alloc] initWithKey:@"order" ascending:NO]];
     BOOL movingUp = [sourceOrder compare:destinationOrder] == NSOrderedAscending;
     if (movingUp) {
@@ -63,7 +61,7 @@
     } else {
         request.predicate = [NSPredicate predicateWithFormat:@"order <= %@ AND order >= %@ AND type = %@", sourceOrder, destinationOrder, [self stringForType:type]];
     }
-    NSMutableArray *movies = [[provider fetchAll:request] mutableCopy];
+    NSMutableArray *movies = [[objectManager fetchAll:request] mutableCopy];
 
     // Step 2: Re-order the fetched Movies
     if (movingUp) {
@@ -80,15 +78,15 @@
         currentValue --;
     }
 
-    [provider saveContext];
+    [objectManager saveContext];
 }
 
 - (NSMutableArray *) getMovies:(MovieListType) type {
-    NSFetchRequest *request = [provider newMoviesFetchRequest];
+    NSFetchRequest *request = [objectManager newMoviesFetchRequest];
     request.predicate = [NSPredicate predicateWithFormat:@"type = %@", [self stringForType:type]];
     request.sortDescriptors = @[[[NSSortDescriptor alloc] initWithKey:@"order" ascending:NO]];
 
-    return [[provider fetchAll:request] mutableCopy];
+    return [[objectManager fetchAll:request] mutableCopy];
 }
 
 - (NSString *) stringForType:(MovieListType) type {

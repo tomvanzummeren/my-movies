@@ -7,7 +7,7 @@
 //
 
 #import "Movie.h"
-#import "ManagedObjectContextProvider.h"
+#import "ObjectManager.h"
 
 
 @implementation Movie
@@ -36,7 +36,7 @@ static NSDateFormatter *yearFormatter;
 }
 
 + (Movie *) transientInstance {
-    NSEntityDescription *entity = [NSEntityDescription entityForName:MOVIE_ENTITY_NAME inManagedObjectContext:[ManagedObjectContextProvider instance].managedObjectContext];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:MOVIE_ENTITY_NAME inManagedObjectContext:[[ObjectManager instance] managedObjectContext] ];
     return (Movie *) [[NSManagedObject alloc] initWithEntity:entity insertIntoManagedObjectContext:nil];
 }
 

@@ -52,7 +52,7 @@
 		5F50EB2E01E6D3DA45BF73DC /* star-full@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F50E0950D7B80E84C5A79E2 /* star-full@2x.png */; };
 		5F50EBE2ABF1A9C990861AEA /* NSDictionary+JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F50E3C58BD70B6064AF7CD4 /* NSDictionary+JSON.m */; };
 		5F50EEB34630DD967ED6C1D8 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F50E8CE100CBB9430176BBB /* SearchViewController.m */; };
-		5F50EEC9D635A8D6B7195F56 /* ManagedObjectContextProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F50E7B28B748181811573F5 /* ManagedObjectContextProvider.m */; };
+		5F50EEC9D635A8D6B7195F56 /* ObjectManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F50E7B28B748181811573F5 /* ObjectManager.m */; };
 		5F50EED2BE6F6CA22196A259 /* star-half.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F50E02F46B389C1509EC838 /* star-half.png */; };
 		5F50EF5B74E90B6AA841E65B /* icon-up@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5F50EEE23D2C3FB4C8D11BE8 /* icon-up@2x.jpg */; };
 		5F50EFE4D5E54F9B973CC690 /* SDWebImagePrefetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F50ECC9B90DDF5D408716E9 /* SDWebImagePrefetcher.m */; };
@@ -124,7 +124,7 @@
 		5F50E706ACAF1839945DB5AB /* NSObject+SBJson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SBJson.m"; sourceTree = "<group>"; };
 		5F50E70EAF689CE8C236C386 /* SBJsonStreamWriterAccumulator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamWriterAccumulator.h; sourceTree = "<group>"; };
 		5F50E7143A09385EE7408619 /* SBJsonUTF8Stream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonUTF8Stream.h; sourceTree = "<group>"; };
-		5F50E7B28B748181811573F5 /* ManagedObjectContextProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManagedObjectContextProvider.m; sourceTree = "<group>"; };
+		5F50E7B28B748181811573F5 /* ObjectManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjectManager.m; sourceTree = "<group>"; };
 		5F50E7E4E36BAC9AAA2195E0 /* SDImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDImageCache.m; sourceTree = "<group>"; };
 		5F50E8773E83678821FB1EE8 /* SDWebImageDownloaderDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWebImageDownloaderDelegate.h; sourceTree = "<group>"; };
 		5F50E8B144A15681E92F6AB5 /* SDWebImagePrefetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWebImagePrefetcher.h; sourceTree = "<group>"; };
@@ -151,7 +151,7 @@
 		5F50ECCCC9240EB933CADA63 /* UIButton+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+WebCache.m"; sourceTree = "<group>"; };
 		5F50ED06A45FF358CFE009B8 /* UIView+Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Utilities.m"; sourceTree = "<group>"; };
 		5F50ED3C7C6430B145CA2879 /* SBJsonStreamParserAccumulator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamParserAccumulator.h; sourceTree = "<group>"; };
-		5F50EDBF75A521F1EE1821D5 /* ManagedObjectContextProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManagedObjectContextProvider.h; sourceTree = "<group>"; };
+		5F50EDBF75A521F1EE1821D5 /* ObjectManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectManager.h; sourceTree = "<group>"; };
 		5F50EDE090B685D551181B3E /* SDWebImageDecoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDWebImageDecoder.m; sourceTree = "<group>"; };
 		5F50EE2815C7B1C39B9A0997 /* SBJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJson.h; sourceTree = "<group>"; };
 		5F50EE2B2E733D4EDA412F52 /* SDWebImageCompat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWebImageCompat.h; sourceTree = "<group>"; };
@@ -228,21 +228,28 @@
 		5F50E2BEB59379F64E2F64BC /* Repository */ = {
 			isa = PBXGroup;
 			children = (
-				5F50EEFC9E9A735C7FF813B6 /* TheMovieDbApiConnector.m */,
-				5F50E1BBF9CA770E3BA4FB73 /* TheMovieDbApiConnector.h */,
 				5F50EFE7355F233CA6E2BD5E /* sample-urls.txt */,
-				5F50EE4B7EC2F9EC3EC4CE13 /* Request */,
-				5F50EED60C66295BC77F2382 /* MovieDetails.m */,
-				5F50E8C64373025C7B539AF4 /* MovieDetails.h */,
 				015047B6165FCE0C00369EF2 /* MovieModel.xcdatamodeld */,
 				015047BA165FD18400369EF2 /* MoviesRepository.h */,
 				015047BB165FD18400369EF2 /* MoviesRepository.m */,
-				5F50E7B28B748181811573F5 /* ManagedObjectContextProvider.m */,
-				5F50EDBF75A521F1EE1821D5 /* ManagedObjectContextProvider.h */,
+				5F50E7B28B748181811573F5 /* ObjectManager.m */,
+				5F50EDBF75A521F1EE1821D5 /* ObjectManager.h */,
 				DBA7F52E1662BF2E00B6BA95 /* Movie.h */,
 				DBA7F52F1662BF2E00B6BA95 /* Movie.m */,
 			);
 			path = Repository;
+			sourceTree = "<group>";
+		};
+		5F50E3C33BA5ACBE499D66FF /* API */ = {
+			isa = PBXGroup;
+			children = (
+				5F50EEFC9E9A735C7FF813B6 /* TheMovieDbApiConnector.m */,
+				5F50E1BBF9CA770E3BA4FB73 /* TheMovieDbApiConnector.h */,
+				5F50E8C64373025C7B539AF4 /* MovieDetails.h */,
+				5F50EED60C66295BC77F2382 /* MovieDetails.m */,
+				5F50EE4B7EC2F9EC3EC4CE13 /* Request */,
+			);
+			path = API;
 			sourceTree = "<group>";
 		};
 		5F50E58F5CAE16C0EB0FAA4B /* SDWebImage */ = {
@@ -436,6 +443,7 @@
 				5F50E6C411485B5B67735E03 /* Images */,
 				5F50EA1260610C6A67AE891B /* Screens */,
 				5F50E2BEB59379F64E2F64BC /* Repository */,
+				5F50E3C33BA5ACBE499D66FF /* API */,
 			);
 			path = MyMovies;
 			sourceTree = "<group>";
@@ -574,7 +582,7 @@
 				5F50E95D79705FC457FA7A57 /* VotesView.m in Sources */,
 				015047B8165FCE0C00369EF2 /* MovieModel.xcdatamodeld in Sources */,
 				015047BC165FD18400369EF2 /* MoviesRepository.m in Sources */,
-				5F50EEC9D635A8D6B7195F56 /* ManagedObjectContextProvider.m in Sources */,
+				5F50EEC9D635A8D6B7195F56 /* ObjectManager.m in Sources */,
 				5F50E4990D20A42737BDD753 /* UIView+Utilities.m in Sources */,
 				5F50E623A08C7DBCC534708F /* MyMoviesWindow.m in Sources */,
 				DBA7F5301662BF2E00B6BA95 /* Movie.m in Sources */,

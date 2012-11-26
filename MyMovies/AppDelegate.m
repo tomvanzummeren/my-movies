@@ -1,5 +1,5 @@
 #import "AppDelegate.h"
-#import "ManagedObjectContextProvider.h"
+#import "ObjectManager.h"
 #import "MyMoviesWindow.h"
 
 @implementation AppDelegate {
@@ -19,6 +19,6 @@
 }
 
 - (void) applicationWillTerminate:(UIApplication *) application {
-    [[ManagedObjectContextProvider instance] saveContext];
+    [[ObjectManager instance] saveContext];
 }
 @end
