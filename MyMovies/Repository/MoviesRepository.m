@@ -8,6 +8,7 @@
 
 #import "MoviesRepository.h"
 #import "ManagedObjectContextProvider.h"
+#import "ErrorAlertView.h"
 
 @implementation MoviesRepository {
     ManagedObjectContextProvider *provider;
@@ -39,7 +40,7 @@
 
     NSError *saveError = nil;
     [context save:&saveError];
-    // TODO: Handle saveError
+    [ErrorAlertView showOnError:saveError];
 
     return;
 }
@@ -53,7 +54,7 @@
 
     NSError *queryError = nil;
     NSArray *results = [context executeFetchRequest:request error:&queryError];
-    // TODO: Handle queryError
+    [ErrorAlertView showOnError:queryError];
 
     NSInteger orderNumber = 0;
     if ([results count] > 0) {
@@ -71,7 +72,7 @@
     request.predicate = [NSPredicate predicateWithFormat:@"(identifier = %@)", movie.identifier];
     NSError *queryError = nil;
     NSArray *results = [context executeFetchRequest:request error:&queryError];
-    // TODO: Handle queryError
+    [ErrorAlertView showOnError:queryError];
 
     for (NSManagedObject *result in results) {
         [context deleteObject:result];
@@ -79,7 +80,7 @@
 
     NSError *saveError = nil;
     [context save:&saveError];
-    // TODO: Handle saveError
+    [ErrorAlertView showOnError:saveError];
 }
 
 - (void) moveMovie:(NSInteger) sourceOrder toRow:(NSInteger) destinationOrder {
@@ -95,7 +96,7 @@
 
             NSError *queryError = nil;
             NSArray *results = [context executeFetchRequest:request error:&queryError];
-            // TODO: Handle queryError
+            [ErrorAlertView showOnError:queryError];
 
             NSManagedObject *managedMovie = [results objectAtIndex:0];
             NSInteger orderNumber = [[managedMovie valueForKey:@"order"] integerValue];
@@ -105,7 +106,7 @@
 
             NSError *saveError = nil;
             [context save:&saveError];
-            // TODO: Handle saveError
+            [ErrorAlertView showOnError:saveError];
         }
 
         NSFetchRequest *request = [provider newMoviesFetchRequest];
@@ -113,14 +114,14 @@
 
         NSError *queryError = nil;
         NSArray *results = [context executeFetchRequest:request error:&queryError];
-        // TODO: Handle queryError
+        [ErrorAlertView showOnError:queryError];
 
         NSManagedObject *managedMovie = [results objectAtIndex:0];
         [managedMovie setValue:@(lastOrderNumber - 1) forKey:@"order"];
 
         NSError *saveError = nil;
         [context save:&saveError];
-        // TODO: Handle saveError
+        [ErrorAlertView showOnError:saveError];
     } else {
 
     }
@@ -137,7 +138,7 @@
 
     NSError *queryError = nil;
     NSArray *movies = [context executeFetchRequest:request error:&queryError];
-    // TODO: Handle queryError
+    [ErrorAlertView showOnError:queryError];
     return [movies mutableCopy];
 }
 

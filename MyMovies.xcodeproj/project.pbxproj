@@ -41,6 +41,7 @@
 		5F50E84CF145BB1607EA5FD2 /* SBJsonStreamWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F50E39923762BDCB2F64AF8 /* SBJsonStreamWriter.m */; };
 		5F50E88C833977E68DA2A41D /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F50EE85EAE80FA49638DEA1 /* SBJsonWriter.m */; };
 		5F50E8BC7DB3DD75C7314073 /* SBJsonStreamWriterState.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F50EFFF4DA184EA655FDA04 /* SBJsonStreamWriterState.m */; };
+		5F50E8F3032D11C288A092BA /* ErrorAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F50E911DCCA83F8F3600F63 /* ErrorAlertView.m */; };
 		5F50E918CCBF06D0459D1496 /* SBJsonTokeniser.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F50EE6D7120551F1088D281 /* SBJsonTokeniser.m */; };
 		5F50E95D79705FC457FA7A57 /* VotesView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F50E62B85948EEC0E839073 /* VotesView.m */; };
 		5F50E996211DB7D5FD62F2AF /* star-none@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F50E61E5E8096368EFE2E86 /* star-none@2x.png */; };
@@ -129,6 +130,7 @@
 		5F50E8F2735F2F5605F7894D /* poster-up@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "poster-up@2x.jpg"; sourceTree = "<group>"; };
 		5F50E8FF9059BD9975189B97 /* SDWebImageDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDWebImageDownloader.m; sourceTree = "<group>"; };
 		5F50E90E57445D301A17CD3C /* NSObject+SBJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJson.h"; sourceTree = "<group>"; };
+		5F50E911DCCA83F8F3600F63 /* ErrorAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ErrorAlertView.m; sourceTree = "<group>"; };
 		5F50E950D6360A2D5FB72207 /* SBJsonStreamParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamParser.m; sourceTree = "<group>"; };
 		5F50E95A69574D81A31FAC62 /* SBJsonStreamParserAccumulator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamParserAccumulator.m; sourceTree = "<group>"; };
 		5F50E96408812B678E9A28BA /* NSDictionary+JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+JSON.h"; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 		5F50EF64A02B70E8D4AD8229 /* HttpRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpRequest.h; sourceTree = "<group>"; };
 		5F50EFB81C136DE7B8ACE9F7 /* SBJsonStreamParserAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamParserAdapter.h; sourceTree = "<group>"; };
 		5F50EFE7355F233CA6E2BD5E /* sample-urls.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "sample-urls.txt"; sourceTree = "<group>"; };
+		5F50EFF097BA3C6377A67BC4 /* ErrorAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ErrorAlertView.h; sourceTree = "<group>"; };
 		5F50EFFF4DA184EA655FDA04 /* SBJsonStreamWriterState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamWriterState.m; sourceTree = "<group>"; };
 		DB7F9E2E16282B22008565D5 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		DBA7F52E1662BF2E00B6BA95 /* Movie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Movie.h; sourceTree = "<group>"; };
@@ -381,6 +384,8 @@
 				5F50E8E22C70F1A41D07C7B2 /* Utility */,
 				5F50E0EEFAD55F98C9D69C8B /* MyMoviesWindow.m */,
 				5F50E3F8AA9176EE3DF2EE37 /* MyMoviesWindow.h */,
+				5F50E911DCCA83F8F3600F63 /* ErrorAlertView.m */,
+				5F50EFF097BA3C6377A67BC4 /* ErrorAlertView.h */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -568,6 +573,7 @@
 				5F50E4990D20A42737BDD753 /* UIView+Utilities.m in Sources */,
 				5F50E623A08C7DBCC534708F /* MyMoviesWindow.m in Sources */,
 				DBA7F5301662BF2E00B6BA95 /* Movie.m in Sources */,
+				5F50E8F3032D11C288A092BA /* ErrorAlertView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
