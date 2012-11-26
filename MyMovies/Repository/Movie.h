@@ -14,12 +14,13 @@
 
 @property (nonatomic, retain) NSString * iconImageUrl;
 @property (nonatomic, retain) NSNumber * identifier;
-@property (nonatomic, retain) NSNumber * order;
 @property (nonatomic, retain) NSString * posterImageUrl;
 @property (nonatomic, retain) NSDate * releaseDate;
 @property (nonatomic, retain) NSString * title;
-@property (nonatomic, retain) NSString * type;
 @property (nonatomic, retain) NSNumber * voteAverage;
+
+@property (nonatomic, retain) NSString * type;
+@property (nonatomic, retain) NSNumber * order;
 
 - (NSString *) releaseYear;
 

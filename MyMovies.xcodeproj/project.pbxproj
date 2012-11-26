@@ -335,6 +335,7 @@
 				5F50EEA7A50B9B7314911C4D /* Common */,
 				5F50E9C7AFEE28E891E599EC /* Search */,
 				5F50E675B47AD7E7D33BEACE /* My Movies */,
+				5F50EFBB65D1750DF6E668D7 /* Movie List */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -387,10 +388,6 @@
 		5F50EEA7A50B9B7314911C4D /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				5F50E98342ED445591B5C4A7 /* MovieCell.h */,
-				5F50E3ED4AE51DC3E30F614C /* MovieCell.m */,
-				DBF8BD051620D3A0003F32B9 /* ListViewController.m */,
-				DBF8BD041620D3A0003F32B9 /* ListViewController.h */,
 				5F50E62B85948EEC0E839073 /* VotesView.m */,
 				5F50E180BA10C65DD74BD20B /* VotesView.h */,
 				5F50E8E22C70F1A41D07C7B2 /* Utility */,
@@ -400,6 +397,17 @@
 				5F50EFF097BA3C6377A67BC4 /* ErrorAlertView.h */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		5F50EFBB65D1750DF6E668D7 /* Movie List */ = {
+			isa = PBXGroup;
+			children = (
+				5F50E3ED4AE51DC3E30F614C /* MovieCell.m */,
+				5F50E98342ED445591B5C4A7 /* MovieCell.h */,
+				DBF8BD041620D3A0003F32B9 /* ListViewController.h */,
+				DBF8BD051620D3A0003F32B9 /* ListViewController.m */,
+			);
+			path = "Movie List";
 			sourceTree = "<group>";
 		};
 		DBF8BCDA1620D39F003F32B9 = {
