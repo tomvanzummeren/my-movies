@@ -18,9 +18,8 @@
 
 - (void) viewDidLoad {
     listViewController = [self.childViewControllers objectAtIndex:0];
-    __weak SearchViewController *weakSelf = self;
+    weakInBlock SearchViewController *weakSelf = self;
     listViewController.customOnCellTapped = ^(Movie *movie, MovieCell *cell) {
-
         MyMoviesWindow *window = (MyMoviesWindow *) self.view.window;
         [window displayOverlappingMovieCell:cell];
 

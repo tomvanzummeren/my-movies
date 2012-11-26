@@ -44,11 +44,11 @@
 
         NSArray *resultsJson = [responseJson objectForKey:@"results"];
         for (NSDictionary *resultJson in resultsJson) {
-            Movie *movie = [Movie new];
+            Movie *movie = [Movie transientInstance];
             movie.title = [resultJson stringForKey:@"title"];
             movie.releaseDate = [dateFormatter dateFromString:[resultJson stringForKey:@"release_date"]];
-            movie.identifier = [resultJson integerForKey:@"id"];
-            movie.voteAverage = [resultJson floatForKey:@"vote_average"];
+            movie.identifier = [resultJson objectForKey:@"id"];
+            movie.voteAverage = [resultJson objectForKey:@"vote_average"];
 
             NSString *posterPath = [resultJson stringForKey:@"poster_path"];
             if (posterPath) {

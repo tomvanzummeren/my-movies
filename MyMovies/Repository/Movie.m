@@ -1,22 +1,25 @@
 //
-// Created by tomvanzummeren on 10/10/12.
+//  Movie.m
+//  MyMovies
 //
-// To change the template use AppCode | Preferences | File Templates.
+//  Created by Tom van Zummeren on 11/25/12.
+//  Copyright (c) 2012 Tom van Zummeren. All rights reserved.
 //
-
 
 #import "Movie.h"
+#import "ManagedObjectContextProvider.h"
 
 
 @implementation Movie
 
-@synthesize identifier;
-@synthesize title;
-@synthesize releaseDate;
-@synthesize iconImageUrl;
-@synthesize posterImageUrl;
-@synthesize voteAverage;
-@synthesize order;
+@dynamic iconImageUrl;
+@dynamic identifier;
+@dynamic order;
+@dynamic posterImageUrl;
+@dynamic releaseDate;
+@dynamic title;
+@dynamic type;
+@dynamic voteAverage;
 
 static NSDateFormatter *yearFormatter;
 
@@ -26,10 +29,15 @@ static NSDateFormatter *yearFormatter;
 }
 
 - (NSString *) releaseYear {
-    if (!releaseDate) {
+    if (!self.releaseDate) {
         return nil;
     }
-    return [yearFormatter stringFromDate:releaseDate];
+    return [yearFormatter stringFromDate:self.releaseDate];
+}
+
++ (Movie *) transientInstance {
+    NSEntityDescription *entity = [NSEntityDescription entityForName:MOVIE_ENTITY_NAME inManagedObjectContext:[ManagedObjectContextProvider instance].managedObjectContext];
+    return (Movie *) [[NSManagedObject alloc] initWithEntity:entity insertIntoManagedObjectContext:nil];
 }
 
 @end

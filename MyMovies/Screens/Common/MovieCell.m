@@ -24,7 +24,7 @@
     } else {
         releaseYearLabel.text = @"";
     }
-    [votesView setScore:movie.voteAverage];
+    [votesView setScore:[movie.voteAverage floatValue]];
 
     CGFloat titleTextWidth = [titleLabel.text sizeWithFont:titleLabel.font].width;
     titleLabel.frame = CGRectMake(titleLabel.frame.origin.x, titleLabel.frame.origin.y, titleTextWidth, titleLabel.frame.size.height);

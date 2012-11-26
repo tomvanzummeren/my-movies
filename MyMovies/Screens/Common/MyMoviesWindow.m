@@ -29,7 +29,7 @@
 
     originalTransform = movieCellSnapshot.transform;
     [UIView animateWithDuration:.3 animations:^{
-        movieCellSnapshot.transform = CGAffineTransformScale(movieCellSnapshot.transform, 1.25, 1.25);
+        movieCellSnapshot.transform = CGAffineTransformScale(movieCellSnapshot.transform, 1.15, 1.15);
     }];
 }
 
@@ -54,6 +54,7 @@
             completion();
         }
         [movieCellSnapshot removeFromSuperview];
+        movieCellSnapshot = nil;
     }];
 }
 

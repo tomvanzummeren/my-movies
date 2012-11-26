@@ -18,6 +18,11 @@
     RETURN_SINGLETON(ManagedObjectContextProvider)
 }
 
+- (NSFetchRequest *) newMoviesFetchRequest {
+    NSFetchRequest *request = [NSFetchRequest new];
+    request.entity = [NSEntityDescription entityForName:MOVIE_ENTITY_NAME inManagedObjectContext:managedObjectContext];
+    return request;
+}
 
 - (void) saveContext {
     NSError *error = nil;

@@ -19,7 +19,7 @@
     self.title = movie.title;
     titleLabel.text = movie.title;
     releaseYearLabel.text = movie.releaseYear;
-    [votesView setScore:movie.voteAverage];
+    [votesView setScore:[movie.voteAverage floatValue]];
 
     [moviePosterView setPosterImageUrl:movie.posterImageUrl];
 

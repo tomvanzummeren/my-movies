@@ -1,23 +1,28 @@
 //
-// Created by tomvanzummeren on 10/10/12.
+//  Movie.h
+//  MyMovies
 //
-// To change the template use AppCode | Preferences | File Templates.
+//  Created by Tom van Zummeren on 11/25/12.
+//  Copyright (c) 2012 Tom van Zummeren. All rights reserved.
 //
-
 
 #import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
 
 
-@interface Movie : NSObject
+@interface Movie : NSManagedObject
 
-@property (nonatomic) NSInteger identifier;
-@property (strong, nonatomic) NSString *title;
-@property (strong, nonatomic) NSDate *releaseDate;
-@property (strong, nonatomic) NSString *iconImageUrl;
-@property (strong, nonatomic) NSString *posterImageUrl;
-@property(nonatomic) CGFloat voteAverage;
-@property(nonatomic) NSInteger order;
-
+@property (nonatomic, retain) NSString * iconImageUrl;
+@property (nonatomic, retain) NSNumber * identifier;
+@property (nonatomic, retain) NSNumber * order;
+@property (nonatomic, retain) NSString * posterImageUrl;
+@property (nonatomic, retain) NSDate * releaseDate;
+@property (nonatomic, retain) NSString * title;
+@property (nonatomic, retain) NSString * type;
+@property (nonatomic, retain) NSNumber * voteAverage;
 
 - (NSString *) releaseYear;
+
++ (Movie *) transientInstance;
+
 @end

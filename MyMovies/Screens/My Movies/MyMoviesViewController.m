@@ -18,18 +18,17 @@
     apiConnector = [TheMovieDbApiConnector instance];
     moviesRepository = [MoviesRepository instance];
 
-    movieListViewController = [[self childViewControllers] objectAtIndex:0];
+    movieListViewController = [self.childViewControllers objectAtIndex:0];
     movieListViewController.moviesDeletable = YES;
     movieListViewController.moviesReorderable = YES;
 
-    __weak MyMoviesViewController *weakSelf = self;
+    weakInBlock MyMoviesViewController *weakSelf = self;
     movieListViewController.movieDeleted = ^(Movie *movie) {
-        [weakSelf deleteMovie:movie];
+        [weakSelf->moviesRepository deleteMovie:movie withType:weakSelf->selectedList];
     };
 
-    movieListViewController.movieMoved = ^(NSInteger sourceRow, NSInteger destinationRow){
-
-        [weakSelf moveMovie:sourceRow toRow:destinationRow];
+    movieListViewController.movieMoved = ^(NSInteger sourceRow, NSInteger destinationRow) {
+        [weakSelf->moviesRepository moveMovie:sourceRow toRow:destinationRow];
     };
 
     self.navigationItem.leftBarButtonItem = movieListViewController.editButtonItem;
@@ -38,26 +37,17 @@
     tabBar.selectedItem = [tabBar.items objectAtIndex:0];
 }
 
-- (void)moveMovie:(NSInteger)sourceRow toRow:(NSInteger)destinationRow {
-    [moviesRepository moveMovie:sourceRow toRow:destinationRow];
-}
-
-- (void) deleteMovie:(Movie *) movie {
-    [moviesRepository deleteMovie:movie withType:selectedList];
-}
-
 - (void) tabBar:(UITabBar *) tb didSelectItem:(UITabBarItem *) item {
     int selectedItemIndex = [tabBar.items indexOfObject:item];
     [movieListViewController setEditing:NO];
     if (selectedItemIndex == 0) {
-        movieListViewController.moviesReorderable = YES;
-        movieListViewController.movies = [moviesRepository getMovies:ToWatchList];
         selectedList = ToWatchList;
+        movieListViewController.moviesReorderable = YES;
     } else {
-        movieListViewController.moviesReorderable = NO;
-        movieListViewController.movies = [moviesRepository getMovies:WatchedList];
         selectedList = WatchedList;
+        movieListViewController.moviesReorderable = NO;
     }
+    movieListViewController.movies = [moviesRepository getMovies:selectedList];
 }
 
 - (void) prepareForSegue:(UIStoryboardSegue *) segue sender:(id) sender {
@@ -65,13 +55,8 @@
         UINavigationController *navigationController = segue.destinationViewController;
         SearchViewController *searchViewController = (SearchViewController *) navigationController.topViewController;
         searchViewController.onMovieSelected = ^(Movie *movie) {
-            if (selectedList == ToWatchList) {
-                [movieListViewController addMovie:movie];
-                [moviesRepository addMovie:movie withType:ToWatchList];
-            } else if (selectedList == WatchedList) {
-                [movieListViewController addMovie:movie];
-                [moviesRepository addMovie:movie withType:WatchedList];
-            }
+            [moviesRepository addMovie:movie withType:selectedList];
+            [movieListViewController addMovie:movie];
         };
     }
 }

@@ -5,8 +5,7 @@
 //
 
 
-#import <Foundation/Foundation.h>
-
+#define MOVIE_ENTITY_NAME @"Movie"
 
 @interface ManagedObjectContextProvider : NSObject
 
@@ -16,4 +15,5 @@
 
 - (void) saveContext;
 
+- (NSFetchRequest *) newMoviesFetchRequest;
 @end

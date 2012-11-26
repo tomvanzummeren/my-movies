@@ -72,7 +72,9 @@
 }
 
 -(void) tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath{
-   [movies exchangeObjectAtIndex:(NSUInteger)sourceIndexPath.row withObjectAtIndex:(NSUInteger)destinationIndexPath.row];
+    Movie *movie = [movies objectAtIndex:(NSUInteger) sourceIndexPath.row];
+    [movies removeObject:movie];
+    [movies insertObject:movie atIndex:(NSUInteger) destinationIndexPath.row];
 
     NSInteger fromOrder = [[movies objectAtIndex:(NSUInteger) sourceIndexPath.row] order];
     NSInteger toOrder = [[movies objectAtIndex:(NSUInteger) destinationIndexPath.row ] order];
