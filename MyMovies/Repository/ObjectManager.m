@@ -15,6 +15,14 @@
     NSPersistentStoreCoordinator *persistentStoreCoordinator;
 }
 
+- (id) init {
+    self = [super init];
+    if (self) {
+        [self managedObjectContext];
+    }
+    return self;
+}
+
 + (ObjectManager *) instance {
     RETURN_SINGLETON(ObjectManager);
 }

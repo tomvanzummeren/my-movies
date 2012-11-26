@@ -335,7 +335,7 @@
 				5F50EEA7A50B9B7314911C4D /* Common */,
 				5F50E9C7AFEE28E891E599EC /* Search */,
 				5F50E675B47AD7E7D33BEACE /* My Movies */,
-				5F50EFBB65D1750DF6E668D7 /* Movie List */,
+				5F50EFBB65D1750DF6E668D7 /* List */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -399,7 +399,7 @@
 			path = Common;
 			sourceTree = "<group>";
 		};
-		5F50EFBB65D1750DF6E668D7 /* Movie List */ = {
+		5F50EFBB65D1750DF6E668D7 /* List */ = {
 			isa = PBXGroup;
 			children = (
 				5F50E3ED4AE51DC3E30F614C /* MovieCell.m */,
@@ -407,7 +407,8 @@
 				DBF8BD041620D3A0003F32B9 /* ListViewController.h */,
 				DBF8BD051620D3A0003F32B9 /* ListViewController.m */,
 			);
-			path = "Movie List";
+			lastKnownFileType = text;
+			path = List;
 			sourceTree = "<group>";
 		};
 		DBF8BCDA1620D39F003F32B9 = {

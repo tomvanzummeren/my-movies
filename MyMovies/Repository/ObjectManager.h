@@ -4,7 +4,6 @@
 // To change the template use AppCode | Preferences | File Templates.
 //
 
-
 #define MOVIE_ENTITY_NAME @"Movie"
 
 @interface ObjectManager : NSObject
@@ -21,7 +20,7 @@
 
 - (id) fetchSingleResult:(NSFetchRequest *) request;
 
-- (void) insertObject:(Movie *) object;
+- (void) insertObject:(NSManagedObject *) object;
 
-- (void) deleteObject:(Movie *) object;
+- (void) deleteObject:(NSManagedObject *) object;
 @end
