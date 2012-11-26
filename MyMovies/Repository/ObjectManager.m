@@ -1,13 +1,6 @@
-//
-// Created by tomvanzummeren on 11/25/12.
-//
-// To change the template use AppCode | Preferences | File Templates.
-//
-
 
 #import "ObjectManager.h"
 #import "ErrorAlertView.h"
-
 
 @implementation ObjectManager {
     NSManagedObjectContext *managedObjectContext;
