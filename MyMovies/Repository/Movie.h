@@ -12,15 +12,15 @@
 
 @interface Movie : NSManagedObject
 
-@property (nonatomic, retain) NSString * iconImageUrl;
-@property (nonatomic, retain) NSNumber * identifier;
-@property (nonatomic, retain) NSString * posterImageUrl;
-@property (nonatomic, retain) NSDate * releaseDate;
-@property (nonatomic, retain) NSString * title;
-@property (nonatomic, retain) NSNumber * voteAverage;
+@property (nonatomic, strong) NSString * iconImageUrl;
+@property (nonatomic, strong) NSNumber * identifier;
+@property (nonatomic, strong) NSString * posterImageUrl;
+@property (nonatomic, strong) NSDate * releaseDate;
+@property (nonatomic, strong) NSString * title;
+@property (nonatomic, strong) NSNumber * voteAverage;
 
-@property (nonatomic, retain) NSString * type;
-@property (nonatomic, retain) NSNumber * order;
+@property (nonatomic, strong) NSString * type;
+@property (nonatomic, strong) NSNumber * order;
 
 - (NSString *) releaseYear;
 
