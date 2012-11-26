@@ -24,11 +24,11 @@
 
     weakInBlock MyMoviesViewController *weakSelf = self;
     movieListViewController.movieDeleted = ^(Movie *movie) {
-        [weakSelf->moviesRepository deleteMovie:movie withType:weakSelf->selectedList];
+        [weakSelf->moviesRepository deleteMovie:movie];
     };
 
-    movieListViewController.movieMoved = ^(NSInteger sourceRow, NSInteger destinationRow) {
-        [weakSelf->moviesRepository moveMovie:sourceRow toRow:destinationRow];
+    movieListViewController.movieMoved = ^(NSNumber *sourceRow, NSNumber *destinationRow) {
+        [weakSelf->moviesRepository moveMovieFrom:sourceRow toRow:destinationRow withType:selectedList];
     };
 
     self.navigationItem.leftBarButtonItem = movieListViewController.editButtonItem;

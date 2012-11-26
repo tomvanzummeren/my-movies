@@ -16,4 +16,9 @@
 - (void) saveContext;
 
 - (NSFetchRequest *) newMoviesFetchRequest;
+
+- (NSArray *) fetchAll:(NSFetchRequest *) request;
+
+- (id) fetchSingleResult:(NSFetchRequest *) request;
+
 @end

@@ -6,6 +6,7 @@
 
 
 #import "ManagedObjectContextProvider.h"
+#import "ErrorAlertView.h"
 
 
 @implementation ManagedObjectContextProvider {
@@ -22,6 +23,24 @@
     NSFetchRequest *request = [NSFetchRequest new];
     request.entity = [NSEntityDescription entityForName:MOVIE_ENTITY_NAME inManagedObjectContext:managedObjectContext];
     return request;
+}
+
+- (NSArray *) fetchAll:(NSFetchRequest *) request {
+    NSError *queryError = nil;
+    NSArray *results = [managedObjectContext executeFetchRequest:request error:&queryError];
+    [ErrorAlertView showOnError:queryError];
+    return results;
+}
+
+- (id) fetchSingleResult:(NSFetchRequest *) request {
+    NSArray *results = [self fetchAll:request];
+    if (results.count == 1) {
+        return [results objectAtIndex:0];
+    }
+    if (results.count > 0) {
+        Log(@"WARNING: Fetching single result matches multiple");
+    }
+    return nil;
 }
 
 - (void) saveContext {

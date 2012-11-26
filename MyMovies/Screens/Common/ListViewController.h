@@ -10,7 +10,7 @@
 @property (copy, nonatomic) void (^customOnCellTapped)(Movie *movie, MovieCell *movieCell);
 
 @property (copy, nonatomic) void (^movieDeleted)(Movie *movie);
-@property (copy, nonatomic) void (^movieMoved)(NSInteger sourceRow, NSInteger destinationRow);
+@property (copy, nonatomic) void (^movieMoved)(NSNumber *sourceRow, NSNumber *destinationRow);
 
 - (void) addMovie:(Movie *) movie;
 

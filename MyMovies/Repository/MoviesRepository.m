@@ -8,7 +8,7 @@
 
 #import "MoviesRepository.h"
 #import "ManagedObjectContextProvider.h"
-#import "ErrorAlertView.h"
+#import "NSMutableArray+Move.h"
 
 @implementation MoviesRepository {
     ManagedObjectContextProvider *provider;
@@ -31,115 +31,64 @@
 - (void) addMovie:(Movie *) movie withType:(MovieListType) type {
     NSInteger orderNumber = [self determineNextOrderNumberForType:type];
 
-    NSLog(@"Order Number: %@", @(orderNumber));
-
     movie.type = [self stringForType:type];
     movie.order = @(orderNumber);
 
     [context insertObject:movie];
-
-    NSError *saveError = nil;
-    [context save:&saveError];
-    [ErrorAlertView showOnError:saveError];
-
-    return;
+    [provider saveContext];
 }
 
 - (NSInteger) determineNextOrderNumberForType:(MovieListType) type {
     NSFetchRequest *request = [provider newMoviesFetchRequest];
-    request.predicate = [NSPredicate predicateWithFormat:@"(type = %@)", [self stringForType:type]];
+    request.predicate = [NSPredicate predicateWithFormat:@"type = %@", [self stringForType:type]];
+    request.sortDescriptors = @[[[NSSortDescriptor alloc] initWithKey:@"order" ascending:NO]];
+    request.fetchLimit = 1;
 
-    NSSortDescriptor *sortByName = [[NSSortDescriptor alloc] initWithKey:@"order" ascending:NO];
-    request.sortDescriptors = [NSArray arrayWithObject:sortByName];
-
-    NSError *queryError = nil;
-    NSArray *results = [context executeFetchRequest:request error:&queryError];
-    [ErrorAlertView showOnError:queryError];
-
-    NSInteger orderNumber = 0;
-    if ([results count] > 0) {
-        NSManagedObject *firstMovie = [results objectAtIndex:0];
-        NSInteger firstMovieOrderNumber = [[firstMovie valueForKey:@"order"] integerValue];
-        orderNumber = firstMovieOrderNumber + 1;
-    }
-
+    Movie *movie = [provider fetchSingleResult:request];
+    return movie ? [movie.order integerValue] + 1 : 0;
 }
 
-- (void) deleteMovie:(Movie *) movie withType:(MovieListType) type {
+- (void) deleteMovie:(Movie *) movie {
+    [context deleteObject:movie];
+    [provider saveContext];
+}
+
+- (void) moveMovieFrom:(NSNumber *) sourceOrder toRow:(NSNumber *) destinationOrder withType:(MovieListType) type {
+    // Step 1: Fetch all Movies that need their order changed
     NSFetchRequest *request = [provider newMoviesFetchRequest];
-    request.includesPropertyValues = NO;
-
-    request.predicate = [NSPredicate predicateWithFormat:@"(identifier = %@)", movie.identifier];
-    NSError *queryError = nil;
-    NSArray *results = [context executeFetchRequest:request error:&queryError];
-    [ErrorAlertView showOnError:queryError];
-
-    for (NSManagedObject *result in results) {
-        [context deleteObject:result];
-    }
-
-    NSError *saveError = nil;
-    [context save:&saveError];
-    [ErrorAlertView showOnError:saveError];
-}
-
-- (void) moveMovie:(NSInteger) sourceOrder toRow:(NSInteger) destinationOrder {
-    // Moving down
-    if (sourceOrder < destinationOrder) {
-        NSLog(@"Moving down...");
-        NSInteger lastOrderNumber;
-
-        for (int i = sourceOrder; i < destinationOrder; i++) {
-
-            NSFetchRequest *request = [provider newMoviesFetchRequest];
-            request.predicate = [NSPredicate predicateWithFormat:@"(order = %@)", @(i)];
-
-            NSError *queryError = nil;
-            NSArray *results = [context executeFetchRequest:request error:&queryError];
-            [ErrorAlertView showOnError:queryError];
-
-            NSManagedObject *managedMovie = [results objectAtIndex:0];
-            NSInteger orderNumber = [[managedMovie valueForKey:@"order"] integerValue];
-            [managedMovie setValue:@(orderNumber - 1) forKey:@"order"];
-
-            lastOrderNumber = orderNumber - 1;
-
-            NSError *saveError = nil;
-            [context save:&saveError];
-            [ErrorAlertView showOnError:saveError];
-        }
-
-        NSFetchRequest *request = [provider newMoviesFetchRequest];
-        request.predicate = [NSPredicate predicateWithFormat:@"(order = %@)", @(sourceOrder)];
-
-        NSError *queryError = nil;
-        NSArray *results = [context executeFetchRequest:request error:&queryError];
-        [ErrorAlertView showOnError:queryError];
-
-        NSManagedObject *managedMovie = [results objectAtIndex:0];
-        [managedMovie setValue:@(lastOrderNumber - 1) forKey:@"order"];
-
-        NSError *saveError = nil;
-        [context save:&saveError];
-        [ErrorAlertView showOnError:saveError];
+    request.sortDescriptors = @[[[NSSortDescriptor alloc] initWithKey:@"order" ascending:NO]];
+    BOOL movingUp = [sourceOrder compare:destinationOrder] == NSOrderedAscending;
+    if (movingUp) {
+        request.predicate = [NSPredicate predicateWithFormat:@"order >= %@ AND order <= %@ AND type = %@", sourceOrder, destinationOrder, [self stringForType:type]];
     } else {
+        request.predicate = [NSPredicate predicateWithFormat:@"order <= %@ AND order >= %@ AND type = %@", sourceOrder, destinationOrder, [self stringForType:type]];
+    }
+    NSMutableArray *movies = [[provider fetchAll:request] mutableCopy];
 
+    // Step 2: Re-order the fetched Movies
+    if (movingUp) {
+        [movies moveLastObjectToBegin];
+    } else {
+        [movies moveFirstObjectToEnd];
     }
 
-    NSLog(@"Moving row %@ to %@", @(sourceOrder), @(destinationOrder));
+    // Step 3: Assign new order values to the re-ordered movies
+    NSInteger currentValue = MAX([sourceOrder integerValue], [destinationOrder integerValue]);
+    for (Movie *movie in movies) {
+        NSNumber *oldOrder = movie.order;
+        movie.order = @(currentValue);
+        currentValue --;
+    }
+
+    [provider saveContext];
 }
 
 - (NSMutableArray *) getMovies:(MovieListType) type {
     NSFetchRequest *request = [provider newMoviesFetchRequest];
-    request.predicate = [NSPredicate predicateWithFormat:@"(type = %@)", [self stringForType:type]];
+    request.predicate = [NSPredicate predicateWithFormat:@"type = %@", [self stringForType:type]];
+    request.sortDescriptors = @[[[NSSortDescriptor alloc] initWithKey:@"order" ascending:NO]];
 
-    NSSortDescriptor *sortByName = [[NSSortDescriptor alloc] initWithKey:@"order" ascending:NO];
-    request.sortDescriptors = [NSArray arrayWithObject:sortByName];
-
-    NSError *queryError = nil;
-    NSArray *movies = [context executeFetchRequest:request error:&queryError];
-    [ErrorAlertView showOnError:queryError];
-    return [movies mutableCopy];
+    return [[provider fetchAll:request] mutableCopy];
 }
 
 - (NSString *) stringForType:(MovieListType) type {

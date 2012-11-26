@@ -46,6 +46,7 @@
 		5F50E95D79705FC457FA7A57 /* VotesView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F50E62B85948EEC0E839073 /* VotesView.m */; };
 		5F50E996211DB7D5FD62F2AF /* star-none@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F50E61E5E8096368EFE2E86 /* star-none@2x.png */; };
 		5F50EA113369950A3EEA8897 /* SDWebImageDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F50EDE090B685D551181B3E /* SDWebImageDecoder.m */; };
+		5F50EA451689C8B50D6D3265 /* NSMutableArray+Move.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F50E365194DE2B1A22E5957 /* NSMutableArray+Move.m */; };
 		5F50EAE8AF8644A66EACB7F4 /* SDWebImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F50E8FF9059BD9975189B97 /* SDWebImageDownloader.m */; };
 		5F50EB00C889189A740BCE6B /* MovieDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F50EED60C66295BC77F2382 /* MovieDetails.m */; };
 		5F50EB2E01E6D3DA45BF73DC /* star-full@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F50E0950D7B80E84C5A79E2 /* star-full@2x.png */; };
@@ -102,6 +103,7 @@
 		5F50E202B6FE93CCAB67A6EC /* SDWebImageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWebImageManager.h; sourceTree = "<group>"; };
 		5F50E279AF7E47A3E1C6FC3A /* SDImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDImageCache.h; sourceTree = "<group>"; };
 		5F50E29F83FC7E231607D259 /* SBJsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonParser.h; sourceTree = "<group>"; };
+		5F50E365194DE2B1A22E5957 /* NSMutableArray+Move.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+Move.m"; sourceTree = "<group>"; };
 		5F50E3833C1E2FD0FE16C278 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
 		5F50E39923762BDCB2F64AF8 /* SBJsonStreamWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamWriter.m; sourceTree = "<group>"; };
 		5F50E3C58BD70B6064AF7CD4 /* NSDictionary+JSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+JSON.m"; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 		5F50E40C4582BAB4B7F4AFC5 /* UIImageView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+WebCache.h"; sourceTree = "<group>"; };
 		5F50E41F4E1D83240D46B9CA /* SBJsonStreamParserState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamParserState.h; sourceTree = "<group>"; };
 		5F50E43D496E5596D1285B5D /* SBJsonStreamWriterAccumulator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamWriterAccumulator.m; sourceTree = "<group>"; };
+		5F50E47C8C1AD3E0D8634649 /* NSMutableArray+Move.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+Move.h"; sourceTree = "<group>"; };
 		5F50E4866D97B1BDF35B9CE3 /* SDWebImageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDWebImageManager.m; sourceTree = "<group>"; };
 		5F50E4FCDF43EFBC2FBBD5B5 /* HttpRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpRequest.m; sourceTree = "<group>"; };
 		5F50E61E5E8096368EFE2E86 /* star-none@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star-none@2x.png"; sourceTree = "<group>"; };
@@ -302,6 +305,8 @@
 			children = (
 				5F50ED06A45FF358CFE009B8 /* UIView+Utilities.m */,
 				5F50E627C95F1179B51F80C4 /* UIView+Utilities.h */,
+				5F50E47C8C1AD3E0D8634649 /* NSMutableArray+Move.h */,
+				5F50E365194DE2B1A22E5957 /* NSMutableArray+Move.m */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -574,6 +579,7 @@
 				5F50E623A08C7DBCC534708F /* MyMoviesWindow.m in Sources */,
 				DBA7F5301662BF2E00B6BA95 /* Movie.m in Sources */,
 				5F50E8F3032D11C288A092BA /* ErrorAlertView.m in Sources */,
+				5F50EA451689C8B50D6D3265 /* NSMutableArray+Move.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
