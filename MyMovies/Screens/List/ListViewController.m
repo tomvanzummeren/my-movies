@@ -23,6 +23,7 @@
 @synthesize customOnCellTapped;
 @synthesize movieDeleted;
 @synthesize movieMoved;
+@synthesize listBeganScrolling;
 
 
 - (NSInteger) tableView:(UITableView *) tv numberOfRowsInSection:(NSInteger) section {
@@ -142,5 +143,10 @@
     return movies[row];
 }
 
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
+    if (listBeganScrolling){
+        listBeganScrolling();
+    }
+}
 
 @end

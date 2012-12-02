@@ -27,6 +27,11 @@
             weakSelf.onMovieSelected(movie);
         }];
     };
+
+    listViewController.listBeganScrolling = ^(){
+        [weakSelf->searchBar resignFirstResponder];
+    };
+
     [searchBar becomeFirstResponder];
 }
 
