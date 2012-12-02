@@ -4,20 +4,20 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1930"/>
     </dependencies>
     <scenes>
-        <!--My Movies-->
-        <scene sceneID="5">
+        <!--Watched List Controller - Watched-->
+        <scene sceneID="THh-t7-A3f">
             <objects>
-                <viewController id="2" userLabel="My Movies" customClass="WatchedListController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="3">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                <viewController title="Watched" id="tgV-rT-XCu" customClass="WatchedListController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="oZq-0q-PcG">
+                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <containerView contentMode="scaleToFill" id="vqm-tW-Fsz">
-                                <rect key="frame" x="0.0" y="44" width="320" height="323"/>
+                            <containerView contentMode="scaleToFill" id="6LM-RK-JOG">
+                                <rect key="frame" x="0.0" y="44" width="320" height="411"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <connections>
-                                    <segue destination="HxA-Hx-wRt" kind="embed" id="3X9-3f-ob1"/>
+                                    <segue destination="HxA-Hx-wRt" kind="embed" id="tPj-wt-QcA"/>
                                 </connections>
                             </containerView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="wzN-fH-SAx">
@@ -34,49 +34,81 @@
                                                 <segment title="Rating"/>
                                             </segments>
                                             <connections>
-                                                <action selector="sortOrderChanged" destination="2" eventType="valueChanged" id="UbP-4D-R8O"/>
+                                                <action selector="sortOrderChanged" destination="tgV-rT-XCu" eventType="valueChanged" id="FWE-TQ-HUK"/>
                                             </connections>
                                         </segmentedControl>
                                     </barButtonItem>
                                 </items>
                             </toolbar>
-                            <tabBar contentMode="scaleToFill" id="S9K-DO-pY4">
-                                <rect key="frame" x="0.0" y="367" width="320" height="49"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <items>
-                                    <tabBarItem title="To watch" image="12-eye.png" id="rMk-hN-H13"/>
-                                    <tabBarItem title="Watched" image="258-checkmark.png" id="fnb-P4-kyB"/>
-                                </items>
-                                <connections>
-                                    <outlet property="delegate" destination="2" id="bbw-xl-DZy"/>
-                                </connections>
-                            </tabBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="My Movies" id="3Zu-Oz-zXf">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="rJc-LG-R0H">
+                    <tabBarItem key="tabBarItem" title="Watched" image="258-checkmark.png" id="lqj-nk-VeX"/>
+                    <connections>
+                        <outlet property="segmentedControl" destination="2lv-wY-cA1" id="qhy-Dw-HUO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NhN-Ye-j8h" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1192" y="-220"/>
+        </scene>
+        <!--To Watch List Controller - To watch-->
+        <scene sceneID="ElV-sx-o6y">
+            <objects>
+                <viewController title="To watch" id="DxV-HT-dtd" customClass="ToWatchListController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bf3-9G-1ue">
+                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <containerView contentMode="scaleToFill" id="xrq-JE-6Is">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="455"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <connections>
+                                    <segue destination="HxA-Hx-wRt" kind="embed" id="96H-So-mbT"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="To watch" image="12-eye.png" id="sKM-xR-ORC"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yAn-yk-PwH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1192" y="-868"/>
+        </scene>
+        <!--My Movies Tab Bar Controller-->
+        <scene sceneID="eng-aS-YeO">
+            <objects>
+                <tabBarController definesPresentationContext="YES" id="9xk-fK-Qgw" customClass="MyMoviesTabBarController" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="RCD-Eb-Kgs">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="nEH-Os-P5E">
                             <connections>
-                                <segue destination="A13-HF-bCb" kind="modal" identifier="SearchMovies" modalTransitionStyle="coverVertical" id="dxx-BU-Xlo"/>
+                                <segue destination="A13-HF-bCb" kind="modal" identifier="SearchMovies" id="FO5-8e-Xyj"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="qap-Iy-Ywg">
+                        <rect key="frame" x="129" y="330" width="163" height="49"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
                     <connections>
-                        <outlet property="segmentedControl" destination="2lv-wY-cA1" id="vrL-AN-CKn"/>
-                        <outlet property="tabBar" destination="S9K-DO-pY4" id="tPM-8l-UUJ"/>
+                        <segue destination="DxV-HT-dtd" kind="relationship" relationship="viewControllers" id="SWf-64-vgF"/>
+                        <segue destination="tgV-rT-XCu" kind="relationship" relationship="viewControllers" id="PvT-sj-lj6"/>
                     </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xiJ-bI-1P5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="350" y="-444"/>
+            <point key="canvasLocation" x="331" y="-536"/>
         </scene>
         <!--Movie List (embeddable)-->
         <scene sceneID="tzt-JN-8Ge">
             <objects>
                 <tableViewController id="HxA-Hx-wRt" userLabel="Movie List (embeddable)" customClass="ListViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="88" sectionHeaderHeight="22" sectionFooterHeight="22" id="dRU-q3-hod">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="411"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -158,14 +190,14 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="of3-DO-phh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1475" y="-412"/>
+            <point key="canvasLocation" x="1933" y="-188"/>
         </scene>
         <!--Movie Details-->
         <scene sceneID="FP0-bB-XtA">
             <objects>
                 <viewController id="Lsd-BU-2Z0" userLabel="Movie Details" customClass="DetailViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xFC-KY-taq">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="411"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Up" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Pgz-ei-9iW" userLabel="Title label">
@@ -273,7 +305,7 @@
                     </connections>
                 </panGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2041" y="-412"/>
+            <point key="canvasLocation" x="2481" y="-188"/>
         </scene>
         <!--My Movies Navigation-->
         <scene sceneID="4he-X0-VY5">
@@ -286,12 +318,12 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="2" kind="relationship" relationship="rootViewController" id="8AA-g5-QGa"/>
+                        <segue destination="9xk-fK-Qgw" kind="relationship" relationship="rootViewController" id="g16-ac-Oxx"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lh8-lC-Z4b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-254" y="-444"/>
+            <point key="canvasLocation" x="-246" y="-536"/>
         </scene>
         <!--Movie Search Navigation-->
         <scene sceneID="sw9-4V-ETL">
@@ -309,18 +341,18 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KTk-WX-sbC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="356" y="482"/>
+            <point key="canvasLocation" x="627" y="542"/>
         </scene>
         <!--Movie Search-->
         <scene sceneID="aF6-vH-13D">
             <objects>
                 <viewController id="xC7-dz-Pyc" userLabel="Movie Search" customClass="SearchViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vZU-g1-mmw">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <containerView contentMode="scaleToFill" id="oQh-80-Aji">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <connections>
@@ -363,7 +395,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dxd-aI-qVj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="858" y="482"/>
+            <point key="canvasLocation" x="1198" y="542"/>
         </scene>
     </scenes>
     <resources>
@@ -398,6 +430,9 @@
                 <relationship kind="outlet" name="votesView" candidateClass="VotesView"/>
             </relationships>
         </class>
+        <class className="MyMoviesTabBarController" superclassName="UITabBarController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MyMoviesTabBarController.h"/>
+        </class>
         <class className="PosterView" superclassName="UIView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PosterView.h"/>
             <relationships>
@@ -414,6 +449,9 @@
                 <relationship kind="outlet" name="searchBar" candidateClass="UISearchBar"/>
             </relationships>
         </class>
+        <class className="ToWatchListController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ToWatchListController.h"/>
+        </class>
         <class className="VotesView" superclassName="UIView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/VotesView.h"/>
             <relationships>
@@ -429,16 +467,15 @@
             <relationships>
                 <relationship kind="action" name="sortOrderChanged"/>
                 <relationship kind="outlet" name="segmentedControl" candidateClass="UISegmentedControl"/>
-                <relationship kind="outlet" name="tabBar" candidateClass="UITabBar"/>
             </relationships>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="WJf-Fu-70k"/>
+        <segue reference="tPj-wt-QcA"/>
     </inferredMetricsTieBreakers>
 </document>

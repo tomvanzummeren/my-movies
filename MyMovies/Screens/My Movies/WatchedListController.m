@@ -1,7 +1,6 @@
 #import "WatchedListController.h"
 #import "ListViewController.h"
 #import "TheMovieDbApiConnector.h"
-#import "SearchViewController.h"
 #import "Settings.h"
 
 #define SEGMENT_DATE_ADDED 0
@@ -16,72 +15,43 @@
 
     MoviesRepository *moviesRepository;
 
-    MovieListType selectedList;
-    
     NSString *sortOn;
+
     BOOL ascending;
 }
 
-- (void)viewDidLoad {
+- (void) viewDidLoad {
     apiConnector = [TheMovieDbApiConnector instance];
     moviesRepository = [MoviesRepository instance];
 
     movieListViewController = self.childViewControllers[0];
     movieListViewController.moviesDeletable = YES;
-    movieListViewController.moviesReorderable = YES;
+    movieListViewController.moviesReorderable = NO;
 
     weakInBlock WatchedListController *weakSelf = self;
     movieListViewController.movieDeleted = ^(Movie *movie) {
         [weakSelf->moviesRepository deleteMovie:movie];
     };
 
-    movieListViewController.movieMoved = ^(NSNumber *sourceRow, NSNumber *destinationRow) {
-        [weakSelf->moviesRepository moveMovieFrom:sourceRow toRow:destinationRow withType:weakSelf->selectedList];
-    };
-
-    self.navigationItem.leftBarButtonItem = movieListViewController.editButtonItem;
-
-    tabBar.selectedItem = tabBar.items[0];
-
     Settings *settings = [Settings instance];
     segmentedControl.selectedSegmentIndex = settings.watchedListSelectedSorting;
     [self sortOrderChanged];
 }
 
-- (void)tabBar:(UITabBar *)tb didSelectItem:(UITabBarItem *)item {
-    int selectedItemIndex = [tabBar.items indexOfObject:item];
+- (void) viewWillAppear:(BOOL) animated {
     [movieListViewController setEditing:NO];
-    if (selectedItemIndex == 0) {
-        selectedList = ToWatchList;
-        movieListViewController.moviesReorderable = YES;
-    } else {
-        selectedList = WatchedList;
-        movieListViewController.moviesReorderable = NO;
-    }
-   [self reloadMovies];
+    // Configure the edit button on the top view controller (the tab bar controller)
+    self.navigationController.topViewController.navigationItem.leftBarButtonItem = movieListViewController.editButtonItem;
+    self.navigationController.topViewController.navigationItem.title = self.title;
 }
 
-- (void)reloadMovies {
-    movieListViewController.movies = [moviesRepository getMovies:selectedList sortBy:sortOn ascending:ascending];
-
-    NSLog(@"%@", @(movieListViewController.movies.count));
-}
-
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"SearchMovies"]) {
-        UINavigationController *navigationController = segue.destinationViewController;
-        SearchViewController *searchViewController = (SearchViewController *) navigationController.topViewController;
-        searchViewController.onMovieSelected = ^(Movie *movie) {
-            [moviesRepository addMovie:movie withType:selectedList];
-            [movieListViewController addMovie:movie];
-        };
-    }
+- (void) reloadMovies {
+    movieListViewController.movies = [moviesRepository getMovies:WatchedList sortBy:sortOn ascending:ascending];
 }
 
 #pragma Segmented Control
 
-- (IBAction)sortOrderChanged {
+- (IBAction) sortOrderChanged {
 
     NSInteger segmentIndex = segmentedControl.selectedSegmentIndex;
 
@@ -108,4 +78,8 @@
 }
 
 
+- (void) addMovie:(Movie *) movie {
+    [moviesRepository addMovie:movie withType:WatchedList];
+    [movieListViewController addMovie:movie];
+}
 @end

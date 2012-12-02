@@ -88,7 +88,9 @@
 - (NSMutableArray *) getMovies:(MovieListType) type sortBy:(NSString *) sortOrder ascending:(BOOL) ascending {
     NSFetchRequest *request = [objectManager newMoviesFetchRequest];
     request.predicate = [NSPredicate predicateWithFormat:@"type = %@", [self stringForType:type]];
-    request.sortDescriptors = @[[[NSSortDescriptor alloc] initWithKey:sortOrder ascending:ascending]];
+    if (sortOrder) {
+        request.sortDescriptors = @[[[NSSortDescriptor alloc] initWithKey:sortOrder ascending:ascending]];
+    }
 
     return [[objectManager fetchAll:request] mutableCopy];
 }
