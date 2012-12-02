@@ -64,7 +64,7 @@
 }
 
 - (void) loadMovieDetails:(Movie *) movie callback:(void (^)(MovieDetails *movieDetails)) callback {
-    HttpRequest *httpRequest = [HttpRequest requestWithUrl:@"%@movie/%i?api_key=%@", BASE_API_URL, movie.identifier, API_KEY];
+    HttpRequest *httpRequest = [HttpRequest requestWithUrl:@"%@movie/%i?api_key=%@", BASE_API_URL, [movie.identifier integerValue], API_KEY];
     [httpRequest perform:^(NSDictionary *response) {
         MovieDetails *movieDetails = [MovieDetails new];
         movieDetails.identifier = [response integerForKey:@"id"];

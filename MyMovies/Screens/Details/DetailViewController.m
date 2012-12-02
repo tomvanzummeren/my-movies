@@ -25,7 +25,6 @@
 
     overviewLabel.text = @"";
     [apiConnector loadMovieDetails:movie callback:^(MovieDetails *details) {
-        LogString(details.overview);
         overviewLabel.text = details.overview;
         [overviewLabel sizeToFit];
     }];
