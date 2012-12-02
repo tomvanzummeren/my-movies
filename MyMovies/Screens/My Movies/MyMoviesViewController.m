@@ -26,8 +26,6 @@
     apiConnector = [TheMovieDbApiConnector instance];
     moviesRepository = [MoviesRepository instance];
 
-
-
     movieListViewController = self.childViewControllers[0];
     movieListViewController.moviesDeletable = YES;
     movieListViewController.moviesReorderable = YES;
