@@ -43,7 +43,7 @@
 }
 
 - (void) reloadMovies {
-    movieListViewController.movies = [moviesRepository getMovies:ToWatchList sortBy:nil ascending:NO];
+    movieListViewController.movies = [moviesRepository getMovies:ToWatchList sortBy:@"order" ascending:NO];
 }
 
 - (void) addMovie:(Movie *) movie {

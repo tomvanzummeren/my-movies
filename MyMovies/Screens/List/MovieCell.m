@@ -19,8 +19,9 @@
         iconImageView.image = nil;
     }
     titleLabel.text = movie.title;
-    if (movie.releaseYear) {
-        releaseYearLabel.text = [NSString stringWithFormat:@"(%@)", movie.releaseYear];
+    NSString *releaseYear = [movie releaseYear];
+    if (releaseYear) {
+        releaseYearLabel.text = [NSString stringWithFormat:@"(%@)", releaseYear];
     } else {
         releaseYearLabel.text = @"";
     }
