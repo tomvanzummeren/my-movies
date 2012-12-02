@@ -64,6 +64,7 @@
 		DBF8BD1C1620DCDB003F32B9 /* 258-checkmark.png in Resources */ = {isa = PBXBuildFile; fileRef = DBF8BD1A1620DCDB003F32B9 /* 258-checkmark.png */; };
 		DBF8BD1D1620DCDB003F32B9 /* 258-checkmark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DBF8BD1B1620DCDB003F32B9 /* 258-checkmark@2x.png */; };
 		DBF943B916627A1F00BF3224 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBF943B816627A1F00BF3224 /* QuartzCore.framework */; };
+		F594DBF61271304CBC83D16B /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = F594D9685E06EBF6B8F93224 /* Settings.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -158,6 +159,8 @@
 		DBF8BD1A1620DCDB003F32B9 /* 258-checkmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "258-checkmark.png"; sourceTree = "<group>"; };
 		DBF8BD1B1620DCDB003F32B9 /* 258-checkmark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "258-checkmark@2x.png"; sourceTree = "<group>"; };
 		DBF943B816627A1F00BF3224 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		F594D0598A3DBF935BD9D559 /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
+		F594D9685E06EBF6B8F93224 /* Settings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Settings.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -326,6 +329,8 @@
 				5F50E3F8AA9176EE3DF2EE37 /* MyMoviesWindow.h */,
 				5F50E911DCCA83F8F3600F63 /* ErrorAlertView.m */,
 				5F50EFF097BA3C6377A67BC4 /* ErrorAlertView.h */,
+				F594D9685E06EBF6B8F93224 /* Settings.m */,
+				F594D0598A3DBF935BD9D559 /* Settings.h */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -515,6 +520,7 @@
 				DBA7F5301662BF2E00B6BA95 /* Movie.m in Sources */,
 				5F50E8F3032D11C288A092BA /* ErrorAlertView.m in Sources */,
 				5F50EA451689C8B50D6D3265 /* NSMutableArray+Move.m in Sources */,
+				F594DBF61271304CBC83D16B /* Settings.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

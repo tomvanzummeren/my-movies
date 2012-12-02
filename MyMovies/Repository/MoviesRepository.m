@@ -10,14 +10,19 @@
 #import "ObjectManager.h"
 #import "NSMutableArray+Move.h"
 
+
+
 @implementation MoviesRepository {
     ObjectManager *objectManager;
 }
 
+
+
+
 - (id) init {
     self = [super init];
     if (self) {
-        objectManager = [ObjectManager instance];
+       objectManager = [ObjectManager instance];
     }
     return self;
 }
@@ -73,7 +78,6 @@
     // Step 3: Assign new order values to the re-ordered movies
     NSInteger currentValue = MAX([sourceOrder integerValue], [destinationOrder integerValue]);
     for (Movie *movie in movies) {
-        NSNumber *oldOrder = movie.order;
         movie.order = @(currentValue);
         currentValue --;
     }
@@ -81,13 +85,17 @@
     [objectManager saveContext];
 }
 
-- (NSMutableArray *) getMovies:(MovieListType) type {
+- (NSMutableArray *) getMovies:(MovieListType) type sortBy:(NSString *) sortOrder ascending:(BOOL) ascending {
     NSFetchRequest *request = [objectManager newMoviesFetchRequest];
     request.predicate = [NSPredicate predicateWithFormat:@"type = %@", [self stringForType:type]];
-    request.sortDescriptors = @[[[NSSortDescriptor alloc] initWithKey:@"order" ascending:NO]];
+    request.sortDescriptors = @[[[NSSortDescriptor alloc] initWithKey:sortOrder ascending:ascending]];
 
     return [[objectManager fetchAll:request] mutableCopy];
 }
+
+
+
+
 
 - (NSString *) stringForType:(MovieListType) type {
     if (type == ToWatchList) {

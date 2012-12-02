@@ -7,6 +7,10 @@
 #import "MyMoviesWindow.h"
 
 
+#define SEGMENT_DATE_ADDED 0
+#define SEGMENT_ALPHABET 1
+#define SEGMENT_RATING 2
+
 @implementation ListViewController {
     NSMutableArray *movies;
     MoviesRepository *moviesRepository;
@@ -137,5 +141,6 @@
     NSUInteger row = (NSUInteger)(emptyTopCell ? indexPath.row - 1: indexPath.row);
     return movies[row];
 }
+
 
 @end

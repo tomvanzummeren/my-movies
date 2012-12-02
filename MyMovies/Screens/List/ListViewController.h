@@ -1,7 +1,7 @@
 @class Movie;
 @class MovieCell;
 
-@interface ListViewController : UITableViewController
+@interface ListViewController : UITableViewController;
 
 @property (nonatomic) BOOL moviesDeletable;
 @property (nonatomic) BOOL moviesReorderable;
@@ -12,7 +12,10 @@
 @property (copy, nonatomic) void (^movieDeleted)(Movie *movie);
 @property (copy, nonatomic) void (^movieMoved)(NSNumber *sourceRow, NSNumber *destinationRow);
 
+
+
 - (void) addMovie:(Movie *) movie;
+
 
 
 @end
