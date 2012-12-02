@@ -36,7 +36,7 @@
 - (id) fetchSingleResult:(NSFetchRequest *) request {
     NSArray *results = [self fetchAll:request];
     if (results.count == 1) {
-        return [results objectAtIndex:0];
+        return results[0];
     }
     if (results.count > 0) {
         Log(@"WARNING: Fetching single result matches multiple");

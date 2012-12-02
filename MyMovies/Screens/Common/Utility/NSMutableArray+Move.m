@@ -8,7 +8,7 @@
 @implementation NSMutableArray(Move)
 
 - (id) moveFirstObjectToEnd {
-	id firstObject = [self objectAtIndex:0];
+	id firstObject = self[0];
 	[self removeObjectAtIndex:0];
 	[self addObject:firstObject];
 	return firstObject;

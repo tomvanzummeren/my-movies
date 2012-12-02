@@ -42,13 +42,13 @@
     [httpRequest perform:^(NSDictionary *responseJson) {
         NSMutableArray *movies = [NSMutableArray array];
 
-        NSArray *resultsJson = [responseJson objectForKey:@"results"];
+        NSArray *resultsJson = responseJson[@"results"];
         for (NSDictionary *resultJson in resultsJson) {
-            Movie *movie = [Movie transientInstance];
+            Movie *movie = [Movie new];
             movie.title = [resultJson stringForKey:@"title"];
             movie.releaseDate = [dateFormatter dateFromString:[resultJson stringForKey:@"release_date"]];
-            movie.identifier = [resultJson objectForKey:@"id"];
-            movie.voteAverage = [resultJson objectForKey:@"vote_average"];
+            movie.identifier = resultJson[@"id"];
+            movie.voteAverage = resultJson[@"vote_average"];
 
             NSString *posterPath = [resultJson stringForKey:@"poster_path"];
             if (posterPath) {

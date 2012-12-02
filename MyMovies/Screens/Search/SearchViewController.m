@@ -17,7 +17,7 @@
 }
 
 - (void) viewDidLoad {
-    listViewController = [self.childViewControllers objectAtIndex:0];
+    listViewController = self.childViewControllers[0];
     weakInBlock SearchViewController *weakSelf = self;
     listViewController.customOnCellTapped = ^(Movie *movie, MovieCell *cell) {
         MyMoviesWindow *window = (MyMoviesWindow *) self.view.window;

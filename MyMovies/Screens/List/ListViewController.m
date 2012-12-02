@@ -72,8 +72,8 @@
 }
 
 -(void) tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath{
-    Movie *selectedMovie = [movies objectAtIndex:(NSUInteger) sourceIndexPath.row];
-    Movie *movieAtDestination = [movies objectAtIndex:(NSUInteger) destinationIndexPath.row];
+    Movie *selectedMovie = movies[(NSUInteger) sourceIndexPath.row];
+    Movie *movieAtDestination = movies[(NSUInteger) destinationIndexPath.row];
 
     [movies removeObject:selectedMovie];
     [movies insertObject:selectedMovie atIndex:(NSUInteger) destinationIndexPath.row];
@@ -96,7 +96,7 @@
 
 - (void) tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
     NSUInteger row = (NSUInteger) indexPath.row;
-    Movie *movie = [movies objectAtIndex:row];
+    Movie *movie = movies[row];
   
     movieDeleted(movie);
     
@@ -135,7 +135,7 @@
         return nil;
     }
     NSUInteger row = (NSUInteger)(emptyTopCell ? indexPath.row - 1: indexPath.row);
-    return [movies objectAtIndex:row];
+    return movies[row];
 }
 
 @end

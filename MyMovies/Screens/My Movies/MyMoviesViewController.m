@@ -18,7 +18,7 @@
     apiConnector = [TheMovieDbApiConnector instance];
     moviesRepository = [MoviesRepository instance];
 
-    movieListViewController = [self.childViewControllers objectAtIndex:0];
+    movieListViewController = self.childViewControllers[0];
     movieListViewController.moviesDeletable = YES;
     movieListViewController.moviesReorderable = YES;
 
@@ -34,7 +34,7 @@
     self.navigationItem.leftBarButtonItem = movieListViewController.editButtonItem;
 
     movieListViewController.movies = [moviesRepository getMovies:ToWatchList];
-    tabBar.selectedItem = [tabBar.items objectAtIndex:0];
+    tabBar.selectedItem = tabBar.items[0];
 }
 
 - (void) tabBar:(UITabBar *) tb didSelectItem:(UITabBarItem *) item {

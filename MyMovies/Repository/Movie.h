@@ -24,6 +24,4 @@
 
 - (NSString *) releaseYear;
 
-+ (Movie *) transientInstance;
-
 @end

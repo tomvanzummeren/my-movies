@@ -35,7 +35,7 @@ static NSDateFormatter *yearFormatter;
     return [yearFormatter stringFromDate:self.releaseDate];
 }
 
-+ (Movie *) transientInstance {
++ (id) new {
     NSEntityDescription *entity = [NSEntityDescription entityForName:MOVIE_ENTITY_NAME inManagedObjectContext:[[ObjectManager instance] managedObjectContext] ];
     return (Movie *) [[NSManagedObject alloc] initWithEntity:entity insertIntoManagedObjectContext:nil];
 }

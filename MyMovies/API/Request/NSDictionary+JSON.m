@@ -11,7 +11,7 @@
 @implementation NSDictionary (JSON)
 
 - (NSString *) stringForKey:(NSString *) key {
-    id value = [self objectForKey:key];
+    id value = self[key];
     if ([value isKindOfClass:[NSString class]]) {
         return value;
     }
@@ -19,7 +19,7 @@
 }
 
 - (NSInteger) integerForKey:(NSString *) key {
-    id value = [self objectForKey:key];
+    id value = self[key];
     if ([value isKindOfClass:[NSNumber class]]) {
         return [value integerValue];
     }
@@ -27,7 +27,7 @@
 }
 
 - (CGFloat) floatForKey:(NSString *) key {
-    id value = [self objectForKey:key];
+    id value = self[key];
     if ([value isKindOfClass:[NSNumber class]]) {
         return [value floatValue];
     }
