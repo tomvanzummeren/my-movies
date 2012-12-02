@@ -45,7 +45,6 @@
 
     tabBar.selectedItem = tabBar.items[0];
 
-    //
     Settings *settings = [Settings instance];
     segmentedControl.selectedSegmentIndex = settings.watchedListSelectedSorting;
     [self sortOrderChanged];
