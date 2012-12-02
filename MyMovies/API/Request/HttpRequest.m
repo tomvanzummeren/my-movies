@@ -1,6 +1,5 @@
 
 #import "HttpRequest.h"
-#import "SBJson.h"
 
 @implementation HttpRequest {
     NSString *url;
@@ -11,8 +10,6 @@
 
     NSMutableData *receivedData;
 
-    SBJsonParser *parser;
-
     NSURLConnection *currentConnection;
 }
 @synthesize method;
@@ -22,7 +19,6 @@
     if (self) {
         url = anUrl;
         method = @"GET";
-        parser = [SBJsonParser new];
     }
     return self;
 }
@@ -67,7 +63,7 @@
 }
 
 - (void) connectionDidFinishLoading:(NSURLConnection *) connection {
-    id result = [parser objectWithData:receivedData];
+    id result = [NSJSONSerialization JSONObjectWithData:receivedData options:0 error:nil];
     if (success) {
         success(result);
     }
