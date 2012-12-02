@@ -1,4 +1,4 @@
-#import "MyMoviesViewController.h"
+#import "WatchedListController.h"
 #import "ListViewController.h"
 #import "TheMovieDbApiConnector.h"
 #import "SearchViewController.h"
@@ -8,7 +8,7 @@
 #define SEGMENT_ALPHABET 1
 #define SEGMENT_RATING 2
 
-@implementation MyMoviesViewController {
+@implementation WatchedListController {
 
     ListViewController *movieListViewController;
 
@@ -30,7 +30,7 @@
     movieListViewController.moviesDeletable = YES;
     movieListViewController.moviesReorderable = YES;
 
-    weakInBlock MyMoviesViewController *weakSelf = self;
+    weakInBlock WatchedListController *weakSelf = self;
     movieListViewController.movieDeleted = ^(Movie *movie) {
         [weakSelf->moviesRepository deleteMovie:movie];
     };

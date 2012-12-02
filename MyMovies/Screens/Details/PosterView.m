@@ -31,7 +31,7 @@
     if (headerImageMaximized) {
         [self restoreHeaderImage:0.0];
     } else {
-        [self maximizeImage];
+        [self maximizeImage:0.0];
     }
 }
 
@@ -54,16 +54,28 @@
         self.frame = CGRectMake(0.0, 0.0, self.frame.size.width, height);
 
         if (sender.state == UIGestureRecognizerStateEnded) {
-            // TODO: Also do something with velocity here
-            [self maximizeImage];
+            [self maximizeImage:velocity.y];
         }
     }
 }
 
 #pragma mark - Private methods
 
-- (void) maximizeImage {
-    [UIView animateWithDuration:.3 animations:^{
+- (void) maximizeImage:(CGFloat) velocity {
+    CGFloat targetHeight = smallImageHeight;
+    CGFloat currentHeight = imageView.frame.size.height;
+    CGFloat distance = currentHeight - targetHeight;
+    CGFloat animationDuration = distance / fabsf(velocity);
+
+    if (velocity <= 0.0) {
+        // animate at normal speed if the gesture is upwards
+        animationDuration = .3;
+    }
+    if (animationDuration > .3) {
+        animationDuration = .3;
+    }
+
+    [UIView animateWithDuration:animationDuration animations:^{
         // TODO: Center the maximized image vertically
         self.frame = CGRectMake(0.0, 0.0, 320.0, maximizedHeight);
         blackBackground.alpha = 1.0;
@@ -78,9 +90,8 @@
     CGFloat distance = currentHeight - targetHeight;
     CGFloat animationDuration = distance / fabsf(velocity);
 
-    // animate at normal speed if the gesture is downwards
     if (velocity >= 0.0) {
-        // TODO: If the gesture is downwards, also do some kind of velocity trick
+        // animate at normal speed if the gesture is downwards
         animationDuration = .3;
     }
     if (animationDuration > .3) {

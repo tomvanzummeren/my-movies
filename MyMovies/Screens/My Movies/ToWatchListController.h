@@ -2,7 +2,7 @@
 
 #import "MoviesRepository.h"
 
-@interface MyMoviesViewController : UIViewController<UITabBarDelegate> {
+@interface ToWatchListController : UIViewController<UITabBarDelegate> {
 
     __weak IBOutlet UITabBar *tabBar;
     __weak IBOutlet UISegmentedControl *segmentedControl;

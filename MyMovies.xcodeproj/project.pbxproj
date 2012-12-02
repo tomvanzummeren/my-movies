@@ -16,7 +16,7 @@
 		01C34C98162322A60079CD61 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 01C34C96162322A60079CD61 /* icon.png */; };
 		01C34C99162322A60079CD61 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 01C34C97162322A60079CD61 /* icon@2x.png */; };
 		5F50E0779099D76407376097 /* TheMovieDbApiConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F50EEFC9E9A735C7FF813B6 /* TheMovieDbApiConnector.m */; };
-		5F50E26D6073AC171F7E037E /* MyMoviesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F50E9900F02DB6ED7286237 /* MyMoviesViewController.m */; };
+		5F50E26D6073AC171F7E037E /* WatchedListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F50E9900F02DB6ED7286237 /* WatchedListController.m */; };
 		5F50E29898BB964ABE94C18B /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F50E1220819F1BDC9271E2C /* UIImageView+WebCache.m */; };
 		5F50E2FA580A3CE235EEED8E /* sample-urls.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5F50EFE7355F233CA6E2BD5E /* sample-urls.txt */; };
 		5F50E3991FEB02ECE322C37E /* HttpRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F50E4FCDF43EFBC2FBBD5B5 /* HttpRequest.m */; };
@@ -28,6 +28,7 @@
 		5F50E623A08C7DBCC534708F /* MyMoviesWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F50E0EEFAD55F98C9D69C8B /* MyMoviesWindow.m */; };
 		5F50E673881E7FD5BFC3FD32 /* NSString+Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F50E994DAC7326B89C948E1 /* NSString+Utilities.m */; };
 		5F50E6D8BEEBBD5DEF650E5A /* MovieCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F50E3ED4AE51DC3E30F614C /* MovieCell.m */; };
+		5F50E7429CCD403B0C68735A /* ToWatchListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F50E2123D2BB06BAF96E026 /* ToWatchListController.m */; };
 		5F50E7EBE4DEA3B4DA7A785B /* star-none.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F50E16FF019DE3CF6C91DE9 /* star-none.png */; };
 		5F50E8381FA2D19D44A97899 /* UIButton+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F50ECCCC9240EB933CADA63 /* UIButton+WebCache.m */; };
 		5F50E8F3032D11C288A092BA /* ErrorAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F50E911DCCA83F8F3600F63 /* ErrorAlertView.m */; };
@@ -88,6 +89,7 @@
 		5F50E180BA10C65DD74BD20B /* VotesView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VotesView.h; sourceTree = "<group>"; };
 		5F50E1BBF9CA770E3BA4FB73 /* TheMovieDbApiConnector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TheMovieDbApiConnector.h; sourceTree = "<group>"; };
 		5F50E202B6FE93CCAB67A6EC /* SDWebImageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWebImageManager.h; sourceTree = "<group>"; };
+		5F50E2123D2BB06BAF96E026 /* ToWatchListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToWatchListController.m; sourceTree = "<group>"; };
 		5F50E279AF7E47A3E1C6FC3A /* SDImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDImageCache.h; sourceTree = "<group>"; };
 		5F50E365194DE2B1A22E5957 /* NSMutableArray+Move.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+Move.m"; sourceTree = "<group>"; };
 		5F50E3833C1E2FD0FE16C278 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 		5F50E627C95F1179B51F80C4 /* UIView+Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Utilities.h"; sourceTree = "<group>"; };
 		5F50E62966B148BACC898593 /* SDWebImageManagerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWebImageManagerDelegate.h; sourceTree = "<group>"; };
 		5F50E62B85948EEC0E839073 /* VotesView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VotesView.m; sourceTree = "<group>"; };
+		5F50E692ACD4891D5A058577 /* ToWatchListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToWatchListController.h; sourceTree = "<group>"; };
 		5F50E7B28B748181811573F5 /* ObjectManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjectManager.m; sourceTree = "<group>"; };
 		5F50E7E4E36BAC9AAA2195E0 /* SDImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDImageCache.m; sourceTree = "<group>"; };
 		5F50E8773E83678821FB1EE8 /* SDWebImageDownloaderDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWebImageDownloaderDelegate.h; sourceTree = "<group>"; };
@@ -113,9 +116,9 @@
 		5F50E911DCCA83F8F3600F63 /* ErrorAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ErrorAlertView.m; sourceTree = "<group>"; };
 		5F50E96408812B678E9A28BA /* NSDictionary+JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+JSON.h"; sourceTree = "<group>"; };
 		5F50E98342ED445591B5C4A7 /* MovieCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieCell.h; sourceTree = "<group>"; };
-		5F50E9900F02DB6ED7286237 /* MyMoviesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyMoviesViewController.m; sourceTree = "<group>"; };
+		5F50E9900F02DB6ED7286237 /* WatchedListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WatchedListController.m; sourceTree = "<group>"; };
 		5F50E994DAC7326B89C948E1 /* NSString+Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Utilities.m"; sourceTree = "<group>"; };
-		5F50E9F6662FAA872ED72A45 /* MyMoviesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyMoviesViewController.h; sourceTree = "<group>"; };
+		5F50E9F6662FAA872ED72A45 /* WatchedListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WatchedListController.h; sourceTree = "<group>"; };
 		5F50EB16F10E127B12BB992E /* SDWebImageDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWebImageDownloader.h; sourceTree = "<group>"; };
 		5F50EB50C6F4DC2FE207B940 /* SDWebImageDecoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWebImageDecoder.h; sourceTree = "<group>"; };
 		5F50EC35F6477366D03F6337 /* UIButton+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+WebCache.h"; sourceTree = "<group>"; };
@@ -246,8 +249,10 @@
 		5F50E675B47AD7E7D33BEACE /* My Movies */ = {
 			isa = PBXGroup;
 			children = (
-				5F50E9900F02DB6ED7286237 /* MyMoviesViewController.m */,
-				5F50E9F6662FAA872ED72A45 /* MyMoviesViewController.h */,
+				5F50E9900F02DB6ED7286237 /* WatchedListController.m */,
+				5F50E9F6662FAA872ED72A45 /* WatchedListController.h */,
+				5F50E692ACD4891D5A058577 /* ToWatchListController.h */,
+				5F50E2123D2BB06BAF96E026 /* ToWatchListController.m */,
 			);
 			path = "My Movies";
 			sourceTree = "<group>";
@@ -497,7 +502,7 @@
 				01B5902B1621D68F009F2F4B /* DetailViewController.m in Sources */,
 				01C34C90162208550079CD61 /* PosterView.m in Sources */,
 				5F50EEB34630DD967ED6C1D8 /* SearchViewController.m in Sources */,
-				5F50E26D6073AC171F7E037E /* MyMoviesViewController.m in Sources */,
+				5F50E26D6073AC171F7E037E /* WatchedListController.m in Sources */,
 				5F50E0779099D76407376097 /* TheMovieDbApiConnector.m in Sources */,
 				5F50E6D8BEEBBD5DEF650E5A /* MovieCell.m in Sources */,
 				5F50E3991FEB02ECE322C37E /* HttpRequest.m in Sources */,
@@ -521,6 +526,7 @@
 				5F50E8F3032D11C288A092BA /* ErrorAlertView.m in Sources */,
 				5F50EA451689C8B50D6D3265 /* NSMutableArray+Move.m in Sources */,
 				F594DBF61271304CBC83D16B /* Settings.m in Sources */,
+				5F50E7429CCD403B0C68735A /* ToWatchListController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
