@@ -5,5 +5,4 @@
 @interface ToWatchListController : UIViewController<UITabBarDelegate> {
 }
 
-- (void) addMovie:(Movie *) movie;
 @end

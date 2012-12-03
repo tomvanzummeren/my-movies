@@ -8,5 +8,4 @@
 
 - (IBAction) sortOrderChanged;
 
-- (void) addMovie:(Movie *) movie;
 @end

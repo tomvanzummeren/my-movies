@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2844" systemVersion="12C60" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="vXf-55-zdI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2844" systemVersion="12C60" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="9xk-fK-Qgw">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1930"/>
     </dependencies>
@@ -29,7 +29,7 @@
                                             <rect key="frame" x="6" y="8" width="303" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <segments>
-                                                <segment title="Date added"/>
+                                                <segment title="Released"/>
                                                 <segment title="A-Z"/>
                                                 <segment title="Rating"/>
                                             </segments>
@@ -43,14 +43,20 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Watched" image="258-checkmark.png" id="lqj-nk-VeX"/>
+                    <navigationItem key="navigationItem" title="Watched" id="xHo-Kp-kVJ">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="IMd-hL-4Gn">
+                            <connections>
+                                <segue destination="A13-HF-bCb" kind="modal" identifier="SearchMovies" id="e7a-9d-EHf"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="segmentedControl" destination="2lv-wY-cA1" id="qhy-Dw-HUO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NhN-Ye-j8h" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1192" y="-220"/>
+            <point key="canvasLocation" x="1718" y="-220"/>
         </scene>
         <!--To Watch List Controller - To watch-->
         <scene sceneID="ElV-sx-o6y">
@@ -71,44 +77,46 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="To watch" image="12-eye.png" id="sKM-xR-ORC"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="yAn-yk-PwH" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1192" y="-868"/>
-        </scene>
-        <!--My Movies Tab Bar Controller-->
-        <scene sceneID="eng-aS-YeO">
-            <objects>
-                <tabBarController definesPresentationContext="YES" id="9xk-fK-Qgw" customClass="MyMoviesTabBarController" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="RCD-Eb-Kgs">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="nEH-Os-P5E">
+                    <navigationItem key="navigationItem" title="To Watch" id="iy0-Cs-mdq">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="U3V-HO-X1y">
                             <connections>
-                                <segue destination="A13-HF-bCb" kind="modal" identifier="SearchMovies" id="FO5-8e-Xyj"/>
+                                <segue destination="A13-HF-bCb" kind="modal" identifier="SearchMovies" id="dhp-2T-OAM"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yAn-yk-PwH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1718" y="-868"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="eng-aS-YeO">
+            <objects>
+                <tabBarController definesPresentationContext="YES" id="9xk-fK-Qgw" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="RCD-Eb-Kgs">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="nEH-Os-P5E"/>
+                    </navigationItem>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="qap-Iy-Ywg">
                         <rect key="frame" x="129" y="330" width="163" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="DxV-HT-dtd" kind="relationship" relationship="viewControllers" id="SWf-64-vgF"/>
-                        <segue destination="tgV-rT-XCu" kind="relationship" relationship="viewControllers" id="PvT-sj-lj6"/>
+                        <segue destination="OEr-xT-Ptg" kind="relationship" relationship="viewControllers" id="SWf-64-vgF"/>
+                        <segue destination="akB-hb-xMT" kind="relationship" relationship="viewControllers" id="PvT-sj-lj6"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xiJ-bI-1P5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="331" y="-536"/>
+            <point key="canvasLocation" x="423" y="-536"/>
         </scene>
         <!--Movie List (embeddable)-->
         <scene sceneID="tzt-JN-8Ge">
             <objects>
                 <tableViewController id="HxA-Hx-wRt" userLabel="Movie List (embeddable)" customClass="ListViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="88" sectionHeaderHeight="22" sectionFooterHeight="22" id="dRU-q3-hod">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="411"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -190,14 +198,14 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="of3-DO-phh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1933" y="-188"/>
+            <point key="canvasLocation" x="2451" y="-188"/>
         </scene>
         <!--Movie Details-->
         <scene sceneID="FP0-bB-XtA">
             <objects>
                 <viewController id="Lsd-BU-2Z0" userLabel="Movie Details" customClass="DetailViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xFC-KY-taq">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="411"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Up" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Pgz-ei-9iW" userLabel="Title label">
@@ -305,25 +313,7 @@
                     </connections>
                 </panGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2481" y="-188"/>
-        </scene>
-        <!--My Movies Navigation-->
-        <scene sceneID="4he-X0-VY5">
-            <objects>
-                <navigationController id="vXf-55-zdI" userLabel="My Movies Navigation" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="5T3-re-FfL">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="9xk-fK-Qgw" kind="relationship" relationship="rootViewController" id="g16-ac-Oxx"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="lh8-lC-Z4b" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-246" y="-536"/>
+            <point key="canvasLocation" x="3007" y="-188"/>
         </scene>
         <!--Movie Search Navigation-->
         <scene sceneID="sw9-4V-ETL">
@@ -341,7 +331,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KTk-WX-sbC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="627" y="542"/>
+            <point key="canvasLocation" x="2459" y="-868"/>
         </scene>
         <!--Movie Search-->
         <scene sceneID="aF6-vH-13D">
@@ -395,7 +385,45 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dxd-aI-qVj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1198" y="542"/>
+            <point key="canvasLocation" x="3014" y="-854"/>
+        </scene>
+        <!--Navigation Controller - To watch-->
+        <scene sceneID="gVS-Ka-MX0">
+            <objects>
+                <navigationController id="OEr-xT-Ptg" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="To watch" image="12-eye.png" id="sKM-xR-ORC"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="UYs-I4-g8f">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="DxV-HT-dtd" kind="relationship" relationship="rootViewController" id="6An-dY-jgC"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DZP-uE-XvJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1192" y="-868"/>
+        </scene>
+        <!--Navigation Controller - Watched-->
+        <scene sceneID="rKN-0z-Onp">
+            <objects>
+                <navigationController id="akB-hb-xMT" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Watched" image="258-checkmark.png" id="lqj-nk-VeX"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="lAD-AJ-kqT">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="tgV-rT-XCu" kind="relationship" relationship="rootViewController" id="rzD-jf-sFp"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gJb-hV-hOB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1192" y="-220"/>
         </scene>
     </scenes>
     <resources>
@@ -429,9 +457,6 @@
                 <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="votesView" candidateClass="VotesView"/>
             </relationships>
-        </class>
-        <class className="MyMoviesTabBarController" superclassName="UITabBarController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MyMoviesTabBarController.h"/>
         </class>
         <class className="PosterView" superclassName="UIView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PosterView.h"/>
@@ -476,6 +501,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="tPj-wt-QcA"/>
+        <segue reference="dhp-2T-OAM"/>
+        <segue reference="WJf-Fu-70k"/>
     </inferredMetricsTieBreakers>
 </document>

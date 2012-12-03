@@ -2,6 +2,7 @@
 #import "ListViewController.h"
 #import "TheMovieDbApiConnector.h"
 #import "Settings.h"
+#import "SearchViewController.h"
 
 #define SEGMENT_DATE_ADDED 0
 #define SEGMENT_ALPHABET 1
@@ -41,8 +42,7 @@
 - (void) viewWillAppear:(BOOL) animated {
     [movieListViewController setEditing:NO];
     // Configure the edit button on the top view controller (the tab bar controller)
-    self.navigationController.topViewController.navigationItem.leftBarButtonItem = movieListViewController.editButtonItem;
-    self.navigationController.topViewController.navigationItem.title = self.title;
+    self.navigationItem.leftBarButtonItem = movieListViewController.editButtonItem;
 }
 
 - (void) reloadMovies {
@@ -52,11 +52,10 @@
 #pragma Segmented Control
 
 - (IBAction) sortOrderChanged {
-
     NSInteger segmentIndex = segmentedControl.selectedSegmentIndex;
 
     if (segmentIndex == SEGMENT_DATE_ADDED) {
-        NSLog(@"Sort on date");
+        NSLog(@"Sort on release date");
         sortOn = @"releaseDate";
         ascending = NO;
     }
@@ -77,9 +76,14 @@
     settings.watchedListSelectedSorting = segmentIndex;
 }
 
-
-- (void) addMovie:(Movie *) movie {
-    [moviesRepository addMovie:movie withType:WatchedList];
-    [movieListViewController addMovie:movie];
+- (void) prepareForSegue:(UIStoryboardSegue *) segue sender:(id) sender {
+    if ([segue.identifier isEqualToString:@"SearchMovies"]) {
+        UINavigationController *navigationController = segue.destinationViewController;
+        SearchViewController *searchViewController = (SearchViewController *) navigationController.topViewController;
+        searchViewController.onMovieSelected = ^(Movie *movie) {
+            [moviesRepository addMovie:movie withType:WatchedList];
+            [movieListViewController addMovie:movie];
+        };
+    }
 }
 @end
