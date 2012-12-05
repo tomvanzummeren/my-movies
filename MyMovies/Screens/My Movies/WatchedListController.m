@@ -28,6 +28,9 @@
     movieListViewController = self.childViewControllers[0];
     movieListViewController.moviesDeletable = YES;
     movieListViewController.moviesReorderable = NO;
+    movieListViewController.loadMovies = ^{
+        return [moviesRepository getMovies:WatchedList sortBy:sortOn ascending:ascending];
+    };
 
     weakInBlock WatchedListController *weakSelf = self;
     movieListViewController.movieDeleted = ^(Movie *movie) {
@@ -46,7 +49,7 @@
 }
 
 - (void) reloadMovies {
-    movieListViewController.movies = [moviesRepository getMovies:WatchedList sortBy:sortOn ascending:ascending];
+    [movieListViewController reloadMovies];
 }
 
 #pragma Segmented Control

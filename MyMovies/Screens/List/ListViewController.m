@@ -24,7 +24,7 @@
 @synthesize movieDeleted;
 @synthesize movieMoved;
 @synthesize listBeganScrolling;
-
+@synthesize loadMovies;
 
 - (NSInteger) tableView:(UITableView *) tv numberOfRowsInSection:(NSInteger) section {
     return emptyTopCell ? movies.count + 1 : movies.count;
@@ -110,15 +110,6 @@
     [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationLeft];
 }
 
-- (NSArray *) movies {
-    return movies;
-}
-
-- (void) setMovies:(NSArray *) someMovies {
-    movies = [someMovies mutableCopy];
-    [self.tableView reloadData];
-}
-
 - (void) addMovie:(Movie *) movie {
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     emptyTopCell = YES;
@@ -149,4 +140,15 @@
     }
 }
 
+- (void) reloadMovies:(NSArray *) newMovies {
+    movies = [newMovies mutableCopy];
+    [self.tableView reloadData];
+}
+
+- (void) reloadMovies {
+    if (loadMovies) {
+        movies = loadMovies();
+        [self.tableView reloadData];
+    }
+}
 @end

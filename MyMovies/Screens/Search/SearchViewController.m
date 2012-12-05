@@ -43,12 +43,12 @@
     if (searchText.length > 0) {
         [apiConnector search:searchText callback:^(NSArray *movies) {
             if ([searchBar.text isEqualToString:searchText]) {
-                listViewController.movies = movies;
+                [listViewController reloadMovies:movies];
             }
         }];
     } else {
         [apiConnector cancelSearch];
-        listViewController.movies = [NSArray array];
+        [listViewController reloadMovies:[NSArray array]];
     }
 }
 

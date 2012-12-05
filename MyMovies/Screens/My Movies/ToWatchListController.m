@@ -23,6 +23,9 @@
     movieListViewController = self.childViewControllers[0];
     movieListViewController.moviesDeletable = YES;
     movieListViewController.moviesReorderable = YES;
+    movieListViewController.loadMovies = ^{
+        return [moviesRepository getMovies:ToWatchList sortBy:@"order" ascending:NO];
+    };
 
     weakInBlock ToWatchListController *weakSelf = self;
     movieListViewController.movieDeleted = ^(Movie *movie) {
@@ -43,7 +46,7 @@
 }
 
 - (void) reloadMovies {
-    movieListViewController.movies = [moviesRepository getMovies:ToWatchList sortBy:@"order" ascending:NO];
+    [movieListViewController reloadMovies];
 }
 
 - (void) prepareForSegue:(UIStoryboardSegue *) segue sender:(id) sender {
