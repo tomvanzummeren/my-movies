@@ -1,10 +1,10 @@
-
 #import "ListViewController.h"
 #import "MovieCell.h"
 #import "Movie.h"
 #import "DetailViewController.h"
 #import "MoviesRepository.h"
 #import "MyMoviesWindow.h"
+#import "UITableViewController+Scrolling.h"
 
 
 #define SEGMENT_DATE_ADDED 0
@@ -15,7 +15,9 @@
     NSMutableArray *movies;
     MoviesRepository *moviesRepository;
 
-    BOOL emptyTopCell;
+    NSInteger placeholderCellIndex;
+
+    UITableViewCell *placeholderCell;
 }
 
 @synthesize moviesDeletable;
@@ -27,11 +29,13 @@
 @synthesize loadMovies;
 
 - (NSInteger) tableView:(UITableView *) tv numberOfRowsInSection:(NSInteger) section {
-    return emptyTopCell ? movies.count + 1 : movies.count;
+    return placeholderCellIndex != -1 ? movies.count + 1 : movies.count;
 }
 
 - (void) viewDidLoad{
     moviesRepository = [MoviesRepository instance];
+    placeholderCellIndex = -1;
+    placeholderCell = [UITableViewCell new];
 }
 
 - (UITableViewCell *) tableView:(UITableView *) tv cellForRowAtIndexPath:(NSIndexPath *) indexPath {
@@ -40,7 +44,7 @@
     Movie *movie = [self movieAtIndexPath:indexPath];
     if (!movie) {
         // Return empty cell
-        return [UITableViewCell new];
+        return placeholderCell;
     }
     movieCell.movie = movie;
     if (!customOnCellTapped) {
@@ -111,26 +115,38 @@
 }
 
 - (void) addMovie:(Movie *) movie {
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-    emptyTopCell = YES;
-    [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationNone];
+    // Reload movies from database only to find out what index the new movie is at
+    NSArray *moviesInDatabase = loadMovies();
+    NSInteger movieIndex = [moviesInDatabase indexOfObject:movie];
 
-    MyMoviesWindow *window = (MyMoviesWindow *) self.view.window;
-    [window animateMoveOverlappingMovieCellToPosition:CGPointMake(0, 0) inView:self.tableView completion:^{
-        [movies insertObject:movie atIndex:0];
-        emptyTopCell = NO;
-        [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationNone];
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:movieIndex inSection:0];
 
-        [self.tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionBottom];
-        [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+    // Open up an empty cell
+    placeholderCellIndex = movieIndex;
+    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+
+    // Scroll to the right position
+    [self scrollAnimatedToRowAtIndexPath:indexPath completion:^{
+        // After scrolling is done (and opening cell at same time) insert new row with animation
+        MyMoviesWindow *window = (MyMoviesWindow *) self.view.window;
+        CGRect cellFrame = [self.tableView rectForRowAtIndexPath:indexPath];
+        CGFloat y = cellFrame.origin.y - [self.tableView contentOffset].y;
+        [window animateMoveOverlappingMovieCellToPosition:CGPointMake(cellFrame.origin.x, y) inView:self.tableView completion:^{
+            [movies insertObject:movie atIndex:(NSUInteger) indexPath.row];
+            placeholderCellIndex = -1;
+            [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationNone];
+
+            [self.tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionMiddle];
+            [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+        }];
     }];
 }
 
 - (Movie *) movieAtIndexPath:(NSIndexPath *) indexPath {
-    if (indexPath.row == 0 && emptyTopCell) {
+    if (indexPath.row == placeholderCellIndex) {
         return nil;
     }
-    NSUInteger row = (NSUInteger)(emptyTopCell ? indexPath.row - 1: indexPath.row);
+    NSUInteger row = (NSUInteger)(placeholderCellIndex != -1 && indexPath.row > placeholderCellIndex ? indexPath.row - 1: indexPath.row);
     return movies[row];
 }
 

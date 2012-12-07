@@ -29,6 +29,7 @@
 		5F50E673881E7FD5BFC3FD32 /* NSString+Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F50E994DAC7326B89C948E1 /* NSString+Utilities.m */; };
 		5F50E6D8BEEBBD5DEF650E5A /* MovieCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F50E3ED4AE51DC3E30F614C /* MovieCell.m */; };
 		5F50E7429CCD403B0C68735A /* ToWatchListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F50E2123D2BB06BAF96E026 /* ToWatchListController.m */; };
+		5F50E7D928786776AD285179 /* UITableViewController+Scrolling.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F50E7E501CFFD450B4C7C4B /* UITableViewController+Scrolling.m */; };
 		5F50E7EBE4DEA3B4DA7A785B /* star-none.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F50E16FF019DE3CF6C91DE9 /* star-none.png */; };
 		5F50E8381FA2D19D44A97899 /* UIButton+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F50ECCCC9240EB933CADA63 /* UIButton+WebCache.m */; };
 		5F50E8F3032D11C288A092BA /* ErrorAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F50E911DCCA83F8F3600F63 /* ErrorAlertView.m */; };
@@ -107,6 +108,7 @@
 		5F50E692ACD4891D5A058577 /* ToWatchListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToWatchListController.h; sourceTree = "<group>"; };
 		5F50E7B28B748181811573F5 /* ObjectManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjectManager.m; sourceTree = "<group>"; };
 		5F50E7E4E36BAC9AAA2195E0 /* SDImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDImageCache.m; sourceTree = "<group>"; };
+		5F50E7E501CFFD450B4C7C4B /* UITableViewController+Scrolling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewController+Scrolling.m"; sourceTree = "<group>"; };
 		5F50E8773E83678821FB1EE8 /* SDWebImageDownloaderDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWebImageDownloaderDelegate.h; sourceTree = "<group>"; };
 		5F50E8B144A15681E92F6AB5 /* SDWebImagePrefetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWebImagePrefetcher.h; sourceTree = "<group>"; };
 		5F50E8C64373025C7B539AF4 /* MovieDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieDetails.h; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 		5F50EB16F10E127B12BB992E /* SDWebImageDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWebImageDownloader.h; sourceTree = "<group>"; };
 		5F50EB50C6F4DC2FE207B940 /* SDWebImageDecoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWebImageDecoder.h; sourceTree = "<group>"; };
 		5F50EC35F6477366D03F6337 /* UIButton+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+WebCache.h"; sourceTree = "<group>"; };
+		5F50ECA47669305789AF07FE /* UITableViewController+Scrolling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewController+Scrolling.h"; sourceTree = "<group>"; };
 		5F50ECC9B90DDF5D408716E9 /* SDWebImagePrefetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDWebImagePrefetcher.m; sourceTree = "<group>"; };
 		5F50ECCCC9240EB933CADA63 /* UIButton+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+WebCache.m"; sourceTree = "<group>"; };
 		5F50ED06A45FF358CFE009B8 /* UIView+Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Utilities.m"; sourceTree = "<group>"; };
@@ -285,6 +288,8 @@
 				5F50E627C95F1179B51F80C4 /* UIView+Utilities.h */,
 				5F50E47C8C1AD3E0D8634649 /* NSMutableArray+Move.h */,
 				5F50E365194DE2B1A22E5957 /* NSMutableArray+Move.m */,
+				5F50E7E501CFFD450B4C7C4B /* UITableViewController+Scrolling.m */,
+				5F50ECA47669305789AF07FE /* UITableViewController+Scrolling.h */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -526,6 +531,7 @@
 				5F50EA451689C8B50D6D3265 /* NSMutableArray+Move.m in Sources */,
 				F594DBF61271304CBC83D16B /* Settings.m in Sources */,
 				5F50E7429CCD403B0C68735A /* ToWatchListController.m in Sources */,
+				5F50E7D928786776AD285179 /* UITableViewController+Scrolling.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
