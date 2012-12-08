@@ -15,6 +15,9 @@
 
     MoviesRepository *moviesRepository;
 }
+- (void) awakeFromNib {
+    self.title = NSLocalizedString(@"To Watch", nil);
+}
 
 - (void) viewDidLoad {
     apiConnector = [TheMovieDbApiConnector instance];

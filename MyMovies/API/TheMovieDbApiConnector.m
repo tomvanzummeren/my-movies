@@ -13,6 +13,8 @@
 #define ICON_SIZE @"w154"
 #define POSTER_SIZE @"original"
 
+#define DEFAULT_LANGUAGE @"en"
+
 @implementation TheMovieDbApiConnector {
 
     NSDateFormatter *dateFormatter;
@@ -36,7 +38,8 @@
     [currentSearchHttpRequest cancel];
 
     NSString *encodedSearchText = [searchText urlEncodedString];
-    HttpRequest *httpRequest = [HttpRequest requestWithUrl:@"%@search/movie?query=%@&api_key=%@", BASE_API_URL, encodedSearchText, API_KEY];
+    NSString *language = [self currentLanguage];
+    HttpRequest *httpRequest = [HttpRequest requestWithUrl:@"%@search/movie?query=%@&api_key=%@&language=%@", BASE_API_URL, encodedSearchText, API_KEY, language];
     currentSearchHttpRequest = httpRequest;
 
     [httpRequest perform:^(NSDictionary *responseJson) {
@@ -64,7 +67,20 @@
 }
 
 - (void) loadMovieDetails:(Movie *) movie callback:(void (^)(MovieDetails *movieDetails)) callback {
-    HttpRequest *httpRequest = [HttpRequest requestWithUrl:@"%@movie/%i?api_key=%@", BASE_API_URL, [movie.identifier integerValue], API_KEY];
+    [self loadMovieDetails:movie language:[self currentLanguage] callback:^(MovieDetails *movieDetails) {
+        if (!movieDetails.overview) {
+            [self loadMovieDetails:movie language:DEFAULT_LANGUAGE callback:^(MovieDetails *defaultMovieDetails) {
+                [movieDetails fillMissingFields:defaultMovieDetails];
+                callback(movieDetails);
+            }];
+        } else {
+            callback(movieDetails);
+        }
+    }];
+}
+
+- (void) loadMovieDetails:(Movie *) movie language:(NSString *) language callback:(void (^)(MovieDetails *movieDetails)) callback {
+    HttpRequest *httpRequest = [HttpRequest requestWithUrl:@"%@movie/%i?api_key=%@&language=%@", BASE_API_URL, [movie.identifier integerValue], API_KEY, language];
     [httpRequest perform:^(NSDictionary *response) {
         MovieDetails *movieDetails = [MovieDetails new];
         movieDetails.identifier = [response integerForKey:@"id"];
@@ -78,6 +94,12 @@
 
 - (void) cancelSearch {
     [currentSearchHttpRequest cancel];
+}
+
+- (NSString *) currentLanguage {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSArray *languages = [defaults objectForKey:@"AppleLanguages"];
+    return [languages objectAtIndex:0];
 }
 
 @end

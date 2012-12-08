@@ -16,7 +16,7 @@
     self = [super initWithTitle:[error localizedDescription]
                         message:[error localizedFailureReason]
                        delegate:nil
-              cancelButtonTitle:@"OK"
+              cancelButtonTitle:NSLocalizedString(@"OK", nil)
               otherButtonTitles:nil];
     if (self) {
     }

@@ -21,6 +21,10 @@
     BOOL ascending;
 }
 
+- (void) awakeFromNib {
+    self.title = NSLocalizedString(@"Watched", nil);
+}
+
 - (void) viewDidLoad {
     apiConnector = [TheMovieDbApiConnector instance];
     moviesRepository = [MoviesRepository instance];

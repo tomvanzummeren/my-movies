@@ -17,6 +17,7 @@
 }
 
 - (void) viewDidLoad {
+    searchBar.placeholder = NSLocalizedString(@"Movie title", nil);
     listViewController = self.childViewControllers[0];
     weakInBlock SearchViewController *weakSelf = self;
     listViewController.customOnCellTapped = ^(Movie *movie, MovieCell *cell) {
