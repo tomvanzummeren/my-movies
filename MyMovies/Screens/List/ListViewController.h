@@ -1,5 +1,6 @@
 @class Movie;
 @class MovieCell;
+@class MovieList;
 
 @interface ListViewController : UITableViewController;
 
@@ -13,7 +14,7 @@
 
 @property (copy, nonatomic) void (^movieMoved)(NSNumber *sourceRow, NSNumber *destinationRow);
 
-@property(nonatomic, copy) NSMutableArray *(^loadMovies) ();
+@property(nonatomic, copy) MovieList *(^loadMovies) ();
 
 - (void) addMovie:(Movie *) movie;
 

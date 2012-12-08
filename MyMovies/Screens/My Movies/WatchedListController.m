@@ -3,6 +3,7 @@
 #import "TheMovieDbApiConnector.h"
 #import "Settings.h"
 #import "SearchViewController.h"
+#import "MovieList.h"
 
 #define SEGMENT_DATE_ADDED 0
 #define SEGMENT_ALPHABET 1
@@ -33,7 +34,8 @@
     movieListViewController.moviesDeletable = YES;
     movieListViewController.moviesReorderable = NO;
     movieListViewController.loadMovies = ^{
-        return [moviesRepository getMovies:WatchedList sortBy:sortOn ascending:ascending];
+        NSMutableArray *movies = [moviesRepository getMovies:WatchedList sortBy:sortOn ascending:ascending];
+        return [MovieList movieListWithOneSection:movies];
     };
 
     weakInBlock WatchedListController *weakSelf = self;

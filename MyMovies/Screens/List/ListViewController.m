@@ -5,6 +5,7 @@
 #import "MoviesRepository.h"
 #import "MyMoviesWindow.h"
 #import "UITableViewController+Scrolling.h"
+#import "MovieList.h"
 
 
 #define SEGMENT_DATE_ADDED 0
@@ -12,10 +13,10 @@
 #define SEGMENT_RATING 2
 
 @implementation ListViewController {
-    NSMutableArray *movies;
+    MovieList *movies;
     MoviesRepository *moviesRepository;
 
-    NSInteger placeholderCellIndex;
+    NSIndexPath *placeholderIndexPath;
 
     UITableViewCell *placeholderCell;
 }
@@ -29,12 +30,13 @@
 @synthesize loadMovies;
 
 - (NSInteger) tableView:(UITableView *) tv numberOfRowsInSection:(NSInteger) section {
-    return placeholderCellIndex != -1 ? movies.count + 1 : movies.count;
+    int rowsInSection = [movies numberOfMoviesInSection:(NSUInteger) section];
+    return placeholderIndexPath ? rowsInSection + 1 : rowsInSection;
 }
 
 - (void) viewDidLoad {
     moviesRepository = [MoviesRepository instance];
-    placeholderCellIndex = -1;
+    placeholderIndexPath = nil;
     placeholderCell = [UITableViewCell new];
 
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -86,11 +88,10 @@
 }
 
 - (void) tableView:(UITableView *) tableView moveRowAtIndexPath:(NSIndexPath *) sourceIndexPath toIndexPath:(NSIndexPath *) destinationIndexPath {
-    Movie *selectedMovie = movies[(NSUInteger) sourceIndexPath.row];
-    Movie *movieAtDestination = movies[(NSUInteger) destinationIndexPath.row];
+    Movie *selectedMovie = [movies movieAtIndexPath:sourceIndexPath];
+    Movie *movieAtDestination = [movies movieAtIndexPath:destinationIndexPath];
 
-    [movies removeObject:selectedMovie];
-    [movies insertObject:selectedMovie atIndex:(NSUInteger) destinationIndexPath.row];
+    [movies moveMovieFromIndexPath:sourceIndexPath toIndexPath:destinationIndexPath];
 
     movieMoved(selectedMovie.order, movieAtDestination.order);
 }
@@ -101,25 +102,23 @@
 }
 
 - (void) tableView:(UITableView *) tableView commitEditingStyle:(UITableViewCellEditingStyle) editingStyle forRowAtIndexPath:(NSIndexPath *) indexPath {
-    NSUInteger row = (NSUInteger) indexPath.row;
-    Movie *movie = movies[row];
+    Movie *movie = [movies movieAtIndexPath:indexPath];
 
     movieDeleted(movie);
 
-    [movies removeObjectAtIndex:row];
+    [movies removeMovieAtIndexPath:indexPath];
 
     [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationLeft];
 }
 
 - (void) addMovie:(Movie *) movie {
     // Reload movies from database only to find out what index the new movie is at
-    NSArray *moviesInDatabase = loadMovies();
-    NSInteger movieIndex = [moviesInDatabase indexOfObject:movie];
+    MovieList *moviesInDatabase = loadMovies();
 
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:movieIndex inSection:0];
+    NSIndexPath *indexPath = [moviesInDatabase indexPathForMovie:movie];
 
     // Open up an empty cell
-    placeholderCellIndex = movieIndex;
+    placeholderIndexPath = indexPath;
     [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
 
     // Scroll to the right position
@@ -129,8 +128,8 @@
         CGRect cellFrame = [self.tableView rectForRowAtIndexPath:indexPath];
         CGFloat y = cellFrame.origin.y - [self.tableView contentOffset].y;
         [window animateMoveOverlappingMovieCellToPosition:CGPointMake(cellFrame.origin.x, y) inView:self.tableView completion:^{
-            [movies insertObject:movie atIndex:(NSUInteger) indexPath.row];
-            placeholderCellIndex = -1;
+            [movies insertMovie:movie atIndexPath:indexPath];
+            placeholderIndexPath = nil;
             [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationNone];
 
             [self.tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionMiddle];
@@ -140,11 +139,14 @@
 }
 
 - (Movie *) movieAtIndexPath:(NSIndexPath *) indexPath {
-    if (indexPath.row == placeholderCellIndex) {
+    if ([indexPath isEqual:placeholderIndexPath]) {
         return nil;
     }
-    NSUInteger row = (NSUInteger) (placeholderCellIndex != -1 && indexPath.row > placeholderCellIndex ? indexPath.row - 1 : indexPath.row);
-    return movies[row];
+    if (!placeholderIndexPath || indexPath.section != placeholderIndexPath.section) {
+        return [movies movieAtIndexPath:indexPath];
+    }
+    NSInteger row = placeholderIndexPath && indexPath.row > placeholderIndexPath.row ? indexPath.row - 1 : indexPath.row;
+    return [movies movieAtIndexPath:[NSIndexPath indexPathForRow:row inSection:indexPath.section]];
 }
 
 - (void) scrollViewWillBeginDragging:(UIScrollView *) scrollView {
@@ -154,7 +156,7 @@
 }
 
 - (void) reloadMovies:(NSArray *) newMovies {
-    movies = [newMovies mutableCopy];
+    movies = [MovieList movieListWithOneSection:newMovies];
     [self.tableView reloadData];
 }
 

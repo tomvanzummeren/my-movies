@@ -2,6 +2,7 @@
 #import "ListViewController.h"
 #import "TheMovieDbApiConnector.h"
 #import "SearchViewController.h"
+#import "MovieList.h"
 
 #define SEGMENT_DATE_ADDED 0
 #define SEGMENT_ALPHABET 1
@@ -27,7 +28,8 @@
     movieListViewController.moviesDeletable = YES;
     movieListViewController.moviesReorderable = YES;
     movieListViewController.loadMovies = ^{
-        return [moviesRepository getMovies:ToWatchList sortBy:@"order" ascending:NO];
+        NSMutableArray *movies = [moviesRepository getMovies:ToWatchList sortBy:@"order" ascending:NO];
+        return [MovieList movieListWithOneSection:movies];
     };
 
     weakInBlock ToWatchListController *weakSelf = self;
