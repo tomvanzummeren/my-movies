@@ -38,8 +38,7 @@
     [currentSearchHttpRequest cancel];
 
     NSString *encodedSearchText = [searchText urlEncodedString];
-    NSString *language = [self currentLanguage];
-    HttpRequest *httpRequest = [HttpRequest requestWithUrl:@"%@search/movie?query=%@&api_key=%@&language=%@", BASE_API_URL, encodedSearchText, API_KEY, language];
+    HttpRequest *httpRequest = [HttpRequest requestWithUrl:@"%@search/movie?query=%@&api_key=%@", BASE_API_URL, encodedSearchText, API_KEY];
     currentSearchHttpRequest = httpRequest;
 
     [httpRequest perform:^(NSDictionary *responseJson) {
