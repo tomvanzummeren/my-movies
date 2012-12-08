@@ -16,9 +16,6 @@
     ObjectManager *objectManager;
 }
 
-
-
-
 - (id) init {
     self = [super init];
     if (self) {
@@ -91,6 +88,19 @@
     request.sortDescriptors = @[[[NSSortDescriptor alloc] initWithKey:sortOrder ascending:ascending]];
 
     return [[objectManager fetchAll:request] mutableCopy];
+}
+
+- (BOOL) isMovieWatched:(Movie *) movie {
+    return [movie.type isEqualToString:@"Watched"];
+}
+
+- (void) toggleMovieWatched:(Movie *) movie {
+    if ([self isMovieWatched:movie]) {
+        movie.type = [self stringForType:ToWatchList];
+    } else {
+        movie.type = [self stringForType:WatchedList];
+    }
+    [objectManager saveContext];
 }
 
 - (NSString *) stringForType:(MovieListType) type {

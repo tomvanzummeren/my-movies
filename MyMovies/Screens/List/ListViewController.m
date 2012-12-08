@@ -32,10 +32,15 @@
     return placeholderCellIndex != -1 ? movies.count + 1 : movies.count;
 }
 
-- (void) viewDidLoad{
+- (void) viewDidLoad {
     moviesRepository = [MoviesRepository instance];
     placeholderCellIndex = -1;
     placeholderCell = [UITableViewCell new];
+
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(reloadMovies)
+                                                 name:@"ToggledMovieWatched"
+                                               object:nil];
 }
 
 - (UITableViewCell *) tableView:(UITableView *) tv cellForRowAtIndexPath:(NSIndexPath *) indexPath {
@@ -76,11 +81,11 @@
     [self performSegueWithIdentifier:@"MovieDetails" sender:cell];
 }
 
-- (BOOL) tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath{
+- (BOOL) tableView:(UITableView *) tableView canMoveRowAtIndexPath:(NSIndexPath *) indexPath {
     return moviesReorderable;
 }
 
--(void) tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath{
+- (void) tableView:(UITableView *) tableView moveRowAtIndexPath:(NSIndexPath *) sourceIndexPath toIndexPath:(NSIndexPath *) destinationIndexPath {
     Movie *selectedMovie = movies[(NSUInteger) sourceIndexPath.row];
     Movie *movieAtDestination = movies[(NSUInteger) destinationIndexPath.row];
 
@@ -91,26 +96,18 @@
 }
 
 
-- (BOOL) tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath{
+- (BOOL) tableView:(UITableView *) tableView canEditRowAtIndexPath:(NSIndexPath *) indexPath {
     return moviesDeletable;
 }
 
-- (UITableViewCellEditingStyle) tableView:(UITableView *)tableView{
-    if(moviesDeletable){
-        return UITableViewCellEditingStyleDelete;
-    }
-
-    return UITableViewCellEditingStyleNone;
-}
-
-- (void) tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
+- (void) tableView:(UITableView *) tableView commitEditingStyle:(UITableViewCellEditingStyle) editingStyle forRowAtIndexPath:(NSIndexPath *) indexPath {
     NSUInteger row = (NSUInteger) indexPath.row;
     Movie *movie = movies[row];
-  
+
     movieDeleted(movie);
-    
+
     [movies removeObjectAtIndex:row];
-    
+
     [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationLeft];
 }
 
@@ -146,12 +143,12 @@
     if (indexPath.row == placeholderCellIndex) {
         return nil;
     }
-    NSUInteger row = (NSUInteger)(placeholderCellIndex != -1 && indexPath.row > placeholderCellIndex ? indexPath.row - 1: indexPath.row);
+    NSUInteger row = (NSUInteger) (placeholderCellIndex != -1 && indexPath.row > placeholderCellIndex ? indexPath.row - 1 : indexPath.row);
     return movies[row];
 }
 
-- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
-    if (listBeganScrolling){
+- (void) scrollViewWillBeginDragging:(UIScrollView *) scrollView {
+    if (listBeganScrolling) {
         listBeganScrolling();
     }
 }

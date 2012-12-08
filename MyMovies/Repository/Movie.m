@@ -40,4 +40,8 @@ static NSDateFormatter *yearFormatter;
     return (Movie *) [[NSManagedObject alloc] initWithEntity:entity insertIntoManagedObjectContext:nil];
 }
 
+- (BOOL) persisted {
+    return [self managedObjectContext] != nil;
+}
+
 @end

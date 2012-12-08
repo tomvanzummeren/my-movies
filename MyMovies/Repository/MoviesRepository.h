@@ -15,11 +15,7 @@ typedef enum {
 
 @interface MoviesRepository : NSObject;
 
-
-
-
 + (MoviesRepository *) instance;
-
 
 - (void) addMovie:(Movie *) movie withType: (MovieListType) type;
 
@@ -28,5 +24,9 @@ typedef enum {
 - (void) moveMovieFrom:(NSNumber *) sourceOrder toRow:(NSNumber *) destinationOrder withType:(MovieListType) type;
 
 - (NSMutableArray *) getMovies:(MovieListType) type sortBy:(NSString *) sortOrder ascending:(BOOL) ascending;
+
+- (BOOL) isMovieWatched:(Movie *) movie;
+
+- (void) toggleMovieWatched:(Movie *) movie;
 
 @end
