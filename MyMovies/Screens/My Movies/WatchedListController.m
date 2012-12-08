@@ -58,17 +58,14 @@
     NSInteger segmentIndex = segmentedControl.selectedSegmentIndex;
 
     if (segmentIndex == SEGMENT_DATE_ADDED) {
-        NSLog(@"Sort on release date");
         sortOn = @"releaseDate";
         ascending = NO;
     }
     if (segmentIndex == SEGMENT_ALPHABET) {
-        NSLog(@"Sort on alphabet");
         sortOn = @"title";
         ascending = YES;
     }
     if (segmentIndex == SEGMENT_RATING) {
-        NSLog(@"Sort on rating");
         sortOn = @"voteAverage";
         ascending = NO;
     }
