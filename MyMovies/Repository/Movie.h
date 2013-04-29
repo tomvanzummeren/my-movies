@@ -24,5 +24,7 @@
 
 - (NSString *) releaseYear;
 
+- (NSString *) uppercaseFirstLetterOfTitle;
+
 - (BOOL) persisted;
 @end

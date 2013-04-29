@@ -17,9 +17,13 @@
 
     MoviesRepository *moviesRepository;
 
+    // TODO: Maybe combine the below 4 fields in an object
+
     NSString *sortOn;
 
     BOOL ascending;
+
+    SEL movieSectionSelector;
 }
 
 - (void) awakeFromNib {
@@ -35,7 +39,15 @@
     movieListViewController.moviesReorderable = NO;
     movieListViewController.loadMovies = ^{
         NSMutableArray *movies = [moviesRepository getMovies:WatchedList sortBy:sortOn ascending:ascending];
-        return [MovieList movieListWithOneSection:movies];
+        MovieList *movieList = [MovieList new];
+        for (Movie *movie in movies) {
+            if (movieSectionSelector) {
+                [movieList addMovie:movie inSection:[movie performSelector:movieSectionSelector]];
+            } else {
+                [movieList addMovie:movie];
+            }
+        }
+        return movieList;
     };
 
     weakInBlock WatchedListController *weakSelf = self;
@@ -66,14 +78,21 @@
     if (segmentIndex == SEGMENT_DATE_ADDED) {
         sortOn = @"releaseDate";
         ascending = NO;
+        movieSectionSelector = @selector(releaseYear);
+        movieListViewController.sectionIndexTitles = nil;
     }
     if (segmentIndex == SEGMENT_ALPHABET) {
         sortOn = @"title";
         ascending = YES;
+        movieSectionSelector = @selector(uppercaseFirstLetterOfTitle);
+        movieListViewController.sectionIndexTitles = @[@"A", @"B", @"C", @"D", @"E", @"F", @"G", @"H", @"I", @"J", @"K",
+                @"L", @"M", @"N", @"O", @"P", @"Q", @"R", @"S", @"T", @"U", @"V", @"W", @"X", @"Y", @"Z"];
     }
     if (segmentIndex == SEGMENT_RATING) {
         sortOn = @"voteAverage";
         ascending = NO;
+        movieSectionSelector = nil;
+        movieListViewController.sectionIndexTitles = nil;
     }
 
     [self reloadMovies];

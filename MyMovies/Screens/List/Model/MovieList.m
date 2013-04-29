@@ -32,6 +32,7 @@
     if (!section) {
         section = [[Section alloc] initWithTitle:sectionTitle];
         sectionsIndexByTitle[sectionTitle] = section;
+        [sections addObject:section];
     }
     [section.movies addObject:movie];
 }
@@ -94,14 +95,19 @@
     return [section.movies count];
 }
 
-- (NSString *) sectionTitleForSection:(NSUInteger) sectionIndex {
-    Section *section = sections[sectionIndex];
+- (NSString *) titleForHeaderInSection:(NSInteger) sectionIndex {
+    Section *section = sections[(NSUInteger) sectionIndex];
     return section.title;
 }
 
 - (void) insertMovie:(Movie *) movie atIndexPath:(NSIndexPath *) indexPath {
     Section *section = sections[(NSUInteger) indexPath.section];
     [section.movies insertObject:movie atIndex:(NSUInteger) indexPath.row];
+}
+
+- (NSInteger) sectionIndexForTitle:(NSString *) title {
+    Section *section = [sectionsIndexByTitle objectForKey:title];
+    return [sections indexOfObject:section];
 }
 
 @end

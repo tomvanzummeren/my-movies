@@ -30,7 +30,9 @@
 
 - (NSUInteger) numberOfMoviesInSection:(NSUInteger) sectionIndex;
 
-- (NSString *) sectionTitleForSection:(NSUInteger) section;
+- (NSString *) titleForHeaderInSection:(NSInteger) sectionIndex;
 
 - (void) insertMovie:(Movie *) movie atIndexPath:(NSIndexPath *) indexPath;
+
+- (NSInteger) sectionIndexForTitle:(NSString *) title;
 @end

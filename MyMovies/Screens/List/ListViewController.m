@@ -13,7 +13,9 @@
 #define SEGMENT_RATING 2
 
 @implementation ListViewController {
+
     MovieList *movies;
+
     MoviesRepository *moviesRepository;
 
     NSIndexPath *placeholderIndexPath;
@@ -28,11 +30,21 @@
 @synthesize movieMoved;
 @synthesize listBeganScrolling;
 @synthesize loadMovies;
+@synthesize sectionIndexTitles;
 
 - (NSInteger) tableView:(UITableView *) tv numberOfRowsInSection:(NSInteger) section {
     int rowsInSection = [movies numberOfMoviesInSection:(NSUInteger) section];
-    return placeholderIndexPath ? rowsInSection + 1 : rowsInSection;
+    return placeholderIndexPath && placeholderIndexPath.section == section ? rowsInSection + 1 : rowsInSection;
 }
+
+- (NSInteger) numberOfSectionsInTableView:(UITableView *) tableView {
+    return [movies numberOfSections];
+}
+
+- (NSString *) tableView:(UITableView *) tableView titleForHeaderInSection:(NSInteger) section {
+    return [movies titleForHeaderInSection:section];
+}
+
 
 - (void) viewDidLoad {
     moviesRepository = [MoviesRepository instance];
@@ -119,6 +131,7 @@
 
     // Open up an empty cell
     placeholderIndexPath = indexPath;
+    LogObject(indexPath);
     [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
 
     // Scroll to the right position
@@ -166,4 +179,13 @@
         [self.tableView reloadData];
     }
 }
+
+- (NSInteger) tableView:(UITableView *) tableView sectionForSectionIndexTitle:(NSString *) title atIndex:(NSInteger) index {
+    return [movies sectionIndexForTitle:title];
+}
+
+- (NSArray *) sectionIndexTitlesForTableView:(UITableView *) tableView {
+    return sectionIndexTitles;
+}
+
 @end

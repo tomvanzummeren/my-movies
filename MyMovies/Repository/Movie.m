@@ -35,6 +35,10 @@ static NSDateFormatter *yearFormatter;
     return [yearFormatter stringFromDate:self.releaseDate];
 }
 
+- (NSString *) uppercaseFirstLetterOfTitle {
+    return [[self.title substringToIndex:1] uppercaseString];
+}
+
 + (id) new {
     NSEntityDescription *entity = [NSEntityDescription entityForName:MOVIE_ENTITY_NAME inManagedObjectContext:[[ObjectManager instance] managedObjectContext] ];
     return (Movie *) [[NSManagedObject alloc] initWithEntity:entity insertIntoManagedObjectContext:nil];
